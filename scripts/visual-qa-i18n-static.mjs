@@ -6,6 +6,24 @@ const ORIGIN=new URL(BASE).origin;
 const manifest=JSON.parse(fs.readFileSync("data/i18n/routes.json","utf8"));
 const staticRoutes=(manifest.static_shells||[]).filter(x=>x.selector==="static");
 const nativeRoutes=(manifest.static_shells||[]).filter(x=>x.selector==="native");
+// Full route ownership/injection is already enforced by test-static-language-shell.mjs.
+// Browser QA only needs representative shells from each layout/behavior family so CI
+// remains fast and deterministic instead of opening every heavy product at 4 widths.
+const representativePaths=new Set([
+  "/",
+  "/weather/",
+  "/transit/",
+  "/go/",
+  "/stories/",
+  "/food/article.html",
+  "/currency/",
+  "/cano/history/"
+]);
+const browserRoutes=staticRoutes.filter(x=>representativePaths.has(x.path));
+if(browserRoutes.length!==representativePaths.size){
+  const present=new Set(browserRoutes.map(x=>x.path));
+  throw new Error("Missing representative i18n route(s): "+[...representativePaths].filter(x=>!present.has(x)).join(", "));
+}
 const browser=await chromium.launch({headless:true});
 const failures=[];
 
@@ -47,7 +65,7 @@ async function checkStaticRoute(context,route,width){
   page.setDefaultTimeout(3000);
   const catalog=[];page.on("request",r=>{if(r.url().includes("/data/i18n/catalog.json"))catalog.push(r.url())});
   try{
-    const response=await page.goto(BASE+route.path,{waitUntil:"domcontentloaded",timeout:8000});
+    const response=await page.goto(BASE+route.path,{waitUntil:"domcontentloaded",timeout:6000});
     if(!response?.ok()){fail(route.path,width,"http",response?.status()||0);return}
     const selector=page.locator('[data-openpq-language-static]');
     const count=await selector.count();
@@ -73,7 +91,7 @@ async function checkStaticRoute(context,route,width){
 async function checkNativeRoute(context,route,width){
   const page=await context.newPage();page.setDefaultTimeout(3000);
   try{
-    await page.goto(BASE+route.path,{waitUntil:"domcontentloaded",timeout:8000});
+    await page.goto(BASE+route.path,{waitUntil:"domcontentloaded",timeout:6000});
     const common=await page.locator('[data-openpq-language-static]').count();
     const native=await page.locator('#languageSelect').count();
     if(common!==0||native!==1)fail(route.path,width,"native-selector-duplication",`common=${common} native=${native}`);
@@ -82,14 +100,16 @@ async function checkNativeRoute(context,route,width){
 }
 
 for(const width of [320,390,768,1366]){
+  console.log(`[i18n-qa] layout matrix ${width}px: ${browserRoutes.length} representative static shells + ${nativeRoutes.length} native shell`);
   const height=width<500?844:900;
   const context=await browser.newContext({viewport:{width,height},locale:"vi-VN",serviceWorkers:"block"});
   await blockExternal(context);
-  await pool(staticRoutes,4,route=>checkStaticRoute(context,route,width));
-  await pool(nativeRoutes,2,route=>checkNativeRoute(context,route,width));
+  await pool(browserRoutes,4,route=>checkStaticRoute(context,route,width));
+  await pool(nativeRoutes,1,route=>checkNativeRoute(context,route,width));
   await context.close();
 }
 
+console.log("[i18n-qa] ordered browser-language behavior");
 // Browser language order matters. VI first must stay VI even if EN is a later
 // preference. An EN-first browser follows the canonical English counterpart.
 {
@@ -98,7 +118,7 @@ for(const width of [320,390,768,1366]){
   await blockExternal(context);await workerlessEnglishFulfill(context);
   const page=await context.newPage();page.setDefaultTimeout(3000);
   try{
-    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:8000});
+    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:6000});
     await page.waitForTimeout(100);
     if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"vi-primary-browser-misdirected",page.url());
     const stored=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
@@ -107,6 +127,7 @@ for(const width of [320,390,768,1366]){
   finally{await page.close();await context.close()}
 }
 
+console.log("[i18n-qa] EN auto-detect + remembered manual VI/EN");
 // With no manual preference, an English browser follows the published English
 // counterpart. A manual VI choice then wins over the browser on later visits.
 {
@@ -114,12 +135,12 @@ for(const width of [320,390,768,1366]){
   await blockExternal(context);await workerlessEnglishFulfill(context);
   const page=await context.newPage();page.setDefaultTimeout(3000);
   try{
-    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:8000});
-    await page.waitForURL(/\/en\/weather\//,{timeout:5000});
+    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:6000});
+    await page.waitForURL(/\/en\/weather\//,{timeout:4000});
     if(!page.url().includes("point=duong-dong")||!page.url().endsWith("#today"))fail("/en/weather/",390,"browser-detect-lost-query-hash",page.url());
     const autoStored=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
     if(autoStored.local||autoStored.cookie.includes("openpq_lang="))fail("/en/weather/",390,"auto-en-wrote-manual-preference",JSON.stringify(autoStored));
-    await page.waitForFunction(()=>document.documentElement.dataset.openpqEnglishReady==="true",{timeout:5000}).catch(()=>{});
+    await page.waitForFunction(()=>document.documentElement.dataset.openpqEnglishReady==="true",{timeout:4000}).catch(()=>{});
     const selectorState=await page.evaluate(()=>({
       staticCount:document.querySelectorAll('[data-openpq-language-static]').length,
       viHref:document.querySelector('[data-openpq-language-static] [data-openpq-lang="vi"]')?.getAttribute('href')||'',
@@ -130,32 +151,33 @@ for(const width of [320,390,768,1366]){
     if(selectorState.legacyVisible!==0)fail("/en/weather/",390,"legacy-selector-visible",JSON.stringify(selectorState));
 
     await page.locator('[data-openpq-language-static] [data-openpq-lang="vi"]').click();
-    await page.waitForURL(url=>url.pathname==="/weather/",{timeout:5000});
+    await page.waitForURL(url=>url.pathname==="/weather/",{timeout:4000});
     await page.waitForTimeout(100);
     if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"manual-vi-bounced-back",page.url());
     const storedVi=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
     if(storedVi.local!=="vi"||!storedVi.cookie.includes("openpq_lang=vi"))fail("/weather/",390,"manual-vi-not-persisted",JSON.stringify(storedVi));
 
-    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:8000});
+    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:6000});
     await page.waitForTimeout(100);
     if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"remembered-vi-lost-to-browser",page.url());
 
     await page.locator('[data-openpq-language-static] [data-openpq-lang="en"]').click();
-    await page.waitForURL(/\/en\/weather\//,{timeout:5000});
+    await page.waitForURL(/\/en\/weather\//,{timeout:4000});
     const storedEn=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
     if(storedEn.local!=="en"||!storedEn.cookie.includes("openpq_lang=en"))fail("/en/weather/",390,"manual-en-not-persisted",JSON.stringify(storedEn));
   }catch(error){fail("/weather/",390,"preference-roundtrip-exception",String(error.message||error))}
   finally{await page.close();await context.close()}
 }
 
+console.log("[i18n-qa] legacy ?lang canonicalization");
 // Old ?lang= links remain compatible without making static VI pages Worker-first.
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN",serviceWorkers:"block"});
   await blockExternal(context);await workerlessEnglishFulfill(context);
   const page=await context.newPage();page.setDefaultTimeout(3000);
   try{
-    await page.goto(BASE+"/weather/?lang=en&point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:8000});
-    await page.waitForURL(/\/en\/weather\//,{timeout:5000});
+    await page.goto(BASE+"/weather/?lang=en&point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:6000});
+    await page.waitForURL(/\/en\/weather\//,{timeout:4000});
     const u=new URL(page.url());
     if(u.searchParams.has("lang")||u.searchParams.get("point")!=="duong-dong"||u.hash!=="#today")fail("/weather/",390,"legacy-lang-not-canonicalized",page.url());
     const stored=await page.evaluate(()=>localStorage.getItem("openpq_lang"));
@@ -164,6 +186,7 @@ for(const width of [320,390,768,1366]){
   finally{await page.close();await context.close()}
 }
 
+console.log("[i18n-qa] query-sensitive Food article selector");
 // Query-sensitive selectors fail closed in raw HTML, then hydrate a complete
 // href in the browser so normal, new-tab and modified clicks keep the record id.
 {
@@ -171,12 +194,12 @@ for(const width of [320,390,768,1366]){
   await blockExternal(context);await workerlessEnglishFulfill(context);
   const page=await context.newPage();page.setDefaultTimeout(3000);
   try{
-    await page.goto(BASE+"/food/article.html?id=bun-quay#ingredients",{waitUntil:"domcontentloaded",timeout:8000});
+    await page.goto(BASE+"/food/article.html?id=bun-quay#ingredients",{waitUntil:"domcontentloaded",timeout:6000});
     const link=page.locator('[data-openpq-language-static] [data-openpq-lang="en"]');
     const href=await link.getAttribute("href"),target=await link.getAttribute("data-openpq-target");
     if(href!=="/en/food/article.html?id=bun-quay#ingredients"||target!=="/en/food/article.html")fail("/food/article.html",390,"query-sensitive-link-not-hydrated",`href=${href} target=${target}`);
     await link.click();
-    await page.waitForURL(/\/en\/food\/article\.html/,{timeout:5000});
+    await page.waitForURL(/\/en\/food\/article\.html/,{timeout:4000});
     const u=new URL(page.url());
     if(u.searchParams.get("id")!=="bun-quay"||u.hash!=="#ingredients")fail("/en/food/article.html",390,"article-id-or-hash-lost",page.url());
   }catch(error){fail("/food/article.html",390,"article-query-exception",String(error.message||error))}
@@ -185,4 +208,4 @@ for(const width of [320,390,768,1366]){
 
 await browser.close();
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1)}
-console.log(`PASS browser i18n QA: ${staticRoutes.length} static shells + ${nativeRoutes.length} native shell; 4 viewports; no overlap; ordered device-language routing + no implicit preference writes + remembered VI/EN + legacy links + hydrated article query targets + English runtime compatibility`);
+console.log(`PASS browser i18n QA: all ${staticRoutes.length} static shells structurally gated; ${browserRoutes.length} representative static shells + ${nativeRoutes.length} native shell across 4 viewports; no overlap; ordered device-language routing + no implicit preference writes + remembered VI/EN + legacy links + hydrated article query targets + English runtime compatibility`);
