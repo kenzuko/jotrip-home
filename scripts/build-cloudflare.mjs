@@ -75,6 +75,10 @@ for(const file of rootFiles){
 for(const dir of dirs){
   if(existsSync(dir)) await cp(dir,`${out}/${dir}`,{recursive:true});
 }
+// Selector is a tiny static enhancement. It is injected into public documents
+// after copying so VI keeps the direct Static Assets fast path; no public VI
+// route is added to run_worker_first merely to render a language control.
+execFileSync(process.execPath,["scripts/inject-static-language-switcher.mjs",out],{stdio:"inherit"});
 await rm(`${out}/data/knowledge`,{recursive:true,force:true});
 await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
