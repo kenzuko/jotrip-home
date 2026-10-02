@@ -1,6 +1,7 @@
 (()=> {
   const q=s=>document.querySelector(s);
   const qa=s=>[...document.querySelectorAll(s)];
+  // CMS copy can hydrate before or after the deferred English runtime.
   const tr=t=>window.OpenPQEnglishSite?.translateString?.(t)||t;
   const set=(s,t,path)=>{const e=q(s);if(e&&t){e.textContent=tr(t);if(path)e.dataset.cmsField=path;}};
   const retranslate=()=>window.OpenPQEnglishSite?.walk?.(document);
