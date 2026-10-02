@@ -52,7 +52,16 @@ assert.match(runtime,/catalog\.json\?v=4/,"Locale catalog must be cache-busted a
 assert.match(runtime,/cache:"no-store"/,"Locale discovery must not rely on a stale browser cache");
 const switcher=readFileSync("core/language-switcher.js","utf8");
 assert.match(switcher,/searchParams\.set\("lang",code\)/,
-  "Manual language choices must pass through the edge preference endpoint");
+  "English manual choices must still pass through the Worker preference endpoint");
+assert.match(switcher,/data-language-slot/,
+  "Static-first selector must enhance an explicit build-time slot");
+assert.doesNotMatch(switcher,/querySelector\(["']\.site-header/,
+  "Selector runtime must never guess a public header or inject itself generically");
+const injector=readFileSync("scripts/inject-static-language-switcher.mjs","utf8");
+assert.match(injector,/airport\/index\.html.*mode:"native"/s,
+  "Airport must remain on its native selector and reject a duplicate shared selector");
+assert.match(injector,/weather\/index\.html.*mode:"static"/s,
+  "Weather must use an explicit static selector policy rather than Worker-first routing");
 const worker=readFileSync("worker.js","utf8");
 assert.match(worker,/accept-language/i);
 assert.doesNotMatch(worker,/EN_PUBLIC_PAGES/,
@@ -63,19 +72,27 @@ assert.match(worker,/localizedPageSupported/,
   "Worker must apply one public-shell locale policy");
 const enRuntime=readFileSync("core/en-full-site.js","utf8");
 assert.match(enRuntime,/MutationObserver/,
-  "English presentation layer must cover dynamically rendered copy");
+  "Legacy English compatibility still covers dynamically rendered copy until scoped islands replace it");
 assert.match(enRuntime,/site-shell\.json/,
   "English presentation layer must load the reviewed site-wide shell dictionary");
 assert.ok(readFileSync("data/i18n/en/site-shell.json","utf8").includes('"locale": "en"'));
-assert.match(switcher,/querySelector\("\.site-header, header\.top, header\.knowledge-header/,
-  "Language selector must mount in the public header");
 assert.match(worker,/openpq_lang/);
 const seoHtml=readFileSync("functions/_shared/seo-html.js","utf8");
 assert.match(seoHtml,/i18n-runtime\.js\?v=4/);
 assert.match(seoHtml,/language-switcher\.js\?v=4/);
-assert.match(seoHtml,/data-openpq-language-switcher-server/,"Worker HTML must include a server-rendered VI/EN selector");
-assert.ok(seoHtml.includes("body > .opq-language-auto"),"Server selector must remain visible before client enhancement");
-assert.ok(seoHtml.includes('.on("body"'),"Worker must inject the fallback into the response body");
-assert.match(switcher,/serverFallback/,"Client enhancement must preserve the server selector when locale catalog loading fails");
+assert.match(seoHtml,/data-openpq-language-switcher-server/,"Worker HTML must retain a server-rendered VI/EN fallback for shells without their own selector");
+assert.ok(seoHtml.includes("body > .opq-language-auto"),"Server selector must remain visible before client enhancement on fallback routes");
+assert.ok(seoHtml.includes('.on("body"'),"Worker must retain fallback injection for non-shell selector routes");
+assert.match(switcher,/data-openpq-language-switcher-server/,
+  "Client enhancement must recognize the server selector fallback");
+const seo=await import(new URL("../functions/_shared/seo-html.js",import.meta.url));
+for(const path of ["/","/index.html","/weather","/weather/","/weather/index.html","/transit/","/airport/"])
+  assert.equal(seo.shellOwnsLanguageSelector(path),true,`Shell must own selector on ${path}`);
+for(const path of ["/guide/","/stories/","/food/article.html?id=x"])
+  assert.equal(seo.shellOwnsLanguageSelector(path),false,`Worker fallback must remain available on ${path}`);
+assert.match(seoHtml,/const serverSwitcher=shellOwnsSelector\?"":languageSwitcher/,
+  "Worker must not prepend a duplicate selector when the shared/native shell already owns one");
+assert.match(seoHtml,/!shellOwnsSelector\?'<script src="\/core\/language-switcher\.js\?v=4"/,
+  "Worker must not inject a second selector runtime on shell-owned routes");
 assert.match(worker,/private, no-store/);
-console.log("PASS i18n foundation: locale registry, URL policy, canonical paths and publication lock");
+console.log("PASS i18n foundation: locale registry, URL policy, static/native selector ownership, edge dedup and publication lock");
