@@ -80,10 +80,19 @@ assert.match(worker,/openpq_lang/);
 const seoHtml=readFileSync("functions/_shared/seo-html.js","utf8");
 assert.match(seoHtml,/i18n-runtime\.js\?v=4/);
 assert.match(seoHtml,/language-switcher\.js\?v=4/);
-assert.match(seoHtml,/data-openpq-language-switcher-server/,"Worker HTML must include a server-rendered VI/EN selector");
-assert.ok(seoHtml.includes("body > .opq-language-auto"),"Server selector must remain visible before client enhancement");
-assert.ok(seoHtml.includes('.on("body"'),"Worker must inject the fallback into the response body");
+assert.match(seoHtml,/data-openpq-language-switcher-server/,"Worker HTML must retain a server-rendered VI/EN fallback for shells without their own selector");
+assert.ok(seoHtml.includes("body > .opq-language-auto"),"Server selector must remain visible before client enhancement on fallback routes");
+assert.ok(seoHtml.includes('.on("body"'),"Worker must retain fallback injection for non-shell selector routes");
 assert.match(switcher,/data-openpq-language-switcher-server/,
   "Client enhancement must recognize the server selector fallback");
+const seo=await import(new URL("../functions/_shared/seo-html.js",import.meta.url));
+for(const path of ["/","/index.html","/weather","/weather/","/weather/index.html","/transit/","/airport/"])
+  assert.equal(seo.shellOwnsLanguageSelector(path),true,`Shell must own selector on ${path}`);
+for(const path of ["/guide/","/stories/","/food/article.html?id=x"])
+  assert.equal(seo.shellOwnsLanguageSelector(path),false,`Worker fallback must remain available on ${path}`);
+assert.match(seoHtml,/const serverSwitcher=shellOwnsSelector\?"":languageSwitcher/,
+  "Worker must not prepend a duplicate selector when the shared/native shell already owns one");
+assert.match(seoHtml,/!shellOwnsSelector\?'<script src="\/core\/language-switcher\.js\?v=4"/,
+  "Worker must not inject a second selector runtime on shell-owned routes");
 assert.match(worker,/private, no-store/);
-console.log("PASS i18n foundation: locale registry, URL policy, static selector contract and publication lock");
+console.log("PASS i18n foundation: locale registry, URL policy, static/native selector ownership, edge dedup and publication lock");
