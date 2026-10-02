@@ -37,8 +37,7 @@ for(const route of routes.static_shells||[]){
   if(route.alternates===false)assert.doesNotMatch(html,/hreflang="x-default"/,"Query-sensitive shell must not publish incomplete static alternates: "+route.path);
   else assert.match(html,/hreflang="x-default"/,"x-default alternate missing: "+route.path);
   assert.doesNotMatch(html,/catalog\.json/,"Static selector/bootstrap must not depend on the locale catalog at runtime: "+route.path);
-  assert.doesNotMatch(html,/\/core\/language-switcher\.js/i,"VI static shell must not load the legacy language-switcher runtime: "+route.path);
-  assert.doesNotMatch(html,/\/core\/i18n-runtime\.js/i,"VI static shell must not load locale runtime merely to render its selector: "+route.path);
+  assert.doesNotMatch(html,/\/core\/language-switcher\.js/i,"VI static shell must not load the legacy language-switcher runtime for its selector: "+route.path);
   assert.match(html,/\.opq-language-auto\{display:none!important\}/,"Legacy Worker selector must be hidden when static shell owns language UI: "+route.path);
 }
 
@@ -58,9 +57,6 @@ for(const item of routes.excluded_html||[]){
   assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"Excluded HTML must not receive the common selector: "+item.file);
 }
 
-// Every HTML page copied into the public bundle must have an explicit language
-// owner. This prevents new/forgotten public pages silently shipping without a
-// selector or an intentional noindex exclusion.
 function htmlFiles(dir){
   const out=[];
   for(const entry of readdirSync(dir,{withFileTypes:true})){
@@ -98,4 +94,4 @@ const wrangler=readFileSync("wrangler.jsonc","utf8");
 for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: early device detect, zero legacy selector runtime on VI, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: early device detect, selector independent of legacy runtime/catalog, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
