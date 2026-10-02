@@ -82,6 +82,10 @@ if(existsSync("cms/schema.json")) await copyFile("cms/schema.json",`${out}/cms/s
 
 execFileSync(process.execPath,["scripts/build-i18n-catalog.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-i18n-catalog.mjs"],{stdio:"inherit"});
+// Static VI pages keep the direct Cloudflare Assets fast path. Language UI is
+// compiled into dist and must never require a Worker hop or locale-catalog fetch.
+execFileSync(process.execPath,["scripts/build-static-language-shell.mjs"],{stdio:"inherit"});
+execFileSync(process.execPath,["scripts/test-static-language-shell.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/build-brand-icons.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-brand-icons.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-google-verification.mjs"],{stdio:"inherit"});
