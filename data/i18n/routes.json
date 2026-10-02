@@ -7,7 +7,7 @@
     {"path":"/nearme/","file":"nearme/index.html","selector":"static","autodetect":true},
     {"path":"/explore/","file":"explore/index.html","selector":"static","autodetect":true},
     {"path":"/food/","file":"food/index.html","selector":"static","autodetect":true},
-    {"path":"/food/article.html","file":"food/article.html","selector":"static","autodetect":true,"availability":"published-family"},
+    {"path":"/food/article.html","file":"food/article.html","selector":"static","autodetect":true,"availability":"published-family","alternates":false},
     {"path":"/stories/","file":"stories/index.html","selector":"static","autodetect":true},
     {"path":"/guide/","file":"guide/index.html","selector":"static","autodetect":true},
     {"path":"/guide/knowledge.html","file":"guide/knowledge.html","selector":"static","autodetect":true},
