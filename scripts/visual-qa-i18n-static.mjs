@@ -90,6 +90,23 @@ for(const width of [320,390,768,1366]){
   await context.close();
 }
 
+// Browser language order matters. VI first must stay VI even if EN is a later
+// preference. An EN-first browser follows the canonical English counterpart.
+{
+  const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN",serviceWorkers:"block"});
+  await context.addInitScript(()=>Object.defineProperty(navigator,"languages",{get:()=>["vi-VN","en-US"]}));
+  await blockExternal(context);await workerlessEnglishFulfill(context);
+  const page=await context.newPage();page.setDefaultTimeout(3000);
+  try{
+    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:8000});
+    await page.waitForTimeout(100);
+    if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"vi-primary-browser-misdirected",page.url());
+    const stored=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
+    if(stored.local||stored.cookie.includes("openpq_lang="))fail("/weather/",390,"browser-detect-wrote-manual-preference",JSON.stringify(stored));
+  }catch(error){fail("/weather/",390,"ordered-browser-locale-exception",String(error.message||error))}
+  finally{await page.close();await context.close()}
+}
+
 // With no manual preference, an English browser follows the published English
 // counterpart. A manual VI choice then wins over the browser on later visits.
 {
@@ -100,6 +117,8 @@ for(const width of [320,390,768,1366]){
     await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:8000});
     await page.waitForURL(/\/en\/weather\//,{timeout:5000});
     if(!page.url().includes("point=duong-dong")||!page.url().endsWith("#today"))fail("/en/weather/",390,"browser-detect-lost-query-hash",page.url());
+    const autoStored=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
+    if(autoStored.local||autoStored.cookie.includes("openpq_lang="))fail("/en/weather/",390,"auto-en-wrote-manual-preference",JSON.stringify(autoStored));
     await page.waitForFunction(()=>document.documentElement.dataset.openpqEnglishReady==="true",{timeout:5000}).catch(()=>{});
     const selectorState=await page.evaluate(()=>({
       staticCount:document.querySelectorAll('[data-openpq-language-static]').length,
@@ -166,4 +185,4 @@ for(const width of [320,390,768,1366]){
 
 await browser.close();
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1)}
-console.log(`PASS browser i18n QA: ${staticRoutes.length} static shells + ${nativeRoutes.length} native shell; 4 viewports; no overlap; device-language routing + remembered VI/EN + legacy links + hydrated article query targets + English runtime compatibility`);
+console.log(`PASS browser i18n QA: ${staticRoutes.length} static shells + ${nativeRoutes.length} native shell; 4 viewports; no overlap; ordered device-language routing + no implicit preference writes + remembered VI/EN + legacy links + hydrated article query targets + English runtime compatibility`);
