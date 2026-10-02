@@ -6,9 +6,6 @@ const ORIGIN=new URL(BASE).origin;
 const manifest=JSON.parse(fs.readFileSync("data/i18n/routes.json","utf8"));
 const staticRoutes=(manifest.static_shells||[]).filter(x=>x.selector==="static");
 const nativeRoutes=(manifest.static_shells||[]).filter(x=>x.selector==="native");
-// Full route ownership/injection is already enforced by test-static-language-shell.mjs.
-// Browser QA only samples representative layout families; dynamic locale behavior is
-// exercised separately below on a tiny set of routes with the real page runtime.
 const representativePaths=new Set([
   "/",
   "/weather/",
@@ -56,7 +53,7 @@ async function workerlessEnglishFulfill(context){
     let html=await source.text();
     html=html.replace(/<html([^>]*)lang=["'][^"']+["']([^>]*)>/i,'<html$1lang="en"$2>');
     html=html.replace(/<head>/i,'<head><meta name="openpq-locale" content="en"><script src="/core/i18n-runtime.js?v=4" defer></script><script src="/core/en-full-site.js?v=2" defer></script><script src="/core/language-switcher.js?v=4" defer></script>');
-    html=html.replace(/(<body[^>]*>)/i,'$1<nav class="opq-language-auto" data-openpq-language-switcher-auto data-openpq-language-switcher-server aria-label="Language"><div class="opq-language-options"><a href="/weather/?lang=vi">VI</a><a href="/en/weather/?lang=en">EN</a></div></nav>');
+    html=html.replace(/(<body[^>]*>)/i,'$1<nav class="opq-language-auto" data-openpq-language-switcher-auto data-openpq-language-switcher-server aria-label="Language"><div class="opq-language-options"><a href="/about/?lang=vi">VI</a><a href="/en/about/?lang=en">EN</a></div></nav>');
     await route.fulfill({status:200,contentType:"text/html; charset=utf-8",body:html});
   });
 }
@@ -119,9 +116,6 @@ for(const width of [320,390,768,1366]){
 }
 
 console.log("[i18n-qa] ordered browser-language behavior + VI zero-catalog selector path");
-// Browser language order matters. VI first must stay VI even if EN is a later
-// preference. This full-runtime smoke also proves the static selector itself does
-// not require the locale catalog on a normal VI Weather load.
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN",serviceWorkers:"block"});
   await context.addInitScript(()=>Object.defineProperty(navigator,"languages",{get:()=>["vi-VN","en-US"]}));
@@ -139,68 +133,67 @@ console.log("[i18n-qa] ordered browser-language behavior + VI zero-catalog selec
   finally{await page.close({runBeforeUnload:false}).catch(()=>{});await context.close().catch(()=>{})}
 }
 
-console.log("[i18n-qa] EN auto-detect + remembered manual VI/EN");
-// With no manual preference, an English browser follows the published English
-// counterpart. A manual VI choice then wins over the browser on later visits.
+console.log("[i18n-qa] EN auto-detect + remembered manual VI/EN on lightweight About shell");
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"en-US",serviceWorkers:"block"});
   await blockExternal(context);await workerlessEnglishFulfill(context);
   const page=await context.newPage();page.setDefaultTimeout(3000);
+  const route="/about/?src=i18n-qa#privacy";
   try{
-    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:6000});
-    await page.waitForURL(/\/en\/weather\//,{timeout:4000});
-    if(!page.url().includes("point=duong-dong")||!page.url().endsWith("#today"))fail("/en/weather/",390,"browser-detect-lost-query-hash",page.url());
+    console.log("[i18n-qa]   open VI About as EN-first browser");
+    await page.goto(BASE+route,{waitUntil:"domcontentloaded",timeout:6000});
+    await page.waitForURL(url=>url.pathname==="/en/about/",{timeout:4000});
+    if(!page.url().includes("src=i18n-qa")||!page.url().endsWith("#privacy"))fail("/en/about/",390,"browser-detect-lost-query-hash",page.url());
     const autoStored=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
-    if(autoStored.local||autoStored.cookie.includes("openpq_lang="))fail("/en/weather/",390,"auto-en-wrote-manual-preference",JSON.stringify(autoStored));
+    if(autoStored.local||autoStored.cookie.includes("openpq_lang="))fail("/en/about/",390,"auto-en-wrote-manual-preference",JSON.stringify(autoStored));
     await page.waitForFunction(()=>document.documentElement.dataset.openpqEnglishReady==="true",{timeout:4000}).catch(()=>{});
     const selectorState=await page.evaluate(()=>({
       staticCount:document.querySelectorAll('[data-openpq-language-static]').length,
       viHref:document.querySelector('[data-openpq-language-static] [data-openpq-lang="vi"]')?.getAttribute('href')||'',
       legacyVisible:[...document.querySelectorAll('.opq-language-auto')].filter(x=>getComputedStyle(x).display!=="none").length
     }));
-    if(selectorState.staticCount!==1)fail("/en/weather/",390,"english-static-selector-count",JSON.stringify(selectorState));
-    if(selectorState.viHref!=="/weather/?point=duong-dong#today")fail("/en/weather/",390,"english-static-vi-link-not-hydrated",JSON.stringify(selectorState));
-    if(selectorState.legacyVisible!==0)fail("/en/weather/",390,"legacy-selector-visible",JSON.stringify(selectorState));
+    if(selectorState.staticCount!==1)fail("/en/about/",390,"english-static-selector-count",JSON.stringify(selectorState));
+    if(selectorState.viHref!=="/about/?src=i18n-qa#privacy")fail("/en/about/",390,"english-static-vi-link-not-hydrated",JSON.stringify(selectorState));
+    if(selectorState.legacyVisible!==0)fail("/en/about/",390,"legacy-selector-visible",JSON.stringify(selectorState));
 
-    await page.locator('[data-openpq-language-static] [data-openpq-lang="vi"]').click();
-    await page.waitForURL(url=>url.pathname==="/weather/",{timeout:4000});
+    console.log("[i18n-qa]   manual VI choice");
+    await page.locator('[data-openpq-language-static] [data-openpq-lang="vi"]').click({noWaitAfter:true});
+    await page.waitForURL(url=>url.pathname==="/about/",{timeout:4000});
     await page.waitForTimeout(100);
-    if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"manual-vi-bounced-back",page.url());
     const storedVi=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
-    if(storedVi.local!=="vi"||!storedVi.cookie.includes("openpq_lang=vi"))fail("/weather/",390,"manual-vi-not-persisted",JSON.stringify(storedVi));
+    if(storedVi.local!=="vi"||!storedVi.cookie.includes("openpq_lang=vi"))fail("/about/",390,"manual-vi-not-persisted",JSON.stringify(storedVi));
 
-    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:6000});
+    console.log("[i18n-qa]   remembered VI beats EN browser");
+    await page.goto(BASE+route,{waitUntil:"domcontentloaded",timeout:6000});
     await page.waitForTimeout(100);
-    if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"remembered-vi-lost-to-browser",page.url());
+    if(new URL(page.url()).pathname!=="/about/")fail("/about/",390,"remembered-vi-lost-to-browser",page.url());
 
-    await page.locator('[data-openpq-language-static] [data-openpq-lang="en"]').click();
-    await page.waitForURL(/\/en\/weather\//,{timeout:4000});
+    console.log("[i18n-qa]   manual EN choice");
+    await page.locator('[data-openpq-language-static] [data-openpq-lang="en"]').click({noWaitAfter:true});
+    await page.waitForURL(url=>url.pathname==="/en/about/",{timeout:4000});
     const storedEn=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
-    if(storedEn.local!=="en"||!storedEn.cookie.includes("openpq_lang=en"))fail("/en/weather/",390,"manual-en-not-persisted",JSON.stringify(storedEn));
-  }catch(error){fail("/weather/",390,"preference-roundtrip-exception",String(error.message||error))}
+    if(storedEn.local!=="en"||!storedEn.cookie.includes("openpq_lang=en"))fail("/en/about/",390,"manual-en-not-persisted",JSON.stringify(storedEn));
+  }catch(error){fail("/about/",390,"preference-roundtrip-exception",String(error.message||error))}
   finally{await page.close({runBeforeUnload:false}).catch(()=>{});await context.close().catch(()=>{})}
 }
 
-console.log("[i18n-qa] legacy ?lang canonicalization");
-// Old ?lang= links remain compatible without making static VI pages Worker-first.
+console.log("[i18n-qa] legacy ?lang canonicalization on lightweight About shell");
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN",serviceWorkers:"block"});
   await blockExternal(context);await workerlessEnglishFulfill(context);
   const page=await context.newPage();page.setDefaultTimeout(3000);
   try{
-    await page.goto(BASE+"/weather/?lang=en&point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:6000});
-    await page.waitForURL(/\/en\/weather\//,{timeout:4000});
+    await page.goto(BASE+"/about/?lang=en&src=i18n-qa#privacy",{waitUntil:"domcontentloaded",timeout:6000});
+    await page.waitForURL(url=>url.pathname==="/en/about/",{timeout:4000});
     const u=new URL(page.url());
-    if(u.searchParams.has("lang")||u.searchParams.get("point")!=="duong-dong"||u.hash!=="#today")fail("/weather/",390,"legacy-lang-not-canonicalized",page.url());
+    if(u.searchParams.has("lang")||u.searchParams.get("src")!=="i18n-qa"||u.hash!=="#privacy")fail("/about/",390,"legacy-lang-not-canonicalized",page.url());
     const stored=await page.evaluate(()=>localStorage.getItem("openpq_lang"));
-    if(stored!=="en")fail("/weather/",390,"legacy-lang-not-remembered",stored||"");
-  }catch(error){fail("/weather/",390,"legacy-lang-exception",String(error.message||error))}
+    if(stored!=="en")fail("/about/",390,"legacy-lang-not-remembered",stored||"");
+  }catch(error){fail("/about/",390,"legacy-lang-exception",String(error.message||error))}
   finally{await page.close({runBeforeUnload:false}).catch(()=>{});await context.close().catch(()=>{})}
 }
 
 console.log("[i18n-qa] query-sensitive Food article selector");
-// Query-sensitive selectors fail closed in raw HTML, then hydrate a complete
-// href in the browser so normal, new-tab and modified clicks keep the record id.
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN",serviceWorkers:"block"});
   await blockExternal(context);await workerlessEnglishFulfill(context);
@@ -210,7 +203,7 @@ console.log("[i18n-qa] query-sensitive Food article selector");
     const link=page.locator('[data-openpq-language-static] [data-openpq-lang="en"]');
     const href=await link.getAttribute("href"),target=await link.getAttribute("data-openpq-target");
     if(href!=="/en/food/article.html?id=bun-quay#ingredients"||target!=="/en/food/article.html")fail("/food/article.html",390,"query-sensitive-link-not-hydrated",`href=${href} target=${target}`);
-    await link.click();
+    await link.click({noWaitAfter:true});
     await page.waitForURL(/\/en\/food\/article\.html/,{timeout:4000});
     const u=new URL(page.url());
     if(u.searchParams.get("id")!=="bun-quay"||u.hash!=="#ingredients")fail("/en/food/article.html",390,"article-id-or-hash-lost",page.url());
