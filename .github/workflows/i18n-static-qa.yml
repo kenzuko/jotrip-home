@@ -8,6 +8,7 @@ on:
       - "scripts/build-static-language-shell.mjs"
       - "scripts/test-static-language-shell.mjs"
       - "scripts/visual-qa-i18n-static.mjs"
+      - "scripts/visual-qa-i18n-airport.mjs"
       - "scripts/build-cloudflare.mjs"
       - ".github/workflows/i18n-static-qa.yml"
 
@@ -47,4 +48,6 @@ jobs:
       - name: Run static-first browser matrix
         env:
           VISUAL_QA_BASE_URL: http://127.0.0.1:4173
-        run: node scripts/visual-qa-i18n-static.mjs
+        run: |
+          node scripts/visual-qa-i18n-static.mjs
+          node scripts/visual-qa-i18n-airport.mjs
