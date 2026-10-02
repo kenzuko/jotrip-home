@@ -1,7 +1,8 @@
 // OLD_SYSTEM_FINAL_RELEASE_TRIGGER_20261001 - no runtime behavior change; forces full legacy release pipelines.
-import { rm, mkdir, cp, copyFile, writeFile } from "node:fs/promises";
+import { rm, mkdir, cp, copyFile, writeFile, readFile, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
+import { join } from "node:path";
 
 // Multilingual release gates run before copying the public bundle.
 // Cloudflare Pages Git builds run this file alone. Generate the public view
@@ -75,6 +76,25 @@ for(const file of rootFiles){
 for(const dir of dirs){
   if(existsSync(dir)) await cp(dir,`${out}/${dir}`,{recursive:true});
 }
+
+// User-supplied news images are kept as source chunks outside the public tree,
+// then restored only into dist. The 7 source chunks are Git-blob verified
+// against the local 400x600 JPEG before this release is triggered.
+async function restoreEditorialPoster(){
+  const sourceDir=join("research/news-assets","vietnam-korea-culture-day-2026");
+  const files=(await readdir(sourceDir)).filter(name=>/^chunk-\d+\.b64$/.test(name)).sort();
+  if(files.length!==7) throw new Error(`Poster source incomplete: expected 7 chunks, found ${files.length}`);
+  const encoded=(await Promise.all(files.map(name=>readFile(join(sourceDir,name),"utf8")))).join("").replace(/\s+/g,"");
+  const bytes=Buffer.from(encoded,"base64");
+  if(bytes.length!==41545 || bytes[0]!==0xff || bytes[1]!==0xd8 || bytes.at(-2)!==0xff || bytes.at(-1)!==0xd9){
+    throw new Error(`Poster source failed integrity check: ${bytes.length} bytes`);
+  }
+  await mkdir(join(out,"assets","news"),{recursive:true});
+  await writeFile(join(out,"assets","news","vietnam-korea-culture-day-2026.jpg"),bytes);
+  console.log("Event poster restored: 400x600 JPEG, 41545 bytes");
+}
+await restoreEditorialPoster();
+
 await rm(`${out}/data/knowledge`,{recursive:true,force:true});
 await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
