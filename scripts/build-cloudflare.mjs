@@ -81,7 +81,7 @@ for(const dir of dirs){
 // then restored only into dist. This avoids publishing base64 source material
 // while preserving enough resolution for poster text on mobile.
 async function restoreEditorialPoster(){
-  const sourceDir=join("research","news-assets","vietnam-korea-culture-day-2026");
+  const sourceDir=join("research/news-assets","vietnam-korea-culture-day-2026");
   const files=(await readdir(sourceDir)).filter(name=>/^chunk-\d+\.b64$/.test(name)).sort();
   if(files.length!==7) throw new Error(`Poster source incomplete: expected 7 chunks, found ${files.length}`);
   const encoded=(await Promise.all(files.map(name=>readFile(join(sourceDir,name),"utf8")))).join("").replace(/\s+/g,"");
