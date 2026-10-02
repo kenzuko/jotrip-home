@@ -14,6 +14,7 @@
     {"path":"/places/","file":"places/index.html","selector":"static","autodetect":true},
     {"path":"/news/","file":"news/index.html","selector":"static","autodetect":true},
     {"path":"/news/awaken-sea-20261001.html","file":"news/awaken-sea-20261001.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/news/ngay-van-hoa-viet-nam-han-quoc-2026.html","file":"news/ngay-van-hoa-viet-nam-han-quoc-2026.html","selector":"none","autodetect":false,"locale_status":"vi-only","reason":"New public event article has no reviewed English body yet; fail closed instead of exposing a false /en/ translation."},
     {"path":"/weather/","file":"weather/index.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/weather/weather-history.html","file":"weather/weather-history.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/weather/weather-scene-v3.html","file":"weather/weather-scene-v3.html","selector":"static","autodetect":true,"placement":"after-header"},
@@ -41,6 +42,7 @@
     "static_selector_locales": ["vi","en"],
     "manual_preference_key": "openpq_lang",
     "static_pages_must_not_require_worker_for_language": true,
-    "unpublished_locales_hidden": true
+    "unpublished_locales_hidden": true,
+    "untranslated_public_pages_fail_closed": true
   }
 }
