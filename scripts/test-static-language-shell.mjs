@@ -9,6 +9,12 @@ const locales=readJson("data/i18n/locales.json");
 const published=(locales.locales||[]).filter(x=>x.published).map(x=>x.code);
 assert.deepEqual(published,["vi","en"],"Only reviewed VI/EN may be exposed by the current static selector");
 
+function assertInlineScriptParses(html,id,label){
+  const match=html.match(new RegExp(`<script\\b[^>]*id=["']${id}["'][^>]*>([\\s\\S]*?)<\\/script>`,`i`));
+  assert.ok(match,`Missing inline script ${id}: ${label}`);
+  assert.doesNotThrow(()=>new Function(match[1]),`Inline script ${id} must parse: ${label}`);
+}
+
 for(const route of routes.static_shells||[]){
   const path=join(root,route.file);
   assert.ok(existsSync(path),"Missing route file: "+route.file);
@@ -18,6 +24,7 @@ for(const route of routes.static_shells||[]){
     assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"Native selector route must not receive a second selector: "+route.path);
     assert.equal(route.native_bridge,"airport","Native selector needs an explicit bridge owner: "+route.path);
     assert.match(html,/id="openpq-airport-language-bridge"/,"Airport native selector must receive the global locale bridge");
+    assertInlineScriptParses(html,"openpq-airport-language-bridge",route.path);
     assert.match(html,/id="openpq-native-language-bridge-style"/,"Airport must hide the legacy Worker selector on EN routes");
     assert.match(html,/\.opq-language-auto\{display:none!important\}/,"Airport EN route must not show a second language selector");
     const bridgeAt=html.indexOf('id="openpq-airport-language-bridge"');
@@ -28,6 +35,7 @@ for(const route of routes.static_shells||[]){
   assert.equal((html.match(/<nav\b[^>]*\bdata-openpq-language-static\b/gi)||[]).length,1,"Exactly one static selector nav required: "+route.path);
   assert.equal((html.match(/id="openpq-static-language-bootstrap"/g)||[]).length,route.autodetect?1:0,"Unexpected bootstrap count: "+route.path);
   if(route.autodetect){
+    assertInlineScriptParses(html,"openpq-static-language-bootstrap",route.path);
     const bootstrapAt=html.indexOf('id="openpq-static-language-bootstrap"');
     const stylesheetAt=html.search(/<link\b[^>]*rel=["']stylesheet["']/i);
     if(stylesheetAt>=0)assert.ok(bootstrapAt>=0&&bootstrapAt<stylesheetAt,"Device-language bootstrap must run before render-blocking stylesheets: "+route.path);
@@ -113,4 +121,4 @@ const wrangler=readFileSync("wrangler.jsonc","utf8");
 for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"','"/airport/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: early device detect, Airport native edge/runtime bridge, selector independent of legacy runtime/catalog, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: parsed inline bootstraps, early device detect, Airport native edge/runtime bridge, selector independent of legacy runtime/catalog, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
