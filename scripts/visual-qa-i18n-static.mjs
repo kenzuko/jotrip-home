@@ -97,6 +97,41 @@ for(const width of [320,390,768,1366]){
   finally{await page.close();await context.close()}
 }
 
+// Old ?lang= links must keep working without making static VI pages Worker-first.
+{
+  const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN"});
+  await workerlessEnglishFulfill(context);
+  const page=await context.newPage();
+  try{
+    await page.goto(BASE+"/weather/?lang=en&point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:15000});
+    await page.waitForURL(/\/en\/weather\//,{timeout:5000});
+    const u=new URL(page.url());
+    if(u.searchParams.has("lang")||u.searchParams.get("point")!=="duong-dong"||u.hash!=="#today")fail("/weather/",390,"legacy-lang-not-canonicalized",page.url());
+    const stored=await page.evaluate(()=>localStorage.getItem("openpq_lang"));
+    if(stored!=="en")fail("/weather/",390,"legacy-lang-not-remembered",stored||"");
+  }catch(error){fail("/weather/",390,"legacy-lang-exception",String(error.message||error))}
+  finally{await page.close();await context.close()}
+}
+
+// Query-sensitive article selector must never drop the record id.
+{
+  const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN"});
+  await workerlessEnglishFulfill(context);
+  const page=await context.newPage();
+  try{
+    await page.goto(BASE+"/food/article.html?id=bun-quay#ingredients",{waitUntil:"domcontentloaded",timeout:15000});
+    const link=page.locator('[data-openpq-language-static] [data-openpq-lang="en"]');
+    const raw=await link.getAttribute("href");
+    const target=await link.getAttribute("data-openpq-target");
+    if(raw!=="#language-en"||target!=="/en/food/article.html")fail("/food/article.html",390,"query-sensitive-link-not-fail-closed",`href=${raw} target=${target}`);
+    await link.click();
+    await page.waitForURL(/\/en\/food\/article\.html/,{timeout:5000});
+    const u=new URL(page.url());
+    if(u.searchParams.get("id")!=="bun-quay"||u.hash!=="#ingredients")fail("/en/food/article.html",390,"article-id-or-hash-lost",page.url());
+  }catch(error){fail("/food/article.html",390,"article-query-exception",String(error.message||error))}
+  finally{await page.close();await context.close()}
+}
+
 await browser.close();
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1)}
-console.log(`PASS browser i18n QA: ${staticRoutes.length} static shells + ${nativeRoutes.length} native shell; 4 viewports; safe detect + remembered VI/EN + English runtime compatibility`);
+console.log(`PASS browser i18n QA: ${staticRoutes.length} static shells + ${nativeRoutes.length} native shell; 4 viewports; safe detect + remembered VI/EN + legacy links + article query preservation + English runtime compatibility`);
