@@ -90,21 +90,16 @@ for(const width of [320,390,768,1366]){
   await context.close();
 }
 
-// First visit detects browser language without a forced navigation. An explicit
-// manual choice is remembered and then wins over browser language.
+// With no manual preference, an English browser follows the published English
+// counterpart. A manual VI choice then wins over the browser on later visits.
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"en-US",serviceWorkers:"block"});
   await blockExternal(context);await workerlessEnglishFulfill(context);
   const page=await context.newPage();page.setDefaultTimeout(3000);
   try{
     await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:8000});
-    if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"first-visit-forced-redirect",page.url());
-    const suggested=await page.evaluate(()=>document.documentElement.dataset.openpqSuggestLang||"");
-    if(suggested!=="en")fail("/weather/",390,"browser-language-not-detected",suggested);
-
-    await page.locator('[data-openpq-language-static] [data-openpq-lang="en"]').click();
     await page.waitForURL(/\/en\/weather\//,{timeout:5000});
-    if(!page.url().includes("point=duong-dong")||!page.url().endsWith("#today"))fail("/en/weather/",390,"manual-en-lost-query-hash",page.url());
+    if(!page.url().includes("point=duong-dong")||!page.url().endsWith("#today"))fail("/en/weather/",390,"browser-detect-lost-query-hash",page.url());
     await page.waitForFunction(()=>document.documentElement.dataset.openpqEnglishReady==="true",{timeout:5000}).catch(()=>{});
     const selectorState=await page.evaluate(()=>({
       staticCount:document.querySelectorAll('[data-openpq-language-static]').length,
@@ -114,12 +109,6 @@ for(const width of [320,390,768,1366]){
     if(selectorState.staticCount!==1)fail("/en/weather/",390,"english-static-selector-count",JSON.stringify(selectorState));
     if(selectorState.viHref!=="/weather/?point=duong-dong#today")fail("/en/weather/",390,"english-static-vi-link-not-hydrated",JSON.stringify(selectorState));
     if(selectorState.legacyVisible!==0)fail("/en/weather/",390,"legacy-selector-visible",JSON.stringify(selectorState));
-    const storedEn=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
-    if(storedEn.local!=="en"||!storedEn.cookie.includes("openpq_lang=en"))fail("/en/weather/",390,"manual-en-not-persisted",JSON.stringify(storedEn));
-
-    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:8000});
-    await page.waitForURL(/\/en\/weather\//,{timeout:5000});
-    if(!page.url().includes("point=duong-dong")||!page.url().endsWith("#today"))fail("/en/weather/",390,"remembered-en-lost-query-hash",page.url());
 
     await page.locator('[data-openpq-language-static] [data-openpq-lang="vi"]').click();
     await page.waitForURL(url=>url.pathname==="/weather/",{timeout:5000});
@@ -127,6 +116,15 @@ for(const width of [320,390,768,1366]){
     if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"manual-vi-bounced-back",page.url());
     const storedVi=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
     if(storedVi.local!=="vi"||!storedVi.cookie.includes("openpq_lang=vi"))fail("/weather/",390,"manual-vi-not-persisted",JSON.stringify(storedVi));
+
+    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:8000});
+    await page.waitForTimeout(100);
+    if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"remembered-vi-lost-to-browser",page.url());
+
+    await page.locator('[data-openpq-language-static] [data-openpq-lang="en"]').click();
+    await page.waitForURL(/\/en\/weather\//,{timeout:5000});
+    const storedEn=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
+    if(storedEn.local!=="en"||!storedEn.cookie.includes("openpq_lang=en"))fail("/en/weather/",390,"manual-en-not-persisted",JSON.stringify(storedEn));
   }catch(error){fail("/weather/",390,"preference-roundtrip-exception",String(error.message||error))}
   finally{await page.close();await context.close()}
 }
@@ -168,4 +166,4 @@ for(const width of [320,390,768,1366]){
 
 await browser.close();
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1)}
-console.log(`PASS browser i18n QA: ${staticRoutes.length} static shells + ${nativeRoutes.length} native shell; 4 viewports; no overlap; safe detect + remembered VI/EN + legacy links + hydrated article query targets + English runtime compatibility`);
+console.log(`PASS browser i18n QA: ${staticRoutes.length} static shells + ${nativeRoutes.length} native shell; 4 viewports; no overlap; device-language routing + remembered VI/EN + legacy links + hydrated article query targets + English runtime compatibility`);
