@@ -19,9 +19,10 @@ async function workerlessEnglishFulfill(context){
     const source=await fetch(BASE+basePath+u.search);
     if(!source.ok)return route.fulfill({status:source.status,body:await source.text()});
     let html=await source.text();
+    // Model the optimized edge behavior for the native Airport locale shell:
+    // canonical locale metadata only, no generic selector or translator runtime.
     html=html.replace(/<html([^>]*)lang=["'][^"']+["']([^>]*)>/i,'<html$1lang="en"$2>');
-    html=html.replace(/<head>/i,'<head><meta name="openpq-locale" content="en"><script src="/core/i18n-runtime.js?v=4" defer></script><script src="/core/en-full-site.js?v=2" defer></script><script src="/core/language-switcher.js?v=4" defer></script>');
-    html=html.replace(/(<body[^>]*>)/i,'$1<nav class="opq-language-auto" data-openpq-language-switcher-auto data-openpq-language-switcher-server aria-label="Language"><div class="opq-language-options"><a href="/airport/?lang=vi">VI</a><a href="/en/airport/?lang=en">EN</a></div></nav>');
+    html=html.replace(/<head>/i,'<head><meta name="openpq-locale" content="en">');
     await route.fulfill({status:200,contentType:"text/html; charset=utf-8",body:html});
   });
 }
@@ -41,12 +42,13 @@ async function workerlessEnglishFulfill(context){
     const state=await page.evaluate(()=>({
       native:document.querySelectorAll('#languageSelect').length,
       common:document.querySelectorAll('[data-openpq-language-static]').length,
-      legacyVisible:[...document.querySelectorAll('.opq-language-auto')].filter(x=>getComputedStyle(x).display!=="none").length,
+      legacy:document.querySelectorAll('.opq-language-auto').length,
+      genericRuntime:document.querySelectorAll('[data-openpq-i18n-runtime],[data-openpq-en-full-site],[data-openpq-language-switcher]').length,
       global:localStorage.getItem('openpq_lang')||'',
       airport:localStorage.getItem('jotrip_airport_lang')||'',
       cookie:document.cookie
     }));
-    if(state.native!==1||state.common!==0||state.legacyVisible!==0)fail("airport-selector-duplication",JSON.stringify(state));
+    if(state.native!==1||state.common!==0||state.legacy!==0||state.genericRuntime!==0)fail("airport-selector-or-runtime-duplication",JSON.stringify(state));
     if(state.global||state.airport||state.cookie.includes("openpq_lang="))fail("airport-autodetect-wrote-manual-preference",JSON.stringify(state));
 
     await page.locator('#languageSelect').selectOption('vi');
@@ -95,4 +97,4 @@ async function workerlessEnglishFulfill(context){
 
 await browser.close();
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1)}
-console.log("PASS Airport i18n QA: native selector only; device EN canonical route; VI/EN global preference; legacy links; KO local persistence");
+console.log("PASS Airport i18n QA: native selector/runtime only; device EN canonical route; VI/EN global preference; legacy links; KO local persistence");
