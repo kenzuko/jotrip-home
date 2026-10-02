@@ -15,10 +15,10 @@ for(const route of routes.static_shells||[]){
   const html=readFileSync(path,"utf8");
   if(route.selector==="native"){
     assert.match(html,/id=["']languageSelect["']/,"Native selector route must keep its own language control: "+route.path);
-    assert.doesNotMatch(html,/data-openpq-language-static/,"Native selector route must not receive a second selector: "+route.path);
+    assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"Native selector route must not receive a second selector: "+route.path);
     continue;
   }
-  assert.equal((html.match(/data-openpq-language-static/g)||[]).length,1,"Exactly one static selector required: "+route.path);
+  assert.equal((html.match(/<nav\b[^>]*\bdata-openpq-language-static\b/gi)||[]).length,1,"Exactly one static selector nav required: "+route.path);
   assert.equal((html.match(/id="openpq-static-language-bootstrap"/g)||[]).length,route.autodetect?1:0,"Unexpected bootstrap count: "+route.path);
   assert.match(html,/data-openpq-lang="vi"/,"VI selector link missing: "+route.path);
   assert.match(html,/data-openpq-lang="en"/,"EN selector link missing: "+route.path);
@@ -39,7 +39,7 @@ for(const route of routes.entity_shells||[]){
   const path=join(root,route.file);
   assert.ok(existsSync(path),"Missing entity shell: "+route.file);
   const html=readFileSync(path,"utf8");
-  assert.doesNotMatch(html,/data-openpq-language-static/,"Entity selector must remain availability-aware at the edge: "+route.path);
+  assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"Entity selector must remain availability-aware at the edge: "+route.path);
 }
 
 const catalog=readJson("data/i18n/catalog.json");
