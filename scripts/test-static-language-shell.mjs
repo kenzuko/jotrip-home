@@ -23,10 +23,11 @@ for(const route of routes.static_shells||[]){
   assert.match(html,/data-openpq-lang="vi"/,"VI selector link missing: "+route.path);
   assert.match(html,/data-openpq-lang="en"/,"EN selector link missing: "+route.path);
   assert.doesNotMatch(html,/data-openpq-lang="(?:ko|ru|lo|fr|zh)/,"Unpublished locale leaked into selector: "+route.path);
+  assert.match(html,/const syncLinks=/,"Static selector must hydrate canonical hrefs with the current query/hash: "+route.path);
   if(route.query_sensitive){
     assert.match(html,/href="#language-vi"[^>]*data-openpq-target="\/food\/article\.html"/,"Query-sensitive VI selector must fail closed without JS: "+route.path);
     assert.match(html,/href="#language-en"[^>]*data-openpq-target="\/en\/food\/article\.html"/,"Query-sensitive EN selector must carry its canonical route separately: "+route.path);
-    assert.match(html,/a\.getAttribute\("data-openpq-target"\)\|\|a\.href/,"Query-sensitive selector click must preserve current query through bootstrap: "+route.path);
+    assert.match(html,/a\.getAttribute\("data-openpq-target"\)\|\|a\.getAttribute\("href"\)/,"Query-sensitive selector hydration must preserve current query through bootstrap: "+route.path);
   }else assert.doesNotMatch(html,/data-openpq-target=/,"Only query-sensitive shells need indirect language targets: "+route.path);
   if(route.alternates===false)assert.doesNotMatch(html,/hreflang="x-default"/,"Query-sensitive shell must not publish incomplete static alternates: "+route.path);
   else assert.match(html,/hreflang="x-default"/,"x-default alternate missing: "+route.path);
@@ -56,4 +57,4 @@ const wrangler=readFileSync("wrangler.jsonc","utf8");
 for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: route manifest, fail-closed query targets, query-safe alternates, EN compatibility, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
