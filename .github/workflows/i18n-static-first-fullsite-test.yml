@@ -49,18 +49,22 @@ jobs:
         run: |
           npm install --no-save --package-lock=false playwright@1.63.0
           npx playwright install --with-deps chromium
-      - name: Start isolated test server
+      - name: Start untouched baseline and isolated test servers
         shell: bash
         run: |
+          python3 -m http.server 4189 --bind 127.0.0.1 --directory dist >/tmp/openpq-i18n-baseline.log 2>&1 &
+          echo $! >/tmp/openpq-i18n-baseline.pid
           python3 -m http.server 4190 --bind 127.0.0.1 --directory dist-i18n-test >/tmp/openpq-i18n-static.log 2>&1 &
           echo $! >/tmp/openpq-i18n-static.pid
           for i in {1..20}; do
-            if curl -fsS http://127.0.0.1:4190/ >/dev/null; then exit 0; fi
+            if curl -fsS http://127.0.0.1:4189/ >/dev/null && curl -fsS http://127.0.0.1:4190/ >/dev/null; then exit 0; fi
             sleep 1
           done
+          cat /tmp/openpq-i18n-baseline.log
           cat /tmp/openpq-i18n-static.log
           exit 1
       - name: Browser mobile desktop and route-preservation gate
         env:
+          I18N_BASELINE_URL: http://127.0.0.1:4189
           I18N_TEST_URL: http://127.0.0.1:4190
         run: node scripts/visual-qa-i18n-static-first-fullsite.mjs
