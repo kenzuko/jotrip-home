@@ -1,7 +1,16 @@
 (()=> {
   const q=s=>document.querySelector(s);
   const qa=s=>[...document.querySelectorAll(s)];
-  const set=(s,t,path)=>{const e=q(s);if(e&&t){e.textContent=t;if(path)e.dataset.cmsField=path;}};
+  const tr=t=>window.OpenPQEnglishSite?.translateString?.(t)||t;
+  const set=(s,t,path)=>{const e=q(s);if(e&&t){e.textContent=tr(t);if(path)e.dataset.cmsField=path;}};
+  const retranslate=()=>window.OpenPQEnglishSite?.walk?.(document);
+  const afterEnglishReady=()=>{
+    if(window.OpenPQEnglishSite?.load){
+      window.OpenPQEnglishSite.load().then(retranslate).catch(()=>{});
+      return;
+    }
+    document.addEventListener("openpq:english-ready",retranslate,{once:true});
+  };
 
   const load=window.OpenPQPublicData?.json||((url)=>fetch(url,{cache:"default"}).then(r=>{
     if(!r.ok)throw new Error(String(r.status));return r.json();
@@ -16,9 +25,9 @@
       (d.hero?.slides||[]).slice(0,slides.length).forEach((slide,i)=>{
         const el=slides[i],img=el?.querySelector("img");
         if(!el||!img)return;
-        if(slide.label)el.dataset.label=slide.label;
+        if(slide.label)el.dataset.label=tr(slide.label);
         if(slide.image)img.src=slide.image;
-        if(slide.alt)img.alt=slide.alt;
+        if(slide.alt)img.alt=tr(slide.alt);
       });
 
       if(d.hero?.slides?.[0]?.label)set(".hero-scene-label",d.hero.slides[0].label);
@@ -36,6 +45,7 @@
           set("#heritage .heritage-intro>p:last-child",v.lead,"sections."+id+".lead");
         }
       }
+      afterEnglishReady();
     })
     .catch(()=>{});
 })();
