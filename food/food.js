@@ -18,7 +18,6 @@ const DISH_IMAGE_FALLBACKS={
   "tom-tich-rang-muoi":[{
     url:"https://cdn.zsoft.solutions/poseidon-web/app/media/Nau-an/10.2022/241022-be-be-rang-muoi-buffet-poseidon-4.jpg",
     alt:"Tôm tích rang muối",
-    caption:"Tôm tích rang muối - ảnh món thực tế.",
     scope:"exact_subject",
     source_label:"Internet · Buffet Poseidon",
     source_url:"https://buffetposeidon.com/default/huong-dan-lam-mon-be-be-rang-muoi-dam-da-hon-vi-bien",
