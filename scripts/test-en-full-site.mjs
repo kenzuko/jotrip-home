@@ -4,11 +4,17 @@ import {join,relative,sep} from "node:path";
 
 const ROOT=process.cwd();
 const shell=JSON.parse(readFileSync(join(ROOT,"data/i18n/en/site-shell.json"),"utf8"));
+const homeCopy=JSON.parse(readFileSync(join(ROOT,"data/home-copy.json"),"utf8"));
 const runtime=readFileSync(join(ROOT,"core/en-full-site.js"),"utf8");
 const commonMatch=/const COMMON=(\[[\s\S]*?\]);/.exec(runtime);
 assert.ok(commonMatch,"Could not read EN common phrase table");
 const common=JSON.parse(commonMatch[1]);
+const homeDynamicMatch=/const HOME_DYNAMIC=(\{[\s\S]*?\});/.exec(runtime);
+assert.ok(homeDynamicMatch,"Could not read dynamic homepage EN phrase table");
+const homeDynamic=JSON.parse(homeDynamicMatch[1]);
 const phrases=[...(shell.phrases||[])].sort((a,b)=>String(b?.[0]||"").length-String(a?.[0]||"").length);
+assert.match(runtime,/"data-label"/,"EN runtime must translate slideshow data-label attributes");
+assert.match(runtime,/openpq:english-ready/,"EN runtime must announce readiness for async CMS hydration");
 
 const publicRoots=["about","airport","bus","cano","currency","explore","ferry","food","go","guide","hotels","nearme","news","places","stories","transit","utilities","weather"];
 const rootFiles=["index.html","app.js","home-live.js","home-live-v3.js","home-foundation-v2.js","home-nearme-v2.js","home-today-v3.js","home-copy.js","home-experience-v1.js","home-library.js","island-clock.js"];
@@ -63,7 +69,7 @@ function applyRules(value){
 }
 function translated(input,key){
   const text=norm(input);
-  const exact={...(shell.exact||{}),...(shell.routes?.[key]||{})};
+  const exact={...(shell.exact||{}),...(key==="home"?homeDynamic:{}),...(shell.routes?.[key]||{})};
   if(exact[text])return norm(exact[text]);
   let out=text;
   for(const [from,to] of phrases)if(from&&out.includes(from))out=out.split(from).join(to);
@@ -73,7 +79,7 @@ function translated(input,key){
 function htmlStrings(source){
   const clean=source.replace(/<script[\s\S]*?<\/script>/gi,"").replace(/<style[\s\S]*?<\/style>/gi,"");
   const values=[...clean.matchAll(/>([^<>]{2,})</g)].map(m=>m[1]);
-  for(const m of clean.matchAll(/\b(?:placeholder|aria-label|title|alt|value)=["']([^"']{2,})["']/gi))values.push(m[1]);
+  for(const m of clean.matchAll(/\b(?:placeholder|aria-label|title|alt|value|data-label)=["']([^"']{2,})["']/gi))values.push(m[1]);
   return values;
 }
 function jsStrings(source){
@@ -108,6 +114,21 @@ for(const file of files){
     if(residue.test(after))problems.push({file:rel,before,after});
   }
 }
+
+// home-copy.json is hydrated after page load, so static HTML/JS scanning alone
+// cannot prove that the English homepage is complete. Audit every homepage
+// field that home-copy.js actually writes into the live DOM.
+const dynamicHomeStrings=[
+  homeCopy.hero?.kicker,homeCopy.hero?.title,homeCopy.hero?.lead,
+  ...(homeCopy.hero?.slides||[]).flatMap(x=>[x.label,x.alt]),
+  ...Object.values(homeCopy.sections||{}).flatMap(x=>[x?.eyebrow,x?.title,x?.lead]),
+  homeCopy.footer?.title,homeCopy.footer?.lead,homeCopy.footer?.note
+].filter(Boolean);
+for(const raw of dynamicHomeStrings){
+  const before=norm(raw),after=translated(before,"home");
+  if(residue.test(after))problems.push({file:"data/home-copy.json",before,after});
+}
+
 const unique=[];const seen=new Set();
 for(const p of problems){
   const k=p.file+"\u0000"+p.before;
@@ -122,4 +143,4 @@ if(unique.length){
   }
   process.exit(1);
 }
-console.log("PASS EN full-site residue audit:",files.length,"public HTML/JS files; 0 Vietnamese UI/prose residues");
+console.log("PASS EN full-site residue audit:",files.length,"public HTML/JS files + dynamic homepage JSON; 0 Vietnamese UI/prose residues");
