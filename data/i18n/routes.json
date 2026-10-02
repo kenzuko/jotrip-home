@@ -13,12 +13,17 @@
     {"path":"/guide/knowledge.html","file":"guide/knowledge.html","selector":"static","autodetect":true},
     {"path":"/places/","file":"places/index.html","selector":"static","autodetect":true},
     {"path":"/news/","file":"news/index.html","selector":"static","autodetect":true},
+    {"path":"/news/awaken-sea-20261001.html","file":"news/awaken-sea-20261001.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/weather/","file":"weather/index.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/weather/weather-history.html","file":"weather/weather-history.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/weather/weather-scene-v3.html","file":"weather/weather-scene-v3.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/airport/","file":"airport/index.html","selector":"native","autodetect":false},
     {"path":"/transit/","file":"transit/index.html","selector":"static","autodetect":true},
     {"path":"/bus/","file":"bus/index.html","selector":"static","autodetect":true},
     {"path":"/cano/","file":"cano/index.html","selector":"static","autodetect":true},
+    {"path":"/cano/history/","file":"cano/history/index.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/about/","file":"about/index.html","selector":"static","autodetect":true},
+    {"path":"/about/feedback-privacy.html","file":"about/feedback-privacy.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/utilities/","file":"utilities/index.html","selector":"static","autodetect":true},
     {"path":"/currency/","file":"currency/index.html","selector":"static","autodetect":true},
     {"path":"/ferry/","file":"ferry/index.html","selector":"static","autodetect":true},
@@ -28,6 +33,9 @@
     {"path":"/stories/article.html","file":"stories/article.html","selector":"edge","availability":"entity"},
     {"path":"/guide/article.html","file":"guide/article.html","selector":"edge","availability":"entity"},
     {"path":"/places/detail.html","file":"places/detail.html","selector":"edge","availability":"route"}
+  ],
+  "excluded_html": [
+    {"file":"weather/spatial-lab.html","reason":"Noindex internal Weather spatial analysis tool; not a canonical public locale-navigation surface."}
   ],
   "rules": {
     "static_selector_locales": ["vi","en"],
