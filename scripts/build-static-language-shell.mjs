@@ -27,7 +27,7 @@ html[lang^="vi"] .opq-static-language a[data-openpq-lang="vi"],html[lang^="en"] 
 html[data-openpq-suggest-lang="en"][lang^="vi"] .opq-static-language a[data-openpq-lang="en"]{box-shadow:inset 0 0 0 1px rgba(11,93,75,.22)}
 .opq-static-language a:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 .opq-static-language[data-openpq-language-placement="after-header"]{width:max-content;max-width:calc(100% - 24px);margin:6px 12px 6px auto}
-body>.opq-language-auto[data-openpq-language-switcher-server]{display:none!important}
+.opq-language-auto{display:none!important}
 @media(max-width:760px){.opq-static-language{padding:2px;gap:1px}.opq-static-language a{min-width:34px;min-height:32px;padding:0 6px;font-size:11px}.opq-static-language[data-openpq-language-placement="after-header"]{margin-top:5px;margin-bottom:5px}}
 </style>`;
 
