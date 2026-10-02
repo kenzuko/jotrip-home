@@ -61,7 +61,8 @@ export function splitLocalePath(pathname){
   if(!info)return{locale:DEFAULT_LOCALE,localized:false,published:true,pathname:path||"/",prefix:""};
   const rest=m[2]||"/";
   if(info.code===DEFAULT_LOCALE)return{locale:DEFAULT_LOCALE,localized:false,defaultPrefixed:true,published:true,pathname:rest.startsWith("/")?rest:"/"+rest,prefix:"/"+info.urlCode,info};
-  return{locale:info.code,localized:true,defaultPrefixed:false,published:info.published,pathname:rest.startsWith("/")?rest:"/"+rest,prefix:"/"+info.urlCode,info};
+  if(!info.published)return{locale:DEFAULT_LOCALE,localized:false,defaultPrefixed:true,published:false,pathname:rest.startsWith("/")?rest:"/"+rest,prefix:"/"+info.urlCode,info};
+  return{locale:info.code,localized:true,defaultPrefixed:false,published:true,pathname:rest.startsWith("/")?rest:"/"+rest,prefix:"/"+info.urlCode,info};
 }
 export function canonicalFor(pathname,locale=DEFAULT_LOCALE,origin="https://openphuquoc.com"){
   return new URL(localizedPath(pathname,locale),origin).toString();
