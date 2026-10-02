@@ -53,7 +53,7 @@ for(const p of ["food/food.js","guide/knowledge.js"]){
   execFileSync(process.execPath,["--check",p],{stdio:"pipe"});
 }
 for(const p of ["food/index.html","food/article.html"]){
-  assert.match(fs.readFileSync(p,"utf8"),/food\.js\?v=20260928-inline-targets-r1/);
+  assert.match(fs.readFileSync(p,"utf8"),/food\.js\?v=20261002-tom-tich-image-r1/);
 }
 for(const p of ["guide/knowledge.html","guide/article.html"]){
   assert.match(fs.readFileSync(p,"utf8"),/knowledge\.js\?v=20260927-photo-rights-r1/);
