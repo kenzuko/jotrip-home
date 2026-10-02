@@ -1,6 +1,6 @@
 /* Open Phu Quoc published-locale switcher prototype.
  * Static-first: build output owns first-paint markup. This runtime only
- * enhances an existing slot/server fallback; it never invents a header or
+ * enhances explicit slots/server fallbacks; it never invents a header or
  * inserts a new selector into arbitrary pages. */
 (function(root){
 "use strict";
@@ -70,10 +70,13 @@ function enhance(host){
 }
 async function autoMount(){
   if(!document.body)return false;
-  const host=document.querySelector("[data-language-slot], [data-openpq-language-switcher-server], [data-openpq-language-switcher-auto]");
-  if(!host)return false;
+  const hosts=[...document.querySelectorAll("[data-language-slot], [data-openpq-language-switcher-server], [data-openpq-language-switcher-auto]")]
+    .filter((host,index,all)=>all.indexOf(host)===index);
+  if(!hosts.length)return false;
   if(root.OpenPQI18n){try{await root.OpenPQI18n.load()}catch{}}
-  return enhance(host);
+  let mounted=false;
+  for(const host of hosts)mounted=enhance(host)||mounted;
+  return mounted;
 }
 root.OpenPQLanguageSwitcher={autoMount,enhance,detectedLocale,fallbackHref};
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>autoMount().catch(()=>{}),{once:true});
