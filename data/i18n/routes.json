@@ -13,7 +13,7 @@
     {"path":"/guide/knowledge.html","file":"guide/knowledge.html","selector":"static","autodetect":true},
     {"path":"/places/","file":"places/index.html","selector":"static","autodetect":true},
     {"path":"/news/","file":"news/index.html","selector":"static","autodetect":true},
-    {"path":"/weather/","file":"weather/index.html","selector":"static","autodetect":true},
+    {"path":"/weather/","file":"weather/index.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/airport/","file":"airport/index.html","selector":"native","autodetect":false},
     {"path":"/transit/","file":"transit/index.html","selector":"static","autodetect":true},
     {"path":"/bus/","file":"bus/index.html","selector":"static","autodetect":true},
