@@ -36,23 +36,18 @@ footer{text-align:center;padding:24px 16px;background:#f1f4ee;color:#6c776d;font
 <p class="lead">Cuối tuần này, Ngày Văn hóa Việt Nam - Hàn Quốc năm 2026 diễn ra tại Quảng trường Trung tâm Văn hóa đặc khu Phú Quốc, đường 30/4, khu phố 2 Dương Đông. Lễ khai mạc bắt đầu lúc 19:00 tối thứ Bảy 03/10.</p>
 <div class="meta">Cập nhật ngày 02/10/2026 · Nguồn: poster chương trình của UBND tỉnh An Giang và Đại sứ quán Hàn Quốc tại Việt Nam</div>
 <div class="quick" role="note">
-  <div><strong>THỜI GIAN</strong><b>03 - 04/10/2026</b><p>Thứ Bảy và Chủ nhật</p></div>
+  <div><strong id="eventTimeLabel"></strong><b>03 - 04/10/2026</b><p>Thứ Bảy và Chủ nhật</p></div>
   <div><strong>ĐỊA ĐIỂM</strong><p>Quảng trường Trung tâm Văn hóa đặc khu Phú Quốc<br>Đường 30/4, khu phố 2 Dương Đông, đặc khu Phú Quốc, tỉnh An Giang</p></div>
 </div>
 <h2>Tối thứ Bảy 03/10: lễ khai mạc lúc 19:00</h2>
-<p>Chương trình khai mạc gồm văn nghệ chào mừng, giới thiệu đại biểu, phát biểu khai mạc, phát biểu của đại diện phía Hàn Quốc, tặng quà lưu niệm và các tiết mục biểu diễn, giao lưu văn hóa nghệ thuật Việt Nam - Hàn Quốc.</p>
+<p id="eventOpening"></p>
 <h2>Chủ nhật 04/10: văn hóa, ẩm thực và trải nghiệm</h2>
-<p>Theo chương trình công bố, ngày Chủ nhật tập trung vào các hoạt động để người dân và du khách ghé xem, trải nghiệm và giao lưu:</p>
-<ul>
-  <li>Các gian hàng giới thiệu du lịch, sản phẩm văn hóa và ẩm thực Việt Nam - Hàn Quốc.</li>
-  <li>Biểu diễn nghệ thuật và giao lưu văn hóa.</li>
-  <li>Trải nghiệm trang phục truyền thống Việt Nam - Hàn Quốc.</li>
-  <li>Giới thiệu và trải nghiệm ẩm thực đặc sắc của hai nước.</li>
-  <li>Hoạt động giao lưu, kết nối doanh nghiệp, quảng bá du lịch, đầu tư và thương mại.</li>
-  <li>Các hoạt động trải nghiệm, chụp ảnh và tham quan cho người dân, du khách.</li>
-</ul>
-<div class="note"><strong>Lưu ý về giờ ngày 04/10</strong><p>Poster chương trình không ghi khung giờ chi tiết cho từng hoạt động trong ngày Chủ nhật. Open Phu Quoc giữ nguyên thông tin đã công bố và không tự gán thêm giờ.</p></div>
+<p id="eventSundayIntro"></p>
+<ul id="eventSundayList"></ul>
+<div class="note"><strong id="eventNoteTitle"></strong><p id="eventNoteText"></p></div>
 <p class="source">Nguồn: poster “Ngày Văn hóa Việt Nam - Hàn Quốc năm 2026” do UBND tỉnh An Giang phối hợp Đại sứ quán Hàn Quốc tại Việt Nam tổ chức, được cung cấp cho Open Phu Quoc ngày 02/10/2026.</p>
+<script type="application/json" id="eventArticleCopy">{"time_label":"THỜI GIAN","opening":"Chương trình khai mạc gồm văn nghệ chào mừng, giới thiệu đại biểu, phát biểu khai mạc, phát biểu của đại diện phía Hàn Quốc, tặng quà lưu niệm và các tiết mục biểu diễn, giao lưu văn hóa nghệ thuật Việt Nam - Hàn Quốc.","sunday_intro":"Theo chương trình công bố, ngày Chủ nhật tập trung vào các hoạt động để người dân và du khách ghé xem, trải nghiệm và giao lưu:","sunday":["Các gian hàng giới thiệu du lịch, sản phẩm văn hóa và ẩm thực Việt Nam - Hàn Quốc.","Biểu diễn nghệ thuật và giao lưu văn hóa.","Trải nghiệm trang phục truyền thống Việt Nam - Hàn Quốc.","Giới thiệu và trải nghiệm ẩm thực đặc sắc của hai nước.","Hoạt động giao lưu, kết nối doanh nghiệp, quảng bá du lịch, đầu tư và thương mại.","Các hoạt động trải nghiệm, chụp ảnh và tham quan cho người dân, du khách."],"note_title":"Lưu ý về giờ ngày 04/10","note_text":"Poster chương trình không ghi khung giờ chi tiết cho từng hoạt động trong ngày Chủ nhật. Open Phu Quoc giữ nguyên thông tin đã công bố và không tự gán thêm giờ."}</script>
+<script>(()=>{const e=document.getElementById("eventArticleCopy");if(!e)return;let c;try{c=JSON.parse(e.textContent)}catch{return}const put=(id,v)=>{const n=document.getElementById(id);if(n)n.textContent=v||""};put("eventTimeLabel",c.time_label);put("eventOpening",c.opening);put("eventSundayIntro",c.sunday_intro);put("eventNoteTitle",c.note_title);put("eventNoteText",c.note_text);const list=document.getElementById("eventSundayList");if(list)for(const text of c.sunday||[]){const li=document.createElement("li");li.textContent=text;list.append(li)}})();</script>
 </main>
 <footer>Open Phu Quoc · Thông tin miễn phí dành cho người dân và du khách</footer>
 </body></html>
