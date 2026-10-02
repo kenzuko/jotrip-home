@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import {readFileSync,existsSync} from "node:fs";
-import {join} from "node:path";
+import {readFileSync,existsSync,readdirSync} from "node:fs";
+import {join,relative} from "node:path";
 
 const root=process.env.OPENPQ_DIST||"dist";
 const readJson=p=>JSON.parse(readFileSync(join(root,p),"utf8"));
@@ -42,6 +42,31 @@ for(const route of routes.entity_shells||[]){
   assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"Entity selector must remain availability-aware at the edge: "+route.path);
 }
 
+// Every HTML page copied into the public bundle must have an explicit language
+// owner. This prevents new/forgotten public pages silently shipping without a
+// selector or an intentional exclusion.
+function htmlFiles(dir){
+  const out=[];
+  for(const entry of readdirSync(dir,{withFileTypes:true})){
+    const full=join(dir,entry.name);
+    if(entry.isDirectory())out.push(...htmlFiles(full));
+    else if(entry.isFile()&&entry.name.endsWith(".html"))out.push(relative(root,full).replaceAll("\\","/"));
+  }
+  return out;
+}
+const owned=new Set([
+  ...(routes.static_shells||[]).map(x=>x.file),
+  ...(routes.entity_shells||[]).map(x=>x.file),
+  ...(routes.excluded_html||[]).map(x=>typeof x==="string"?x:x.file)
+]);
+const unclassified=htmlFiles(root).filter(file=>
+  !file.startsWith("admin/")&&
+  !file.startsWith("cms/")&&
+  file!=="google377c966cd09536e5.html"&&
+  !owned.has(file)
+).sort();
+assert.deepEqual(unclassified,[],"Every public HTML file must be classified in data/i18n/routes.json. Unclassified: "+unclassified.join(", "));
+
 const catalog=readJson("data/i18n/catalog.json");
 const food=catalog.coverage?.en?.food;
 assert.ok(food&&food.total>0,"English food coverage missing");
@@ -57,4 +82,4 @@ const wrangler=readFileSync("wrangler.jsonc","utf8");
 for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: full HTML inventory, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
