@@ -14,6 +14,23 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({
 }[m]));
 const fold=s=>String(s??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[đĐ]/g,"d").toLowerCase();
 
+const DISH_IMAGE_FALLBACKS={
+  "tom-tich-rang-muoi":[{
+    url:"https://cdn.zsoft.solutions/poseidon-web/app/media/Nau-an/10.2022/241022-be-be-rang-muoi-buffet-poseidon-4.jpg",
+    alt:"Tôm tích rang muối",
+    caption:"Tôm tích rang muối - ảnh món thực tế.",
+    scope:"exact_subject",
+    source_label:"Internet · Buffet Poseidon",
+    source_url:"https://buffetposeidon.com/default/huong-dan-lam-mon-be-be-rang-muoi-dam-da-hon-vi-bien",
+    hero_priority:"preferred"
+  }]
+};
+
+function dishImages(id){
+  const images=state.visuals?.food?.[id]?.images||[];
+  return images.length?images:(DISH_IMAGE_FALLBACKS[id]||[]);
+}
+
 function filtered(){
   return (state.data?.dishes||[]).filter(x=>
     (state.cat==="all"||x.category===state.cat)&&
@@ -27,7 +44,7 @@ function filtered(){
 }
 
 function dishMedia(x){
-  const images=state.visuals?.food?.[x.id]?.images||[];
+  const images=dishImages(x.id);
   const visual=window.OpenPQVisual?.pickHero?.(images)||images[0]||null;
   if(visual){
     return '<div class="dish-media">'+
@@ -137,8 +154,7 @@ function renderArticle(){
 
   document.title=dish.name+" - Open Phu Quoc";
 
-  const visual=state.visuals?.food?.[dish.id]||{};
-  const images=visual.images||[];
+  const images=dishImages(dish.id);
   const gallery=window.OpenPQVisual&&images.length
     ? OpenPQVisual.gallery(images,{eyebrow:copy("food.images_eyebrow","NHÌN MÓN"),title:copy("food.images_title","Nhìn món trước khi gọi")})
     : "";
