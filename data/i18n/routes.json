@@ -17,7 +17,7 @@
     {"path":"/weather/","file":"weather/index.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/weather/weather-history.html","file":"weather/weather-history.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/weather/weather-scene-v3.html","file":"weather/weather-scene-v3.html","selector":"static","autodetect":true,"placement":"after-header"},
-    {"path":"/airport/","file":"airport/index.html","selector":"native","autodetect":false},
+    {"path":"/airport/","file":"airport/index.html","selector":"native","autodetect":true,"native_bridge":"airport"},
     {"path":"/transit/","file":"transit/index.html","selector":"static","autodetect":true},
     {"path":"/bus/","file":"bus/index.html","selector":"static","autodetect":true},
     {"path":"/cano/","file":"cano/index.html","selector":"static","autodetect":true},
