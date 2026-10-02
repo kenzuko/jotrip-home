@@ -1,7 +1,7 @@
 export const DEFAULT_LOCALE="vi";
 export const LOCALES=Object.freeze([
   Object.freeze({code:"vi",urlCode:"vi",htmlLang:"vi-VN",published:true,surfaces:Object.freeze(["*"])}),
-  Object.freeze({code:"en",urlCode:"en",htmlLang:"en",published:true,surfaces:Object.freeze(["*"])}),
+  Object.freeze({code:"en",urlCode:"en",htmlLang:"en",published:false,surfaces:Object.freeze([])}),
   Object.freeze({code:"ko",urlCode:"ko",htmlLang:"ko",published:false,surfaces:Object.freeze([])}),
   Object.freeze({code:"ru",urlCode:"ru",htmlLang:"ru",published:false,surfaces:Object.freeze([])}),
   Object.freeze({code:"lo",urlCode:"lo",htmlLang:"lo",published:false,surfaces:Object.freeze([])}),
