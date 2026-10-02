@@ -23,6 +23,10 @@ function fallbackHref(code){
   const path=code===DEFAULT?base:(base==="/"?"/en/":"/en"+base);
   const url=new URL(path,location.origin);
   for(const [key,value] of new URLSearchParams(location.search))if(key!=="lang")url.searchParams.append(key,value);
+  // EN targets are Worker-routed, so the explicit manual choice can still be
+  // persisted by the edge without routing the Vietnamese document itself.
+  if(code!==DEFAULT)url.searchParams.set("lang",code);
+  else url.searchParams.delete("lang");
   url.hash=location.hash;
   return url.pathname+url.search+url.hash;
 }
@@ -33,7 +37,12 @@ function runtimeHref(code){
   if(root.OpenPQI18n){
     try{
       const href=root.OpenPQI18n.languageUrl(code);
-      if(href)return href;
+      if(href){
+        const url=new URL(href,location.origin);
+        if(code!==DEFAULT)url.searchParams.set("lang",code);
+        else url.searchParams.delete("lang");
+        return url.pathname+url.search+url.hash;
+      }
     }catch{}
   }
   return fallbackHref(code);
@@ -49,7 +58,6 @@ function enhance(host){
     if(!code)continue;
     a.dataset.lang=code;
     a.href=runtimeHref(code);
-    a.toggleAttribute("aria-current",code===current);
     if(code===current)a.setAttribute("aria-current","page");
     else a.removeAttribute("aria-current");
     if(!a.dataset.openpqLanguageBound){
