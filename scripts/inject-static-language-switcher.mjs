@@ -2,15 +2,16 @@ import {readFile,writeFile} from "node:fs/promises";
 import {join} from "node:path";
 
 const root=process.argv[2]||"dist";
-const VERSION="prototype4";
+const VERSION="prototype5";
 const SCRIPT=`<script src="/core/language-switcher.js?v=${VERSION}" defer></script>`;
 const STYLE=`<link rel="stylesheet" href="/core/language-switcher.css?v=${VERSION}">`;
 
 // Prototype only. Explicit allowlist prevents generic injection into every
-// public header. Airport already has a native language selector and is checked
-// for duplication but never receives the shared selector in this experiment.
+// public header. Homepage has three real responsive navigation surfaces:
+// mobile More sheet, normal desktop nav and >=1220px workspace rail.
+// Airport already has a native language selector and never receives a shared one.
 const POLICY={
-  "index.html":{mode:"static",vi:"/",en:"/en/",placement:"home-dual",slots:2},
+  "index.html":{mode:"static",vi:"/",en:"/en/",placement:"home-responsive",slots:3},
   "weather/index.html":{mode:"static",vi:"/weather/",en:"/en/weather/",placement:"header-tail",slots:1},
   "transit/index.html":{mode:"static",vi:"/transit/",en:"/en/transit/",placement:"header-tail",slots:1},
   "airport/index.html":{mode:"native",marker:'id="languageSelect"'}
@@ -20,12 +21,16 @@ const count=(text,needle)=>text.split(needle).length-1;
 const selectorMarkup=(cfg,variant="single")=>`<div class="opq-language-auto opq-language-static opq-language-${variant}" data-language-slot="${variant}" data-openpq-language-switcher-auto role="navigation" aria-label="Language"><span class="opq-language-label">Language</span><div class="opq-language-options"><a href="${cfg.vi}" lang="vi-VN" data-lang="vi">VI</a><a href="${cfg.en}" lang="en" data-lang="en">EN</a></div></div>`;
 
 function injectMarkup(html,cfg,rel){
-  if(cfg.placement==="home-dual"){
-    const desktop=selectorMarkup(cfg,"desktop");
+  if(cfg.placement==="home-responsive"){
+    const mid=selectorMarkup(cfg,"mid");
+    const wide=selectorMarkup(cfg,"wide");
     const mobile=selectorMarkup(cfg,"mobile");
     const navRe=/(<nav\b[^>]*\bid=["']primary-nav["'][^>]*>[\s\S]*?)(<\/nav>)/i;
     if(!navRe.test(html))throw new Error(`No primary nav anchor for selector: ${rel}`);
-    html=html.replace(navRe,`$1${desktop}\n$2`);
+    html=html.replace(navRe,`$1${mid}\n$2`);
+    const railRe=/(<div\b[^>]*\bclass=["'][^"']*app-rail-modules[^"']*["'][^>]*>)/i;
+    if(!railRe.test(html))throw new Error(`No workspace rail anchor for selector: ${rel}`);
+    html=html.replace(railRe,`$1${wide}\n`);
     const sheetRe=/(<section\b[^>]*\bclass=["'][^"']*more-sheet[^"']*["'][^>]*>[\s\S]*?)(<div class=["']more-group["']>)/i;
     if(!sheetRe.test(html))throw new Error(`No mobile more-sheet anchor for selector: ${rel}`);
     return html.replace(sheetRe,`$1${mobile}\n$2`);
