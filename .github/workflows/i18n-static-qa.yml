@@ -5,6 +5,8 @@ on:
     branches: ["main"]
     paths:
       - "data/i18n/**"
+      - "core/en-full-site.js"
+      - "functions/_shared/seo-html.js"
       - "scripts/build-static-language-shell.mjs"
       - "scripts/test-static-language-shell.mjs"
       - "scripts/visual-qa-i18n-static.mjs"
