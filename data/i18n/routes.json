@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "default_locale": "vi",
   "static_shells": [
-    {"path":"/","file":"index.html","selector":"static","autodetect":true},
+    {"path":"/","file":"index.html","selector":"static","autodetect":true,"placement":"after-header"},
     {"path":"/go/","file":"go/index.html","selector":"static","autodetect":true},
     {"path":"/nearme/","file":"nearme/index.html","selector":"static","autodetect":true},
     {"path":"/explore/","file":"explore/index.html","selector":"static","autodetect":true},
