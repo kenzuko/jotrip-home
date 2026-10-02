@@ -67,11 +67,18 @@ function insertEarlyBootstrap(html,script){
   return html.slice(0,at)+script+html.slice(at);
 }
 
-let built=0,native=0;
+let built=0,native=0,viOnly=0;
 for(const route of routes.static_shells||[]){
   const file=join(root,route.file);
   if(!existsSync(file))throw new Error("i18n route file missing: "+route.file);
   let html=readFileSync(file,"utf8");
+  if(route.selector==="none"){
+    if(route.locale_status!=="vi-only"||!route.reason)throw new Error("Selector-none public route needs explicit vi-only status and reason: "+route.path);
+    if(route.autodetect)throw new Error("VI-only route must not auto-detect into an unpublished locale counterpart: "+route.path);
+    if(html.includes("data-openpq-language-static"))throw new Error("VI-only route must not contain the common language selector: "+route.file);
+    viOnly++;
+    continue;
+  }
   if(route.selector==="native"){
     if(!html.match(/id=["']languageSelect["']/))throw new Error("Native language selector missing: "+route.file);
     if(route.native_bridge!=="airport")throw new Error("Unknown native language bridge for "+route.path+": "+String(route.native_bridge||""));
@@ -101,4 +108,4 @@ for(const route of routes.static_shells||[]){
   writeFileSync(file,html,"utf8");
   built++;
 }
-console.log(`Static language shell ready: ${built} static selector page(s), ${native} bridged native selector page(s)`);
+console.log(`Static language shell ready: ${built} static selector page(s), ${native} bridged native selector page(s), ${viOnly} explicit VI-only page(s)`);
