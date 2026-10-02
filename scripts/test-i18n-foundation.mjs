@@ -5,10 +5,10 @@ assert.equal(manifest.default_locale,"vi");
 assert.equal(manifest.url_strategy,"default-unprefixed");
 const rows=manifest.locales||[];
 assert.ok(rows.length>=2);
-assert.equal(rows.filter(x=>x.published).length,2,"Vietnamese and reviewed English must be public after the full-site English release");
+assert.equal(rows.filter(x=>x.published).length,1,"Only Vietnamese may be public while English is paused");
 assert.equal(rows.find(x=>x.code==="vi")?.published,true);
-assert.equal(rows.find(x=>x.code==="en")?.published,true);
-assert.deepEqual(rows.find(x=>x.code==="en")?.surfaces,["*"]);
+assert.equal(rows.find(x=>x.code==="en")?.published,false);
+assert.deepEqual(rows.find(x=>x.code==="en")?.surfaces,[]);
 assert.equal(new Set(rows.map(x=>x.code)).size,rows.length);
 assert.equal(new Set(rows.map(x=>x.url_code)).size,rows.length);
 for(const row of rows){
@@ -16,8 +16,8 @@ for(const row of rows){
   assert.match(row.url_code,/^[a-z]{2,3}(?:-[a-z]+)?$/);
   assert.ok(row.html_lang&&row.native_name&&row.direction);
   assert.ok(Array.isArray(row.surfaces));
-  if(["vi","en"].includes(row.code))assert.deepEqual(row.surfaces,["*"]);
-  else assert.equal(row.surfaces.length,0,"Unreviewed locales stay locked until their own full-site release");
+  if(row.code==="vi")assert.deepEqual(row.surfaces,["*"]);
+  else assert.equal(row.surfaces.length,0,"Non-Vietnamese locales stay locked while public English is paused");
 }
 const server=await import("data:text/javascript;base64,"+Buffer.from(readFileSync("functions/_shared/i18n.js","utf8")).toString("base64"));
 assert.equal(server.DEFAULT_LOCALE,"vi");
@@ -27,21 +27,21 @@ assert.deepEqual(server.LOCALES.map(x=>({code:x.code,url_code:x.urlCode,html_lan
 assert.equal(server.localizedPath("/stories/article.html","vi"),"/stories/article.html");
 assert.equal(server.localizedPath("/stories/article.html","en"),"/en/stories/article.html");
 assert.deepEqual(server.splitLocalePath("/en/stories/article.html").pathname,"/stories/article.html");
-assert.equal(server.splitLocalePath("/en/stories/article.html").published,true);
+assert.equal(server.splitLocalePath("/en/stories/article.html").published,false);
 assert.equal(server.splitLocalePath("/vi/stories/").defaultPrefixed,true);
 assert.equal(server.splitLocalePath("/vi/stories/").pathname,"/stories/");
 assert.equal(server.routeGroup("/stories/article.html"),"stories");
 assert.equal(server.localeCanServe("vi","/weather/"),true);
-assert.equal(server.localeCanServe("en","/stories/"),true);
-assert.equal(server.localeCanServe("en","/weather/"),true);
-assert.equal(server.localeCanServe("en","/airport/"),true);
+assert.equal(server.localeCanServe("en","/stories/"),false);
+assert.equal(server.localeCanServe("en","/weather/"),false);
+assert.equal(server.localeCanServe("en","/airport/"),false);
 assert.equal(server.localeFromLanguageTag("en-US")?.code,"en");
 assert.equal(server.localeFromLanguageTag("zh-TW")?.code,"zh-Hant");
 assert.equal(server.localeFromLanguageTag("zh-CN")?.code,"zh-Hans");
-assert.equal(server.preferredPublishedLocale("en-US,en;q=0.9","/stories/"),"en",
-  "English browser should use the reviewed English site after publication");
-assert.equal(server.preferredPublishedLocale("en-US,en;q=0.9","/weather/"),"en",
-  "English should be available on every public surface after full-site publication");
+assert.equal(server.preferredPublishedLocale("en-US,en;q=0.9","/stories/"),"vi",
+  "English browser must fall back to Vietnamese while English is paused");
+assert.equal(server.preferredPublishedLocale("en-US,en;q=0.9","/weather/"),"vi",
+  "English browser must fall back to Vietnamese while English is paused");
 assert.equal(server.canonicalFor("/guide/article.html?id=x","vi"),"https://openphuquoc.com/guide/article.html?id=x");
 assert.equal(server.canonicalFor("/guide/article.html?id=x","ko"),"https://openphuquoc.com/ko/guide/article.html?id=x");
 assert.equal(server.alternateSet("/stories/article.html",["vi","en"]).at(-1).hreflang,"x-default");
@@ -63,19 +63,19 @@ assert.match(worker,/localizedPageSupported/,
   "Worker must apply one public-shell locale policy");
 const enRuntime=readFileSync("core/en-full-site.js","utf8");
 assert.match(enRuntime,/MutationObserver/,
-  "English presentation layer must cover dynamically rendered copy");
+  "English presentation layer remains available for future review");
 assert.match(enRuntime,/site-shell\.json/,
-  "English presentation layer must load the reviewed site-wide shell dictionary");
+  "English presentation layer must keep the reviewed site-wide shell dictionary");
 assert.ok(readFileSync("data/i18n/en/site-shell.json","utf8").includes('"locale": "en"'));
 assert.match(switcher,/querySelector\("\.site-header, header\.top, header\.knowledge-header/,
-  "Language selector must mount in the public header");
+  "Language selector runtime remains available but must not expose unpublished English");
 assert.match(worker,/openpq_lang/);
 const seoHtml=readFileSync("functions/_shared/seo-html.js","utf8");
 assert.match(seoHtml,/i18n-runtime\.js\?v=4/);
 assert.match(seoHtml,/language-switcher\.js\?v=4/);
-assert.match(seoHtml,/data-openpq-language-switcher-server/,"Worker HTML must include a server-rendered VI/EN selector");
-assert.ok(seoHtml.includes("body > .opq-language-auto"),"Server selector must remain visible before client enhancement");
-assert.ok(seoHtml.includes('.on("body"'),"Worker must inject the fallback into the response body");
-assert.match(switcher,/serverFallback/,"Client enhancement must preserve the server selector when locale catalog loading fails");
+assert.match(seoHtml,/data-openpq-language-switcher-server/);
+assert.ok(seoHtml.includes("body > .opq-language-auto"));
+assert.ok(seoHtml.includes('.on("body"'));
+assert.match(switcher,/serverFallback/);
 assert.match(worker,/private, no-store/);
-console.log("PASS i18n foundation: locale registry, URL policy, canonical paths and publication lock");
+console.log("PASS i18n foundation: Vietnamese-only publication lock with English paused");
