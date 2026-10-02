@@ -9,7 +9,42 @@ const isEnglish=()=>String(document.documentElement.lang||"").toLowerCase().star
 if(!isEnglish())return;
 
 const state={copy:{exact:{},routes:{}},ready:null,muting:false};
-const DICTIONARY="/data/i18n/en/site-shell.json";
+const DICTIONARY="/data/i18n/en/site-shell.json?v=20261002-homecopy1";
+const HOME_DYNAMIC={
+  "TIN NHANH":"QUICK UPDATE",
+  "LƯU Ý":"NOTICE",
+  "PHÚ QUỐC · NGAY LÚC NÀY":"PHU QUOC · RIGHT NOW",
+  "Phú Quốc, ngay lúc này.":"Phu Quoc, right now.",
+  "Nhìn đúng tình trạng của đảo, chọn đúng việc đáng làm rồi đi tiếp với những thông tin thật sự hữu ích.":"See the island as it is, choose what is worth doing, then move on with information that actually helps.",
+  "MỘT NĂM TRONG NHÀ THÙNG":"A YEAR IN THE BARREL HOUSE",
+  "AN THỚI LÊN ĐÈN":"AN THOI LIGHTS UP",
+  "MÙI CAY CỦA ĐẤT ĐỎ":"THE SPICE OF RED SOIL",
+  "NHỊP SỐNG VEN BIỂN":"LIFE BY THE SEA",
+  "Những thùng gỗ ủ nước mắm truyền thống ở Phú Quốc":"Traditional wooden fish sauce barrels in Phu Quoc",
+  "An Thới và Sunset Town":"An Thoi and Sunset Town",
+  "Vườn tiêu Phú Quốc":"Phu Quoc pepper farm",
+  "Ghe tàu ven biển Phú Quốc":"Boats along the Phu Quoc coast",
+  "CÓ GÌ HÔM NAY":"WHAT'S HAPPENING TODAY",
+  "Phú Quốc có gì?":"What's happening in Phu Quoc?",
+  "HÔM NAY ĐI ĐÂU":"WHERE TO GO TODAY",
+  "Chọn một Phú Quốc hợp với hôm nay.":"Choose the side of Phu Quoc that fits today.",
+  "KHÔNG NÊN BỎ LỠ":"DON'T MISS",
+  "Nếu chỉ có vài ngày ở đảo.":"If you only have a few days on the island.",
+  "KHÁM PHÁ THEO KHU VỰC":"EXPLORE BY AREA",
+  "Mỗi khu vực của đảo có một nhịp rất khác.":"Each part of the island has its own rhythm.",
+  "ĂN GÌ Ở PHÚ QUỐC":"WHAT TO EAT IN PHU QUOC",
+  "Không chỉ là hải sản.":"More than seafood.",
+  "CẦN LÀ CÓ":"ESSENTIALS",
+  "Thông tin thực dụng.":"Practical information.",
+  "DI SẢN & CHẤT ĐẢO":"HERITAGE & ISLAND CHARACTER",
+  "Phú Quốc không chỉ có biển.":"Phu Quoc is more than beaches.",
+  "Những thứ làm nên mùi, vị và ký ức của đảo — nghề biển, nước mắm, hồ tiêu và những câu chuyện địa phương.":"What gives the island its smell, taste and memory — fishing life, fish sauce, pepper and local stories.",
+  "HIỂU PHÚ QUỐC NHANH":"UNDERSTAND PHU QUOC FAST",
+  "Hiểu đảo trong vài phút.":"Understand the island in a few minutes.",
+  "Hiểu rõ Phú Quốc, lịch trình thảnh thơi.":"Understand Phu Quoc and travel with less guesswork.",
+  "Theo dõi tình trạng, thời tiết và đường đi trước khi di chuyển để không bỏ lỡ những gì đáng trải nghiệm và tránh những chuyến đi xa không cần thiết.":"Check current conditions, weather and routes before you move, so you do not miss what matters or make an unnecessary long trip.",
+  "Nền tảng thông tin miễn phí cho cộng đồng & du khách, được xây dựng và vận hành tại Phú Quốc bởi JoTrip.":"A free information platform for the community and visitors, built and operated in Phu Quoc by JoTrip."
+};
 const COMMON=[
   ["Phú Quốc","Phu Quoc"],["Dương Đông","Duong Dong"],["An Thới","An Thoi"],["Gành Dầu","Ganh Dau"],
   ["Cửa Cạn","Cua Can"],["Bãi Thơm","Bai Thom"],["Hàm Ninh","Ham Ninh"],["Bãi Sao","Bai Sao"],
@@ -67,7 +102,8 @@ function preserve(raw,next){
   return lead+next+tail;
 }
 function exactMap(){
-  return Object.assign({},state.copy.exact||{},state.copy.routes?.[routeKey()]||{});
+  const key=routeKey();
+  return Object.assign({},state.copy.exact||{},key==="home"?HOME_DYNAMIC:{},state.copy.routes?.[key]||{});
 }
 function translateString(raw){
   if(typeof raw!=="string"||!raw.trim())return raw;
@@ -89,7 +125,7 @@ function translateTextNode(node){
 }
 function translateAttrs(el){
   if(!(el instanceof Element))return;
-  for(const name of ["placeholder","aria-label","title","alt","value"]){
+  for(const name of ["placeholder","aria-label","title","alt","value","data-label"]){
     if(!el.hasAttribute(name))continue;
     const raw=el.getAttribute(name),next=translateString(raw);
     if(next!==raw)el.setAttribute(name,next);
@@ -128,11 +164,11 @@ async function load(){
   if(state.ready)return state.ready;
   state.ready=(async()=>{
     try{
-      const r=await fetch(DICTIONARY,{cache:"default"});
+      const r=await fetch(DICTIONARY,{cache:"no-store"});
       if(r.ok)state.copy=await r.json();
     }catch{}
-    walk(document);
-    translateHead();
+    const rescan=()=>{walk(document);translateHead()};
+    rescan();
     const observer=new MutationObserver(records=>{
       if(state.muting)return;
       state.muting=true;
@@ -145,8 +181,12 @@ async function load(){
         translateHead();
       }finally{state.muting=false}
     });
-    observer.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:["placeholder","aria-label","title","alt","value"]});
+    observer.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:["placeholder","aria-label","title","alt","value","data-label"]});
     document.documentElement.dataset.openpqEnglishReady="true";
+    document.dispatchEvent(new CustomEvent("openpq:english-ready"));
+    queueMicrotask(rescan);
+    setTimeout(rescan,100);
+    setTimeout(rescan,750);
     return state;
   })();
   return state.ready;
