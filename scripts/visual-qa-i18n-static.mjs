@@ -54,27 +54,39 @@ for(const width of [320,390,768,1366]){
   await context.close();
 }
 
-// Browser English must redirect once to the canonical /en counterpart. Manual VI
-// then wins over browser language and must not bounce back to English.
+// First visit only detects the browser language. It does not force-navigation.
+// Once the visitor chooses a language, that explicit preference is remembered
+// and may safely redirect future unprefixed static pages.
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"en-US"});
   await workerlessEnglishFulfill(context);
   const page=await context.newPage();
   try{
     await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:15000});
+    if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"first-visit-forced-redirect",page.url());
+    const suggested=await page.evaluate(()=>document.documentElement.dataset.openpqSuggestLang||"");
+    if(suggested!=="en")fail("/weather/",390,"browser-language-not-detected",suggested);
+
+    await page.locator('[data-openpq-language-static] [data-openpq-lang="en"]').click();
     await page.waitForURL(/\/en\/weather\//,{timeout:5000});
-    if(!page.url().includes("point=duong-dong")||!page.url().endsWith("#today"))fail("/weather/",390,"autodetect-lost-query-hash",page.url());
-    if(await page.locator('[data-openpq-language-static]').count()!==1)fail("/en/weather/",390,"english-selector-count");
+    if(!page.url().includes("point=duong-dong")||!page.url().endsWith("#today"))fail("/en/weather/",390,"manual-en-lost-query-hash",page.url());
+    const storedEn=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
+    if(storedEn.local!=="en"||!storedEn.cookie.includes("openpq_lang=en"))fail("/en/weather/",390,"manual-en-not-persisted",JSON.stringify(storedEn));
+
+    await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:15000});
+    await page.waitForURL(/\/en\/weather\//,{timeout:5000});
+    if(!page.url().includes("point=duong-dong")||!page.url().endsWith("#today"))fail("/en/weather/",390,"remembered-en-lost-query-hash",page.url());
+
     await page.locator('[data-openpq-language-static] [data-openpq-lang="vi"]').click();
     await page.waitForURL(url=>url.pathname==="/weather/",{timeout:5000});
     await page.waitForTimeout(250);
     if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"manual-vi-bounced-back",page.url());
-    const stored=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
-    if(stored.local!=="vi"||!stored.cookie.includes("openpq_lang=vi"))fail("/weather/",390,"manual-preference-not-persisted",JSON.stringify(stored));
-  }catch(error){fail("/weather/",390,"autodetect-exception",String(error.message||error))}
+    const storedVi=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
+    if(storedVi.local!=="vi"||!storedVi.cookie.includes("openpq_lang=vi"))fail("/weather/",390,"manual-vi-not-persisted",JSON.stringify(storedVi));
+  }catch(error){fail("/weather/",390,"preference-roundtrip-exception",String(error.message||error))}
   finally{await page.close();await context.close()}
 }
 
 await browser.close();
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1)}
-console.log(`PASS browser i18n QA: ${staticRoutes.length} static shells + ${nativeRoutes.length} native shell; 4 viewports; EN autodetect/manual VI round-trip`);
+console.log(`PASS browser i18n QA: ${staticRoutes.length} static shells + ${nativeRoutes.length} native shell; 4 viewports; safe detect + remembered VI/EN round-trip`);
