@@ -9,6 +9,7 @@ on:
       - "core/en-dynamic-islands-prototype.mjs"
       - "scripts/inject-static-language-switcher.mjs"
       - "scripts/test-i18n-selector-weather-prototype.mjs"
+      - "scripts/visual-qa-i18n-selector-prototype.mjs"
       - "scripts/build-cloudflare.mjs"
       - ".github/workflows/i18n-selector-weather-prototype.yml"
   workflow_dispatch:
@@ -19,7 +20,7 @@ permissions:
 jobs:
   isolated-prototype:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,7 +28,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Run isolated prototype tests
+      - name: Run isolated contract tests
         run: node scripts/test-i18n-selector-weather-prototype.mjs
       - name: Prove routing and production Worker entrypoints are untouched
         shell: bash
@@ -39,3 +40,21 @@ jobs:
             exit 1
           fi
           echo "PASS: no production routing/deploy config changes"
+      - name: Install browser QA only
+        run: |
+          npm install --no-save --package-lock=false playwright@1.63.0
+          npx playwright install --with-deps chromium
+      - name: Build production-like static bundle
+        run: node scripts/build-cloudflare.mjs
+      - name: Start isolated static server
+        shell: bash
+        run: |
+          python3 -m http.server 4188 --bind 127.0.0.1 --directory dist >/tmp/openpq-prototype-server.log 2>&1 &
+          echo $! >/tmp/openpq-prototype-server.pid
+          for i in {1..20}; do curl -fsS http://127.0.0.1:4188/ >/dev/null && exit 0; sleep 1; done
+          cat /tmp/openpq-prototype-server.log
+          exit 1
+      - name: Browser safety and layout gate
+        env:
+          VISUAL_QA_BASE_URL: http://127.0.0.1:4188
+        run: node scripts/visual-qa-i18n-selector-prototype.mjs
