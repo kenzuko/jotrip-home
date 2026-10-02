@@ -7,7 +7,7 @@ import {classifyForecastFreshness} from "../core/weather-freshness-policy.mjs";
 import {observeDynamicIsland} from "../core/en-dynamic-islands-prototype.mjs";
 
 const root=await mkdtemp(join(tmpdir(),"openpq-selector-prototype-"));
-const homeHtml=()=>`<!doctype html><html><head><title>x</title></head><body><header class="site-header"><a class="brand">Logo</a><div id="siteAreaButton">Area</div><nav class="desktop-nav" id="primary-nav"><a>Home</a></nav><button class="header-search">S</button><button class="menu-button">M</button></header><main>x</main></body></html>`;
+const homeHtml=()=>`<!doctype html><html><head><title>x</title></head><body><header class="site-header"><a class="brand">Logo</a><div id="siteAreaButton">Area</div><nav class="desktop-nav" id="primary-nav"><a>Home</a></nav><button class="header-search">S</button><button class="menu-button">M</button></header><main>x</main><section class="more-sheet" id="more-sheet" hidden><div class="more-head"><b>Menu</b></div><div class="more-group">Links</div></section></body></html>`;
 const html=extra=>`<!doctype html><html><head><title>x</title></head><body><header>${extra||""}<b>Header</b></header><main>x</main></body></html>`;
 for(const rel of ["weather/index.html","transit/index.html","airport/index.html","other/index.html"])await mkdir(join(root,rel.split("/").slice(0,-1).join("/")),{recursive:true});
 await writeFile(join(root,"index.html"),homeHtml());
@@ -21,24 +21,26 @@ function runInjector(){
   assert.equal(run.status,0,run.stderr||run.stdout);
 }
 runInjector();
-for(const rel of ["index.html","weather/index.html","transit/index.html"]){
+for(const [rel,slots] of [["index.html",2],["weather/index.html",1],["transit/index.html",1]]){
   const out=await readFile(join(root,rel),"utf8");
-  assert.equal(out.split("data-language-slot").length-1,1,rel+" must have exactly one selector slot");
+  assert.equal(out.split("data-language-slot=").length-1,slots,rel+` must have ${slots} explicit selector slot(s)`);
   assert.equal(out.split("/core/language-switcher.js").length-1,1,rel+" must load selector JS once");
   assert.equal(out.split("/core/language-switcher.css").length-1,1,rel+" must load selector CSS once");
 }
 const home=await readFile(join(root,"index.html"),"utf8");
 const primaryNav=home.match(/<nav\b[^>]*id=["']primary-nav["'][^>]*>([\s\S]*?)<\/nav>/i)?.[1]||"";
-assert.match(primaryNav,/data-language-slot/,"homepage selector must live inside the existing menu/nav flow, not widen the narrow header row");
+const mobileSheet=home.match(/<section\b[^>]*class=["'][^"']*more-sheet[^"']*["'][^>]*>([\s\S]*?)<\/section>/i)?.[1]||"";
+assert.match(primaryNav,/data-language-slot="desktop"/,"desktop homepage selector must live inside the existing nav flow, not widen the header row");
+assert.match(mobileSheet,/data-language-slot="mobile"/,"mobile homepage selector must live inside the existing More sheet");
 const airport=await readFile(join(root,"airport/index.html"),"utf8");
 assert.match(airport,/id="languageSelect"/);
 assert.doesNotMatch(airport,/data-language-slot|\/core\/language-switcher\.js/);
 const other=await readFile(join(root,"other/index.html"),"utf8");
 assert.doesNotMatch(other,/data-language-slot|\/core\/language-switcher\.js/);
 runInjector();
-for(const rel of ["index.html","weather/index.html","transit/index.html"]){
+for(const [rel,slots] of [["index.html",2],["weather/index.html",1],["transit/index.html",1]]){
   const out=await readFile(join(root,rel),"utf8");
-  assert.equal(out.split("data-language-slot").length-1,1,rel+" injection must be idempotent");
+  assert.equal(out.split("data-language-slot=").length-1,slots,rel+" injection must be idempotent");
 }
 
 const now=Date.parse("2026-10-02T08:00:00+07:00");
@@ -108,6 +110,7 @@ handle.disconnect();
 const selectorSource=await readFile("core/language-switcher.js","utf8");
 assert.doesNotMatch(selectorSource,/createElement\(["']nav["']\)/,"selector runtime must not invent a nav");
 assert.doesNotMatch(selectorSource,/querySelector\(["']\.site-header/,"selector runtime must not guess a header");
+assert.match(selectorSource,/querySelectorAll\("\[data-language-slot\]/,"runtime must enhance all explicit desktop/mobile selector slots");
 const islandSource=await readFile("core/en-dynamic-islands-prototype.mjs","utf8");
 assert.doesNotMatch(islandSource,/document\.documentElement/,"scoped observer must not watch the whole document");
 const css=await readFile("core/language-switcher.css","utf8");
@@ -115,4 +118,4 @@ const js=await readFile("core/language-switcher.js","utf8");
 assert.ok(Buffer.byteLength(css)+Buffer.byteLength(js)<14000,"selector prototype JS+CSS budget must stay under 14 KB uncompressed");
 
 await rm(root,{recursive:true,force:true});
-console.log("PASS prototype: scoped selector, narrow-header-safe homepage placement, native Airport exclusion, idempotent build injection, Weather freshness safety matrix, batched EN dynamic islands");
+console.log("PASS prototype: route-owned desktop/mobile selector surfaces, native Airport exclusion, idempotent build injection, Weather freshness safety matrix, batched EN dynamic islands");
