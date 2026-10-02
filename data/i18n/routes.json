@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "default_locale": "vi",
+  "static_shells": [
+    {"path":"/","file":"index.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/go/","file":"go/index.html","selector":"static","autodetect":true},
+    {"path":"/nearme/","file":"nearme/index.html","selector":"static","autodetect":true},
+    {"path":"/explore/","file":"explore/index.html","selector":"static","autodetect":true},
+    {"path":"/food/","file":"food/index.html","selector":"static","autodetect":true},
+    {"path":"/food/article.html","file":"food/article.html","selector":"static","autodetect":true,"availability":"published-family","alternates":false,"query_sensitive":true},
+    {"path":"/stories/","file":"stories/index.html","selector":"static","autodetect":true},
+    {"path":"/guide/","file":"guide/index.html","selector":"static","autodetect":true},
+    {"path":"/guide/knowledge.html","file":"guide/knowledge.html","selector":"static","autodetect":true},
+    {"path":"/places/","file":"places/index.html","selector":"static","autodetect":true},
+    {"path":"/news/","file":"news/index.html","selector":"static","autodetect":true},
+    {"path":"/news/awaken-sea-20261001.html","file":"news/awaken-sea-20261001.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/news/ngay-van-hoa-viet-nam-han-quoc-2026.html","file":"news/ngay-van-hoa-viet-nam-han-quoc-2026.html","selector":"none","autodetect":false,"locale_status":"vi-only","reason":"New public event article has no reviewed English body yet; fail closed instead of exposing a false /en/ translation."},
+    {"path":"/weather/","file":"weather/index.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/weather/weather-history.html","file":"weather/weather-history.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/weather/weather-scene-v3.html","file":"weather/weather-scene-v3.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/airport/","file":"airport/index.html","selector":"native","autodetect":true,"native_bridge":"airport"},
+    {"path":"/transit/","file":"transit/index.html","selector":"static","autodetect":true},
+    {"path":"/bus/","file":"bus/index.html","selector":"static","autodetect":true},
+    {"path":"/cano/","file":"cano/index.html","selector":"static","autodetect":true},
+    {"path":"/cano/history/","file":"cano/history/index.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/about/","file":"about/index.html","selector":"static","autodetect":true},
+    {"path":"/about/feedback-privacy.html","file":"about/feedback-privacy.html","selector":"static","autodetect":true,"placement":"after-header"},
+    {"path":"/utilities/","file":"utilities/index.html","selector":"static","autodetect":true},
+    {"path":"/currency/","file":"currency/index.html","selector":"static","autodetect":true},
+    {"path":"/ferry/","file":"ferry/index.html","selector":"static","autodetect":true},
+    {"path":"/hotels/","file":"hotels/index.html","selector":"static","autodetect":true}
+  ],
+  "entity_shells": [
+    {"path":"/stories/article.html","file":"stories/article.html","selector":"edge","availability":"entity"},
+    {"path":"/guide/article.html","file":"guide/article.html","selector":"edge","availability":"entity"},
+    {"path":"/places/detail.html","file":"places/detail.html","selector":"edge","availability":"route"}
+  ],
+  "excluded_html": [
+    {"file":"weather/spatial-lab.html","reason":"Noindex internal Weather spatial analysis tool; not a canonical public locale-navigation surface."}
+  ],
+  "rules": {
+    "static_selector_locales": ["vi","en"],
+    "manual_preference_key": "openpq_lang",
+    "static_pages_must_not_require_worker_for_language": true,
+    "unpublished_locales_hidden": true,
+    "untranslated_public_pages_fail_closed": true
+  }
+}

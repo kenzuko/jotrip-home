@@ -12,7 +12,9 @@ const guideById=new Map((knowledge.objects||[])
   .map(x=>[x.topic_id,x]));
 
 const browser=await chromium.launch({headless:true});
-const context=await browser.newContext({viewport:{width:1280,height:820}});
+// This suite validates the existing Vietnamese public experience. Locale routing
+// is covered by the dedicated i18n QA, so keep this regression suite pinned to VI.
+const context=await browser.newContext({viewport:{width:1280,height:820},locale:"vi-VN"});
 const page=await context.newPage();
 
 const storyIdFromHref=href=>new URL(href,BASE).searchParams.get("id");
@@ -37,7 +39,6 @@ async function assertGuideDestination(href,label){
   assert.equal((await h1.textContent())?.trim(),expected.title,label+" opened the wrong guide");
 }
 
-// Click every story-card image surface, not merely inspect href attributes.
 await page.goto(BASE+"/stories/",{waitUntil:"domcontentloaded"});
 await page.locator("a.story-card").first().waitFor({state:"visible",timeout:5000});
 const storyCardCount=await page.locator("a.story-card").count();
@@ -60,7 +61,6 @@ for(let i=0;i<storyCardCount;i++){
   assert.equal((await h1.textContent())?.trim(),expected.title,"Story-card image opened wrong article");
 }
 
-// Homepage long stories: click the image within each rendered card.
 await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
 await page.locator("#islandStoryGrid .island-story-card").first().waitFor({state:"visible",timeout:7000});
 const islandHrefs=await page.locator("#islandStoryGrid .island-story-card").evaluateAll(nodes=>nodes.map(x=>x.getAttribute("href")));
@@ -76,7 +76,6 @@ for(const [i,href] of islandHrefs.entries()){
   assert.equal((await h1.textContent())?.trim(),storyById.get(id)?.title,"Homepage long-story image opened wrong article");
 }
 
-// Curiosity has two explicit actions: image/title navigates; quick-answer expands in place.
 await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
 await page.locator("#curiosityRail .curiosity-story-link").first().waitFor({state:"visible",timeout:7000});
 const curiosityHrefs=await page.locator("#curiosityRail .curiosity-story-link").evaluateAll(nodes=>nodes.map(x=>x.getAttribute("href")));
@@ -100,13 +99,9 @@ assert.equal(page.url(),before,"Quick curiosity answer must not navigate");
 assert.equal(await quick.getAttribute("aria-expanded"),"true","Quick curiosity answer must expand");
 assert.ok(await page.locator("#curiosityRail .curiosity-answer").first().isVisible(),"Quick curiosity answer content must be visible");
 
-// Homepage guide cards must open their exact public article.
 await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
 const library=page.locator("#home-library");
 await library.scrollIntoViewIfNeeded();
-// The initial HTML contains an editorial fallback. Wait for the public guide
-// feed to replace it before retaining locators, otherwise the observed card can
-// be detached between waitFor() and click().
 await page.locator("#home-library .home-library-card[data-guide-id]").first().waitFor({state:"visible",timeout:7000});
 const guideHrefs=await page.locator("#home-library .home-library-card").evaluateAll(nodes=>nodes.map(x=>x.getAttribute("href")));
 assert.ok(guideHrefs.length>=3,"Homepage should expose at least three guide cards");
@@ -117,16 +112,12 @@ for(const [i,href] of guideHrefs.entries()){
   const id=new URL(href,BASE).searchParams.get("id");
   const card=page.locator('#home-library .home-library-card[data-guide-id="'+id+'"]').first();
   await card.waitFor({state:"visible",timeout:7000});
-  // The whole card is the navigation target. Images can intentionally collapse
-  // when an external editorial asset is unavailable, so QA must exercise the
-  // user-visible card instead of requiring a visible <figure>.
   await card.click();
   await page.waitForURL(url=>url.pathname.endsWith("/guide/article.html")&&url.searchParams.get("id")===id,{timeout:5000});
   const h1=page.locator("#knowledgeArticle h1");await h1.waitFor({state:"visible",timeout:5000});
   assert.equal((await h1.textContent())?.trim(),guideById.get(id)?.title,"Homepage guide card opened wrong article");
 }
 
-// Homepage food cards must behave as whole-card article links, not CTA-only surfaces.
 await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
 await page.locator("#foodNowGrid .food-now-card.featured-food-card").first().waitFor({state:"visible",timeout:7000});
 const foodCards=page.locator("#foodNowGrid a.food-now-card.featured-food-card");
@@ -144,7 +135,6 @@ for(let i=0;i<foodCount;i++){
   assert.equal(await page.locator("#foodArticle").getAttribute("data-food-id"),id,"Homepage food card opened wrong dish");
 }
 
-// Homepage news cards are also whole-card links.
 await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
 await page.locator("#hotNowList a.hot-card").first().waitFor({state:"visible",timeout:7000});
 const newsCards=page.locator("#hotNowList a.hot-card");
@@ -154,7 +144,6 @@ for(let i=0;i<await newsCards.count();i++){
   await card.click({trial:true});
 }
 
-// Invalid IDs must never fall through to article zero.
 await page.goto(BASE+"/stories/article.html?id=__missing_story__",{waitUntil:"domcontentloaded"});
 await page.locator("#articleRoot h1").waitFor({state:"visible",timeout:5000});
 assert.match((await page.locator("#articleRoot h1").textContent())||"",/Không tìm thấy bài viết này/,

@@ -134,6 +134,7 @@ function translateAttrs(el){
 }
 function localizeLink(el){
   if(!(el instanceof HTMLAnchorElement))return;
+  if(el.hasAttribute("data-openpq-lang")||el.closest?.("[data-openpq-language-static]"))return;
   const raw=el.getAttribute("href")||"";
   if(!raw||raw.startsWith("#")||/^(?:mailto:|tel:|javascript:)/i.test(raw))return;
   let url;

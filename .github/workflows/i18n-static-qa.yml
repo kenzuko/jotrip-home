@@ -1,0 +1,57 @@
+name: OpenPQ i18n Static QA
+
+on:
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "data/i18n/**"
+      - "core/en-full-site.js"
+      - "functions/_shared/seo-html.js"
+      - "scripts/build-static-language-shell.mjs"
+      - "scripts/test-static-language-shell.mjs"
+      - "scripts/visual-qa-i18n-static.mjs"
+      - "scripts/visual-qa-i18n-airport.mjs"
+      - "scripts/build-cloudflare.mjs"
+      - ".github/workflows/i18n-static-qa.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  static-language:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Assert language changes do not alter production routing
+        run: |
+          git diff --exit-code origin/main...HEAD -- worker.js wrangler.jsonc .github/workflows/cloudflare-worker.yml
+      - name: Install browser QA dependency
+        run: npm install --no-save --package-lock=false playwright@1.63.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Build production-like bundle
+        run: node scripts/build-cloudflare.mjs
+      - name: Start static bundle
+        working-directory: dist
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/openpq-i18n-static.log 2>&1 &
+          for i in {1..20}; do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/openpq-i18n-static.log
+          exit 1
+      - name: Run bounded static-first browser matrix
+        env:
+          VISUAL_QA_BASE_URL: http://127.0.0.1:4173
+        run: timeout 7m node scripts/visual-qa-i18n-static.mjs
+      - name: Run bounded Airport native-language QA
+        env:
+          VISUAL_QA_BASE_URL: http://127.0.0.1:4173
+        run: timeout 4m node scripts/visual-qa-i18n-airport.mjs
