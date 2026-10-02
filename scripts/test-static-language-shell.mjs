@@ -20,6 +20,11 @@ for(const route of routes.static_shells||[]){
   }
   assert.equal((html.match(/<nav\b[^>]*\bdata-openpq-language-static\b/gi)||[]).length,1,"Exactly one static selector nav required: "+route.path);
   assert.equal((html.match(/id="openpq-static-language-bootstrap"/g)||[]).length,route.autodetect?1:0,"Unexpected bootstrap count: "+route.path);
+  if(route.autodetect){
+    const bootstrapAt=html.indexOf('id="openpq-static-language-bootstrap"');
+    const stylesheetAt=html.search(/<link\b[^>]*rel=["']stylesheet["']/i);
+    if(stylesheetAt>=0)assert.ok(bootstrapAt>=0&&bootstrapAt<stylesheetAt,"Device-language bootstrap must run before render-blocking stylesheets: "+route.path);
+  }
   assert.match(html,/data-openpq-lang="vi"/,"VI selector link missing: "+route.path);
   assert.match(html,/data-openpq-lang="en"/,"EN selector link missing: "+route.path);
   assert.doesNotMatch(html,/data-openpq-lang="(?:ko|ru|lo|fr|zh)/,"Unpublished locale leaked into selector: "+route.path);
@@ -32,6 +37,8 @@ for(const route of routes.static_shells||[]){
   if(route.alternates===false)assert.doesNotMatch(html,/hreflang="x-default"/,"Query-sensitive shell must not publish incomplete static alternates: "+route.path);
   else assert.match(html,/hreflang="x-default"/,"x-default alternate missing: "+route.path);
   assert.doesNotMatch(html,/catalog\.json/,"Static selector/bootstrap must not depend on the locale catalog at runtime: "+route.path);
+  assert.doesNotMatch(html,/\/core\/language-switcher\.js/i,"VI static shell must not load the legacy language-switcher runtime: "+route.path);
+  assert.doesNotMatch(html,/\/core\/i18n-runtime\.js/i,"VI static shell must not load locale runtime merely to render its selector: "+route.path);
   assert.match(html,/\.opq-language-auto\{display:none!important\}/,"Legacy Worker selector must be hidden when static shell owns language UI: "+route.path);
 }
 
@@ -91,4 +98,4 @@ const wrangler=readFileSync("wrangler.jsonc","utf8");
 for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: early device detect, zero legacy selector runtime on VI, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
