@@ -7,9 +7,11 @@ on:
       - "core/language-switcher.css"
       - "core/weather-freshness-policy.mjs"
       - "core/en-dynamic-islands-prototype.mjs"
+      - "functions/_shared/seo-html.js"
       - "scripts/inject-static-language-switcher.mjs"
       - "scripts/test-i18n-selector-weather-prototype.mjs"
       - "scripts/visual-qa-i18n-selector-prototype.mjs"
+      - "scripts/visual-qa-i18n-worker-prototype.mjs"
       - "scripts/build-cloudflare.mjs"
       - ".github/workflows/i18n-selector-weather-prototype.yml"
   workflow_dispatch:
@@ -20,7 +22,7 @@ permissions:
 jobs:
   isolated-prototype:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
@@ -58,3 +60,18 @@ jobs:
         env:
           VISUAL_QA_BASE_URL: http://127.0.0.1:4188
         run: node scripts/visual-qa-i18n-selector-prototype.mjs
+      - name: Start isolated local Worker
+        shell: bash
+        run: |
+          npx --yes wrangler@4.136.3 dev --local --ip 127.0.0.1 --port 8790 --config wrangler.jsonc >/tmp/openpq-wrangler.log 2>&1 &
+          echo $! >/tmp/openpq-wrangler.pid
+          for i in {1..40}; do
+            if curl -fsS http://127.0.0.1:8790/en/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/openpq-wrangler.log
+          exit 1
+      - name: Local Worker locale dedup and preference gate
+        env:
+          VISUAL_QA_WORKER_URL: http://127.0.0.1:8790
+        run: node scripts/visual-qa-i18n-worker-prototype.mjs
