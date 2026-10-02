@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-02",
+  "items": [
+    {
+      "event_id": "hot_vietnam_korea_culture_day_20261003",
+      "title": "Cuối tuần này có Ngày Văn hóa Việt Nam - Hàn Quốc tại Dương Đông",
+      "short_summary": "Sự kiện diễn ra 03-04/10 tại Quảng trường Trung tâm Văn hóa đặc khu Phú Quốc. Lễ khai mạc bắt đầu lúc 19:00 thứ Bảy 03/10; Chủ nhật có gian hàng văn hóa - ẩm thực, biểu diễn, trải nghiệm trang phục và các hoạt động giao lưu Việt Nam - Hàn Quốc.",
+      "category": "SỰ KIỆN / CUỐI TUẦN",
+      "starts_at": "2026-10-03T19:00:00+07:00",
+      "published_at": "2026-10-02",
+      "verified_at": "2026-10-02",
+      "expires_at": "2026-10-05T06:00:00+07:00",
+      "expiry_reason": "EVENT_COMPLETED",
+      "source_type": "OFFICIAL_EVENT_POSTER",
+      "source_text": "UBND tỉnh An Giang phối hợp Đại sứ quán Hàn Quốc tại Việt Nam - poster chương trình được cung cấp ngày 02/10/2026",
+      "confidence": "HIGH",
+      "route": "news/ngay-van-hoa-viet-nam-han-quoc-2026.html"
+    }
+  ]
+}
