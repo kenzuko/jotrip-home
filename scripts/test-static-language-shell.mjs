@@ -8,6 +8,7 @@ const routes=readJson("data/i18n/routes.json");
 const locales=readJson("data/i18n/locales.json");
 const published=(locales.locales||[]).filter(x=>x.published).map(x=>x.code);
 assert.deepEqual(published,["vi","en"],"Only reviewed VI/EN may be exposed by the current static selector");
+assert.equal(routes.rules?.untranslated_public_pages_fail_closed,true,"Untranslated public pages must fail closed instead of exposing false locale counterparts");
 
 function assertInlineScriptParses(html,id,label){
   const match=html.match(new RegExp(`<script\\b[^>]*id=["']${id}["'][^>]*>([\\s\\S]*?)<\\/script>`,`i`));
@@ -19,6 +20,15 @@ for(const route of routes.static_shells||[]){
   const path=join(root,route.file);
   assert.ok(existsSync(path),"Missing route file: "+route.file);
   const html=readFileSync(path,"utf8");
+  if(route.selector==="none"){
+    assert.equal(route.locale_status,"vi-only","Selector-none public route must explicitly be VI-only: "+route.path);
+    assert.equal(route.autodetect,false,"VI-only public route must not auto-detect into a missing translation: "+route.path);
+    assert.ok(route.reason&&route.reason.trim(),"VI-only public route needs a reason: "+route.path);
+    assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"VI-only route must not expose the common selector: "+route.path);
+    assert.doesNotMatch(html,/id=["']openpq-static-language-bootstrap["']/,"VI-only route must not receive language auto-detect bootstrap: "+route.path);
+    assert.doesNotMatch(html,/hreflang=["']en/i,"VI-only route must not advertise an unavailable English alternate: "+route.path);
+    continue;
+  }
   if(route.selector==="native"){
     assert.match(html,/id=["']languageSelect["']/,"Native selector route must keep its own language control: "+route.path);
     assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"Native selector route must not receive a second selector: "+route.path);
@@ -29,9 +39,10 @@ for(const route of routes.static_shells||[]){
     assert.match(html,/\.opq-language-auto\{display:none!important\}/,"Airport EN route must not show a second language selector");
     const bridgeAt=html.indexOf('id="openpq-airport-language-bridge"');
     const stylesheetAt=html.search(/<link\b[^>]*rel=["']stylesheet["']/i);
-    if(stylesheetAt>=0)assert.ok(bridgeAt>=0&&bridgeAt<stylesheetAt,"Airport locale bridge must run before render-blocking stylesheets");
+    if(stylesheetAt>=0)assert.ok(bridgeAt>=0&&bridgeAt<stylesheetAt,"Airport locale bridge must run before render-blocking stylesheets: "+route.path);
     continue;
   }
+  assert.equal(route.selector,"static","Unknown selector mode: "+route.path);
   assert.equal((html.match(/<nav\b[^>]*\bdata-openpq-language-static\b/gi)||[]).length,1,"Exactly one static selector nav required: "+route.path);
   assert.equal((html.match(/id="openpq-static-language-bootstrap"/g)||[]).length,route.autodetect?1:0,"Unexpected bootstrap count: "+route.path);
   if(route.autodetect){
@@ -121,4 +132,4 @@ const wrangler=readFileSync("wrangler.jsonc","utf8");
 for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"','"/airport/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: parsed inline bootstraps, early device detect, Airport native edge/runtime bridge, selector independent of legacy runtime/catalog, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: parsed inline bootstraps, early device detect, fail-closed VI-only pages, Airport native edge/runtime bridge, selector independent of legacy runtime/catalog, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
