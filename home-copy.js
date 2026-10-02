@@ -50,4 +50,42 @@
       afterEnglishReady();
     })
     .catch(()=>{});
+
+  // Short-lived editorial events use a tiny separate feed so a news post can be
+  // surfaced immediately without rewriting operational data. The foundation
+  // renderer still owns the Hot Now section; this layer only prepends active
+  // editorial cards and keeps the existing three-card limit.
+  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+  let editorialEvents=[];
+  const activeEvents=()=>{
+    const now=Date.now();
+    return editorialEvents.filter(x=>!x.expires_at||Date.parse(x.expires_at)>now)
+      .sort((a,b)=>Date.parse(b.published_at||b.verified_at||0)-Date.parse(a.published_at||a.verified_at||0));
+  };
+  const eventCard=x=>{
+    const raw=x.published_at||x.verified_at||"";
+    const published=raw?new Intl.DateTimeFormat("vi-VN",{day:"2-digit",month:"2-digit"}).format(new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw)?raw+"T12:00:00+07:00":raw)):"";
+    return '<a class="hot-card" data-editorial-event="'+esc(x.event_id||x.title)+'" href="'+esc(x.route||"news/")+'"><span>'+esc(x.category||"CẬP NHẬT")+'</span><strong>'+esc(x.title)+'</strong><p>'+esc(x.short_summary||"")+'</p>'+(published?'<small>Cập nhật '+esc(published)+'</small>':"")+'</a>';
+  };
+  const syncEditorialEvents=()=>{
+    const host=q("#hotNowList");if(!host)return;
+    const active=activeEvents(),ids=new Set(active.map(x=>String(x.event_id||x.title)));
+    host.querySelectorAll("[data-editorial-event]").forEach(el=>{if(!ids.has(el.dataset.editorialEvent||""))el.remove()});
+    [...active].reverse().forEach(x=>{
+      const id=String(x.event_id||x.title);
+      if([...host.querySelectorAll("[data-editorial-event]")].some(el=>el.dataset.editorialEvent===id))return;
+      host.insertAdjacentHTML("afterbegin",eventCard(x));
+    });
+    const cards=[...host.querySelectorAll("a.hot-card")];
+    cards.slice(3).forEach(el=>el.remove());
+  };
+  load("data/editorial-events.json")
+    .then(d=>{
+      editorialEvents=Array.isArray(d?.items)?d.items:[];
+      syncEditorialEvents();
+      const host=q("#hotNowList");
+      if(host)new MutationObserver(()=>syncEditorialEvents()).observe(host,{childList:true});
+      setInterval(syncEditorialEvents,60000);
+    })
+    .catch(()=>{});
 })();

@@ -13,13 +13,15 @@
   Promise.all([
     fetch("../data/home-support.json",{cache:"default"}).then(r=>r.json()),
     fetch("../data/source-registry.json",{cache:"default"}).then(r=>r.json()),
-    fetch("../data/operational-notices.json",{cache:"default"}).then(r=>r.ok?r.json():{notices:[]}).catch(()=>({notices:[]}))
-  ]).then(([support,registry,notices])=>{
+    fetch("../data/operational-notices.json",{cache:"default"}).then(r=>r.ok?r.json():{notices:[]}).catch(()=>({notices:[]})),
+    fetch("../data/editorial-events.json",{cache:"default"}).then(r=>r.ok?r.json():{items:[]}).catch(()=>({items:[]}))
+  ]).then(([support,registry,notices,events])=>{
     const sourceById=new Map((registry.sources||[]).map(x=>[x.id,x]));
     const days=Number.isInteger(notices?.retention_days)&&notices.retention_days>0?notices.retention_days:3;
     function currentItems(){
       const now=Date.now();
       const updates=(support.hot_now?.items||[]).filter(x=>isActive(x,now));
+      const editorialEvents=(events?.items||[]).filter(x=>isActive(x,now));
       const operationalRoute=x=>({
         place_sunset_town:"places/detail.html?id=sunset-town",
         place_exotica:"places/detail.html?id=exotica",
@@ -45,14 +47,16 @@
         source_text:x.source,
         route:operationalRoute(x)
       }));
-      return [...operationals,...updates]
-        .sort((a,b)=>Date.parse(b.published_at||b.verified_at||0)-Date.parse(a.published_at||a.verified_at||0));
+      const seen=new Set();
+      return [...operationals,...editorialEvents,...updates]
+        .sort((a,b)=>Date.parse(b.published_at||b.verified_at||0)-Date.parse(a.published_at||a.verified_at||0))
+        .filter(x=>{const key=x.event_id||x.title;if(seen.has(key))return false;seen.add(key);return true});
     }
     function renderNews(){
       const items=currentItems();
 
     $("#newsCount").textContent=items.length?items.length+" điều đáng chú ý":"Hôm nay chưa có gì mới";
-    const latestDate=[support.updated_at,...items.map(x=>x.published_at||x.verified_at).filter(Boolean)]
+    const latestDate=[support.updated_at,events?.updated_at,...items.map(x=>x.published_at||x.verified_at).filter(Boolean)].filter(Boolean)
       .sort((a,b)=>Date.parse(b)-Date.parse(a))[0];
     $("#newsUpdated").textContent=fmtDate(latestDate)||"Hôm nay";
 
