@@ -1,0 +1,41 @@
+name: i18n selector Weather prototype tests
+
+on:
+  pull_request:
+    paths:
+      - "core/language-switcher.js"
+      - "core/language-switcher.css"
+      - "core/weather-freshness-policy.mjs"
+      - "core/en-dynamic-islands-prototype.mjs"
+      - "scripts/inject-static-language-switcher.mjs"
+      - "scripts/test-i18n-selector-weather-prototype.mjs"
+      - "scripts/build-cloudflare.mjs"
+      - ".github/workflows/i18n-selector-weather-prototype.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  isolated-prototype:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run isolated prototype tests
+        run: node scripts/test-i18n-selector-weather-prototype.mjs
+      - name: Prove routing and production Worker entrypoints are untouched
+        shell: bash
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          if ! git diff --quiet "origin/${{ github.base_ref }}"...HEAD -- worker.js wrangler.jsonc scripts/routes.json functions/_middleware.js .github/workflows/cloudflare-worker.yml; then
+            echo "::error::Prototype changed production routing or Worker deployment configuration"
+            git diff "origin/${{ github.base_ref }}"...HEAD -- worker.js wrangler.jsonc scripts/routes.json functions/_middleware.js .github/workflows/cloudflare-worker.yml
+            exit 1
+          fi
+          echo "PASS: no production routing/deploy config changes"
