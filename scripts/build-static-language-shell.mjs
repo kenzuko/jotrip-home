@@ -9,7 +9,10 @@ const byCode=new Map(published.map(x=>[x.code,x]));
 const staticCodes=(routes.rules?.static_selector_locales||[]).filter(code=>byCode.has(code));
 const defaultCode=locales.default_locale||routes.default_locale||"vi";
 if(!staticCodes.includes(defaultCode))throw new Error("Static selector must include default locale");
-if(staticCodes.length<2)throw new Error("Static selector needs at least two published locales");
+if(staticCodes.length<2){
+  console.log("Static language shell paused: fewer than two published locales; no selector or locale bridge injected");
+  process.exit(0);
+}
 
 const esc=value=>String(value).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const localePath=(path,code)=>{
