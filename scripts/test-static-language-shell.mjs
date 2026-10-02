@@ -16,6 +16,13 @@ for(const route of routes.static_shells||[]){
   if(route.selector==="native"){
     assert.match(html,/id=["']languageSelect["']/,"Native selector route must keep its own language control: "+route.path);
     assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"Native selector route must not receive a second selector: "+route.path);
+    assert.equal(route.native_bridge,"airport","Native selector needs an explicit bridge owner: "+route.path);
+    assert.match(html,/id="openpq-airport-language-bridge"/,"Airport native selector must receive the global locale bridge");
+    assert.match(html,/id="openpq-native-language-bridge-style"/,"Airport must hide the legacy Worker selector on EN routes");
+    assert.match(html,/\.opq-language-auto\{display:none!important\}/,"Airport EN route must not show a second language selector");
+    const bridgeAt=html.indexOf('id="openpq-airport-language-bridge"');
+    const stylesheetAt=html.search(/<link\b[^>]*rel=["']stylesheet["']/i);
+    if(stylesheetAt>=0)assert.ok(bridgeAt>=0&&bridgeAt<stylesheetAt,"Airport locale bridge must run before render-blocking stylesheets");
     continue;
   }
   assert.equal((html.match(/<nav\b[^>]*\bdata-openpq-language-static\b/gi)||[]).length,1,"Exactly one static selector nav required: "+route.path);
@@ -91,7 +98,7 @@ assert.match(enRuntime,/data-openpq-language-static/,
   "English link localizer must ignore the whole static selector island");
 
 const wrangler=readFileSync("wrangler.jsonc","utf8");
-for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"']){
+for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"','"/airport/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: early device detect, selector independent of legacy runtime/catalog, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: early device detect, Airport native bridge, selector independent of legacy runtime/catalog, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
