@@ -18,44 +18,51 @@ try{
     const {page,requests}=await load("/?qa=selector#today",{width:320,height:680});
     const metrics=await page.evaluate(()=>{
       const rect=s=>{const r=document.querySelector(s)?.getBoundingClientRect();return r&&{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
-      const selector=document.querySelector("[data-language-slot]");
-      const selectorRect=selector?.getBoundingClientRect();
+      const slots=[...document.querySelectorAll("[data-language-slot]")];
+      const visible=slots.filter(el=>{const r=el.getBoundingClientRect();return r.width>0&&r.height>0&&getComputedStyle(el).visibility!=="hidden"});
       return {
         scrollWidth:document.documentElement.scrollWidth,width:innerWidth,
         logo:rect(".site-header .brand"),area:rect("#siteAreaButton"),search:rect(".header-search"),menu:rect(".menu-button"),
-        selectorVisible:!!selectorRect&&selectorRect.width>0&&selectorRect.height>0&&getComputedStyle(selector).visibility!=="hidden",
-        selectorParent:selector?.parentElement?.id||""
+        slots:slots.length,visibleSlots:visible.length,
+        desktopParent:document.querySelector('[data-language-slot="desktop"]')?.parentElement?.id||"",
+        mobileInsideSheet:!!document.querySelector('.more-sheet [data-language-slot="mobile"]')
       };
     });
     assert.ok(metrics.scrollWidth<=metrics.width+2,"320px homepage must not overflow horizontally");
     assert.ok(metrics.logo.right<=metrics.area.left+2&&metrics.area.right<=metrics.search.left+2&&metrics.search.right<=metrics.menu.left+2,
       "selector must not disturb the existing narrow homepage header row: "+JSON.stringify(metrics));
-    assert.equal(metrics.selectorParent,"primary-nav","mobile selector must live in the existing menu flow");
-    assert.equal(metrics.selectorVisible,false,"closed mobile menu must not expose or reserve selector space");
+    assert.equal(metrics.slots,2,"homepage must have dedicated desktop and mobile selector surfaces");
+    assert.equal(metrics.visibleSlots,0,"closed mobile navigation must not expose or reserve selector space");
+    assert.equal(metrics.desktopParent,"primary-nav","desktop selector must stay inside the existing primary nav");
+    assert.equal(metrics.mobileInsideSheet,true,"mobile selector must live inside the existing More sheet");
     assert.equal(requests.filter(x=>x==="/core/language-switcher.js").length,1,"VI homepage loads selector runtime once");
     assert.equal(requests.filter(x=>x==="/core/i18n-runtime.js").length,0,"VI homepage must not load i18n runtime just to draw selector");
     assert.equal(requests.filter(x=>x.includes("/data/i18n/catalog")).length,0,"VI homepage selector must not fetch locale catalog");
     await page.locator(".menu-button").click();
-    await page.waitForTimeout(80);
+    await page.waitForTimeout(100);
     const open=await page.evaluate(()=>{
-      const nav=document.querySelector("#primary-nav"),sel=document.querySelector("[data-language-slot]");
+      const sheet=document.querySelector("#more-sheet"),sel=document.querySelector('[data-language-slot="mobile"]');
       const r=sel?.getBoundingClientRect();
-      return {open:nav?.classList.contains("open"),visible:!!r&&r.width>0&&r.height>0,left:r?.left,right:r?.right,width:innerWidth};
+      return {open:sheet?.classList.contains("is-open")&&!sheet.hidden,visible:!!r&&r.width>0&&r.height>0,left:r?.left,right:r?.right,width:innerWidth};
     });
-    assert.equal(open.open,true,"mobile menu must open normally");
-    assert.equal(open.visible,true,"selector must be available inside open mobile menu");
-    assert.ok(open.left>=0&&open.right<=open.width+1,"selector must stay inside mobile viewport");
-    const enHref=await page.locator('[data-language-slot] a[data-lang="en"]').getAttribute("href");
+    assert.equal(open.open,true,"homepage More sheet must open normally");
+    assert.equal(open.visible,true,"mobile selector must be available inside the open More sheet");
+    assert.ok(open.left>=0&&open.right<=open.width+1,"mobile selector must stay inside viewport");
+    const enHref=await page.locator('[data-language-slot="mobile"] a[data-lang="en"]').getAttribute("href");
     assert.match(enHref,/^\/en\/\?qa=selector&lang=en#today$|^\/en\/\?lang=en&qa=selector#today$/,"selector must preserve non-language query and hash while marking manual EN choice");
     await page.close();
   }
 
   {
     const {page}=await load("/",{width:1440,height:900});
-    assert.equal(await page.locator("[data-language-slot]").count(),1,"desktop homepage selector must exist exactly once");
-    const box=await page.locator("[data-language-slot]").boundingBox();
-    assert.ok(box&&box.width>0&&box.height>0,"desktop homepage selector must be visible");
-    assert.ok((await page.evaluate(()=>document.documentElement.scrollWidth))<=1442,"desktop homepage must not overflow horizontally");
+    assert.equal(await page.locator("[data-language-slot]").count(),2,"desktop homepage keeps separate mobile fallback in DOM");
+    const state=await page.evaluate(()=>{
+      const slots=[...document.querySelectorAll("[data-language-slot]")];
+      const visible=slots.filter(el=>{const r=el.getBoundingClientRect();return r.width>0&&r.height>0&&getComputedStyle(el).visibility!=="hidden"});
+      return {visible:visible.map(el=>el.dataset.languageSlot),scrollWidth:document.documentElement.scrollWidth,width:innerWidth};
+    });
+    assert.deepEqual(state.visible,["desktop"],"desktop must expose exactly the desktop selector");
+    assert.ok(state.scrollWidth<=state.width+2,"desktop homepage must not overflow horizontally");
     await page.close();
   }
 
@@ -80,7 +87,7 @@ try{
     await page.close();
   }
 
-  console.log("PASS browser selector safety: 320px header preserved, mobile-menu placement, desktop visibility, Weather/Transit no overflow, Airport native-only, VI no i18n-runtime/catalog fetch");
+  console.log("PASS browser selector safety: 320px header preserved, mobile More-sheet access, desktop selector visibility, Weather/Transit no overflow, Airport native-only, VI no i18n-runtime/catalog fetch");
 }finally{
   await browser.close();
 }
