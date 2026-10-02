@@ -47,9 +47,11 @@ jobs:
           done
           cat /tmp/openpq-i18n-static.log
           exit 1
-      - name: Run static-first browser matrix
+      - name: Run bounded static-first browser matrix
         env:
           VISUAL_QA_BASE_URL: http://127.0.0.1:4173
-        run: |
-          node scripts/visual-qa-i18n-static.mjs
-          node scripts/visual-qa-i18n-airport.mjs
+        run: timeout 7m node scripts/visual-qa-i18n-static.mjs
+      - name: Run bounded Airport native-language QA
+        env:
+          VISUAL_QA_BASE_URL: http://127.0.0.1:4173
+        run: timeout 4m node scripts/visual-qa-i18n-airport.mjs
