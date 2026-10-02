@@ -25,6 +25,7 @@ for(const route of routes.static_shells||[]){
   assert.doesNotMatch(html,/data-openpq-lang="(?:ko|ru|lo|fr|zh)/,"Unpublished locale leaked into selector: "+route.path);
   assert.match(html,/hreflang="x-default"/,"x-default alternate missing: "+route.path);
   assert.doesNotMatch(html,/catalog\.json/,"Static selector/bootstrap must not depend on the locale catalog at runtime: "+route.path);
+  assert.match(html,/\.opq-language-auto\{display:none!important\}/,"Legacy Worker selector must be hidden when static shell owns language UI: "+route.path);
 }
 
 for(const route of routes.entity_shells||[]){
@@ -39,8 +40,14 @@ const food=catalog.coverage?.en?.food;
 assert.ok(food&&food.total>0,"English food coverage missing");
 assert.equal(food.translated,food.total,"Food article static VI/EN selector is allowed only while EN food coverage is complete");
 
+const enRuntime=readFileSync(join(root,"core/en-full-site.js"),"utf8");
+assert.match(enRuntime,/data-openpq-lang/,
+  "English link localizer must preserve static language selector targets");
+assert.match(enRuntime,/data-openpq-language-static/,
+  "English link localizer must ignore the whole static selector island");
+
 const wrangler=readFileSync("wrangler.jsonc","utf8");
 for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: full static route manifest, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: route manifest, EN compatibility, no duplicate Airport selector, no VI Worker regression");
