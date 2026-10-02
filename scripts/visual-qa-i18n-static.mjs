@@ -44,16 +44,16 @@ async function blockLayoutNoise(context){
     }catch{return route.abort()}
   });
 }
-async function workerlessEnglishFulfill(context){
+async function workerlessEnglishDocument(context){
   await context.route(/\/en(?:\/|$)/,async route=>{
+    if(route.request().resourceType()!=="document")return route.fallback();
     const u=new URL(route.request().url());
     const basePath=u.pathname.replace(/^\/en(?=\/|$)/,"")||"/";
     const source=await fetch(BASE+basePath+u.search);
     if(!source.ok)return route.fulfill({status:source.status,body:await source.text()});
     let html=await source.text();
     html=html.replace(/<html([^>]*)lang=["'][^"']+["']([^>]*)>/i,'<html$1lang="en"$2>');
-    html=html.replace(/<head>/i,'<head><meta name="openpq-locale" content="en"><script src="/core/i18n-runtime.js?v=4" defer></script><script src="/core/en-full-site.js?v=2" defer></script><script src="/core/language-switcher.js?v=4" defer></script>');
-    html=html.replace(/(<body[^>]*>)/i,'$1<nav class="opq-language-auto" data-openpq-language-switcher-auto data-openpq-language-switcher-server aria-label="Language"><div class="opq-language-options"><a href="/about/?lang=vi">VI</a><a href="/en/about/?lang=en">EN</a></div></nav>');
+    html=html.replace(/<head>/i,'<head><meta name="openpq-locale" content="en">');
     await route.fulfill({status:200,contentType:"text/html; charset=utf-8",body:html});
   });
 }
@@ -119,7 +119,7 @@ console.log("[i18n-qa] ordered browser-language behavior + VI zero-catalog selec
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN",serviceWorkers:"block"});
   await context.addInitScript(()=>Object.defineProperty(navigator,"languages",{get:()=>["vi-VN","en-US"]}));
-  await blockExternal(context);await workerlessEnglishFulfill(context);
+  await blockExternal(context);await workerlessEnglishDocument(context);
   const page=await context.newPage();page.setDefaultTimeout(3000);
   const catalog=[];page.on("request",r=>{if(r.url().includes("/data/i18n/catalog.json"))catalog.push(r.url())});
   try{
@@ -133,44 +133,40 @@ console.log("[i18n-qa] ordered browser-language behavior + VI zero-catalog selec
   finally{await page.close({runBeforeUnload:false}).catch(()=>{});await context.close().catch(()=>{})}
 }
 
-console.log("[i18n-qa] EN auto-detect + remembered manual VI/EN on lightweight About shell");
+console.log("[i18n-qa] static selector routing contract on lightweight About shell");
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"en-US",serviceWorkers:"block"});
-  await blockExternal(context);await workerlessEnglishFulfill(context);
-  const page=await context.newPage();page.setDefaultTimeout(3000);
+  await blockLayoutNoise(context);await workerlessEnglishDocument(context);
+  const page=await context.newPage();page.setDefaultTimeout(2500);
   const route="/about/?src=i18n-qa#privacy";
   try{
-    console.log("[i18n-qa]   open VI About as EN-first browser");
-    await page.goto(BASE+route,{waitUntil:"domcontentloaded",timeout:6000});
-    await page.waitForURL(url=>url.pathname==="/en/about/",{timeout:4000});
+    console.log("[i18n-qa]   EN-first browser auto-detect");
+    await page.goto(BASE+route,{waitUntil:"domcontentloaded",timeout:4500});
+    await page.waitForURL(url=>url.pathname==="/en/about/",{timeout:3000});
     if(!page.url().includes("src=i18n-qa")||!page.url().endsWith("#privacy"))fail("/en/about/",390,"browser-detect-lost-query-hash",page.url());
     const autoStored=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
     if(autoStored.local||autoStored.cookie.includes("openpq_lang="))fail("/en/about/",390,"auto-en-wrote-manual-preference",JSON.stringify(autoStored));
-    await page.waitForFunction(()=>document.documentElement.dataset.openpqEnglishReady==="true",{timeout:4000}).catch(()=>{});
     const selectorState=await page.evaluate(()=>({
       staticCount:document.querySelectorAll('[data-openpq-language-static]').length,
-      viHref:document.querySelector('[data-openpq-language-static] [data-openpq-lang="vi"]')?.getAttribute('href')||'',
-      legacyVisible:[...document.querySelectorAll('.opq-language-auto')].filter(x=>getComputedStyle(x).display!=="none").length
+      viHref:document.querySelector('[data-openpq-language-static] [data-openpq-lang="vi"]')?.getAttribute('href')||''
     }));
     if(selectorState.staticCount!==1)fail("/en/about/",390,"english-static-selector-count",JSON.stringify(selectorState));
     if(selectorState.viHref!=="/about/?src=i18n-qa#privacy")fail("/en/about/",390,"english-static-vi-link-not-hydrated",JSON.stringify(selectorState));
-    if(selectorState.legacyVisible!==0)fail("/en/about/",390,"legacy-selector-visible",JSON.stringify(selectorState));
 
     console.log("[i18n-qa]   manual VI choice");
     await page.locator('[data-openpq-language-static] [data-openpq-lang="vi"]').click({noWaitAfter:true});
-    await page.waitForURL(url=>url.pathname==="/about/",{timeout:4000});
-    await page.waitForTimeout(100);
+    await page.waitForURL(url=>url.pathname==="/about/",{timeout:3000});
     const storedVi=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
     if(storedVi.local!=="vi"||!storedVi.cookie.includes("openpq_lang=vi"))fail("/about/",390,"manual-vi-not-persisted",JSON.stringify(storedVi));
 
     console.log("[i18n-qa]   remembered VI beats EN browser");
-    await page.goto(BASE+route,{waitUntil:"domcontentloaded",timeout:6000});
-    await page.waitForTimeout(100);
+    await page.goto(BASE+route,{waitUntil:"domcontentloaded",timeout:4500});
+    await page.waitForTimeout(80);
     if(new URL(page.url()).pathname!=="/about/")fail("/about/",390,"remembered-vi-lost-to-browser",page.url());
 
     console.log("[i18n-qa]   manual EN choice");
     await page.locator('[data-openpq-language-static] [data-openpq-lang="en"]').click({noWaitAfter:true});
-    await page.waitForURL(url=>url.pathname==="/en/about/",{timeout:4000});
+    await page.waitForURL(url=>url.pathname==="/en/about/",{timeout:3000});
     const storedEn=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
     if(storedEn.local!=="en"||!storedEn.cookie.includes("openpq_lang=en"))fail("/en/about/",390,"manual-en-not-persisted",JSON.stringify(storedEn));
   }catch(error){fail("/about/",390,"preference-roundtrip-exception",String(error.message||error))}
@@ -180,11 +176,11 @@ console.log("[i18n-qa] EN auto-detect + remembered manual VI/EN on lightweight A
 console.log("[i18n-qa] legacy ?lang canonicalization on lightweight About shell");
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN",serviceWorkers:"block"});
-  await blockExternal(context);await workerlessEnglishFulfill(context);
-  const page=await context.newPage();page.setDefaultTimeout(3000);
+  await blockLayoutNoise(context);await workerlessEnglishDocument(context);
+  const page=await context.newPage();page.setDefaultTimeout(2500);
   try{
-    await page.goto(BASE+"/about/?lang=en&src=i18n-qa#privacy",{waitUntil:"domcontentloaded",timeout:6000});
-    await page.waitForURL(url=>url.pathname==="/en/about/",{timeout:4000});
+    await page.goto(BASE+"/about/?lang=en&src=i18n-qa#privacy",{waitUntil:"domcontentloaded",timeout:4500});
+    await page.waitForURL(url=>url.pathname==="/en/about/",{timeout:3000});
     const u=new URL(page.url());
     if(u.searchParams.has("lang")||u.searchParams.get("src")!=="i18n-qa"||u.hash!=="#privacy")fail("/about/",390,"legacy-lang-not-canonicalized",page.url());
     const stored=await page.evaluate(()=>localStorage.getItem("openpq_lang"));
@@ -196,15 +192,15 @@ console.log("[i18n-qa] legacy ?lang canonicalization on lightweight About shell"
 console.log("[i18n-qa] query-sensitive Food article selector");
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN",serviceWorkers:"block"});
-  await blockExternal(context);await workerlessEnglishFulfill(context);
-  const page=await context.newPage();page.setDefaultTimeout(3000);
+  await blockLayoutNoise(context);await workerlessEnglishDocument(context);
+  const page=await context.newPage();page.setDefaultTimeout(2500);
   try{
-    await page.goto(BASE+"/food/article.html?id=bun-quay#ingredients",{waitUntil:"domcontentloaded",timeout:6000});
+    await page.goto(BASE+"/food/article.html?id=bun-quay#ingredients",{waitUntil:"domcontentloaded",timeout:4500});
     const link=page.locator('[data-openpq-language-static] [data-openpq-lang="en"]');
     const href=await link.getAttribute("href"),target=await link.getAttribute("data-openpq-target");
     if(href!=="/en/food/article.html?id=bun-quay#ingredients"||target!=="/en/food/article.html")fail("/food/article.html",390,"query-sensitive-link-not-hydrated",`href=${href} target=${target}`);
     await link.click({noWaitAfter:true});
-    await page.waitForURL(/\/en\/food\/article\.html/,{timeout:4000});
+    await page.waitForURL(/\/en\/food\/article\.html/,{timeout:3000});
     const u=new URL(page.url());
     if(u.searchParams.get("id")!=="bun-quay"||u.hash!=="#ingredients")fail("/en/food/article.html",390,"article-id-or-hash-lost",page.url());
   }catch(error){fail("/food/article.html",390,"article-query-exception",String(error.message||error))}
@@ -213,4 +209,4 @@ console.log("[i18n-qa] query-sensitive Food article selector");
 
 await browser.close().catch(()=>{});
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1)}
-console.log(`PASS browser i18n QA: all ${staticRoutes.length} static shells structurally gated; ${browserRoutes.length} representative static shells + ${nativeRoutes.length} native shell across 4 viewports; no overlap; ordered device-language routing + no implicit preference writes + remembered VI/EN + legacy links + hydrated article query targets + English runtime compatibility`);
+console.log(`PASS browser i18n QA: all ${staticRoutes.length} static shells structurally gated; ${browserRoutes.length} representative static shells + ${nativeRoutes.length} native shell across 4 viewports; no overlap; ordered device-language routing + no implicit preference writes + remembered VI/EN + legacy links + hydrated article query targets`);
