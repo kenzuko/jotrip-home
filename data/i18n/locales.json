@@ -23,10 +23,8 @@
       "native_name": "English",
       "name": "English",
       "direction": "ltr",
-      "published": true,
-      "surfaces": [
-        "*"
-      ]
+      "published": false,
+      "surfaces": []
     },
     {
       "code": "ko",
