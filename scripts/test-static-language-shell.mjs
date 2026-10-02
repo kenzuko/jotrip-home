@@ -42,9 +42,18 @@ for(const route of routes.entity_shells||[]){
   assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"Entity selector must remain availability-aware at the edge: "+route.path);
 }
 
+for(const item of routes.excluded_html||[]){
+  assert.ok(item&&typeof item==="object"&&item.file&&item.reason,"Every excluded HTML file needs an explicit reason");
+  const path=join(root,item.file);
+  assert.ok(existsSync(path),"Excluded HTML file missing: "+item.file);
+  const html=readFileSync(path,"utf8");
+  assert.match(html,/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i,"Excluded public HTML must be noindex: "+item.file);
+  assert.doesNotMatch(html,/<nav\b[^>]*\bdata-openpq-language-static\b/i,"Excluded HTML must not receive the common selector: "+item.file);
+}
+
 // Every HTML page copied into the public bundle must have an explicit language
 // owner. This prevents new/forgotten public pages silently shipping without a
-// selector or an intentional exclusion.
+// selector or an intentional noindex exclusion.
 function htmlFiles(dir){
   const out=[];
   for(const entry of readdirSync(dir,{withFileTypes:true})){
@@ -57,7 +66,7 @@ function htmlFiles(dir){
 const owned=new Set([
   ...(routes.static_shells||[]).map(x=>x.file),
   ...(routes.entity_shells||[]).map(x=>x.file),
-  ...(routes.excluded_html||[]).map(x=>typeof x==="string"?x:x.file)
+  ...(routes.excluded_html||[]).map(x=>x.file)
 ]);
 const unclassified=htmlFiles(root).filter(file=>
   !file.startsWith("admin/")&&
@@ -82,4 +91,4 @@ const wrangler=readFileSync("wrangler.jsonc","utf8");
 for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: full HTML inventory, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
