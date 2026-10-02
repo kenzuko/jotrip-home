@@ -29,11 +29,17 @@ html[lang^="vi"] .opq-static-language a[data-openpq-lang="vi"],html[lang^="en"] 
 .opq-language-auto{display:none!important}
 @media(max-width:760px){.opq-static-language{padding:2px;gap:1px}.opq-static-language a{min-width:34px;min-height:32px;padding:0 6px;font-size:11px}.opq-static-language[data-openpq-language-placement="after-header"]{margin-top:5px;margin-bottom:5px}}
 </style>`;
+const nativeBridgeStyle='<style id="openpq-native-language-bridge-style">.opq-language-auto{display:none!important}</style>';
 
 function bootstrap(route){
   const viPath=localePath(route.path,"vi"),enPath=localePath(route.path,"en");
   const selectable=staticCodes.map(code=>{const row=byCode.get(code);return {code:row.code,url_code:row.url_code}});
   return `<script id="openpq-static-language-bootstrap">(()=>{try{const K="${esc(routes.rules?.manual_preference_key||"openpq_lang")}",D="${esc(defaultCode)}",R=${JSON.stringify(selectable)},VI=${JSON.stringify(viPath)},EN=${JSON.stringify(enPath)};const explicit=/^\\/en(?:\\/|$)/.test(location.pathname)?"en":"";const cookie=()=>{const m=("; "+document.cookie).match(new RegExp("; "+K+"=([^;]*)"));return m?decodeURIComponent(m[1]):""};const save=c=>{try{localStorage.setItem(K,c)}catch{};document.cookie=K+"="+encodeURIComponent(c)+"; Max-Age=31536000; Path=/; SameSite=Lax; Secure"};const cleanQuery=()=>{const q=new URLSearchParams(location.search);q.delete("lang");return q};const target=href=>{const u=new URL(href,location.href),q=cleanQuery();u.search=q.toString()?"?"+q.toString():"";u.hash=location.hash;return u.pathname+u.search+u.hash};const replace=href=>{const next=target(href);if(next!==location.pathname+location.search+location.hash)location.replace(next)};const routeFor=c=>c==="en"?EN:c===D?VI:"";const syncLinks=()=>document.querySelectorAll('[data-openpq-language-static] [data-openpq-lang]').forEach(a=>{const raw=a.getAttribute("data-openpq-target")||a.getAttribute("href");if(raw)a.setAttribute("href",target(raw))});if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",syncLinks,{once:true});else syncLinks();document.addEventListener("click",e=>{const a=e.target.closest?.("[data-openpq-lang]");if(!a)return;const c=a.getAttribute("data-openpq-lang");if(!R.some(x=>x.code===c))return;save(c);if(e.button===0&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();location.assign(target(a.getAttribute("data-openpq-target")||a.href))}},true);const legacy=new URLSearchParams(location.search).get("lang")||"";if(R.some(x=>x.code===legacy)){save(legacy);const dest=routeFor(legacy);if(dest&&legacy!==D){replace(dest);return}if(legacy===D&&location.pathname!==VI){replace(VI);return}const q=cleanQuery();history.replaceState(history.state,"",VI+(q.toString()?"?"+q.toString():"")+location.hash);return}if(explicit&&explicit!==D)return;let pref="";try{pref=localStorage.getItem(K)||""}catch{};pref=pref||cookie();if(R.some(x=>x.code===pref)){const dest=routeFor(pref);if(dest&&pref!==D)replace(dest);return}const tags=navigator.languages?.length?navigator.languages:[navigator.language||""];let browser="";for(const tag of tags){const raw=String(tag||"").toLowerCase(),base=raw.split("-")[0];const hit=R.find(x=>x.code.toLowerCase()===raw||x.code.toLowerCase()===base||x.url_code.toLowerCase()===raw||x.url_code.toLowerCase()===base);if(hit){browser=hit.code;break}}const dest=routeFor(browser);if(dest&&browser&&browser!==D){replace(dest);return}}catch{}})();</script>`;
+}
+
+function airportBridge(route){
+  const VI=localePath(route.path,"vi"),EN=localePath(route.path,"en");
+  return `<script id="openpq-airport-language-bridge">(()=>{try{const G="${esc(routes.rules?.manual_preference_key||"openpq_lang")}",A="jotrip_airport_lang",VI=${JSON.stringify(VI)},EN=${JSON.stringify(EN)},ALL=["vi","en","ko","ru","zh"];const enPath=()=>/^\\/en\/airport(?:\\/|$)/.test(location.pathname);const get=k=>{try{return localStorage.getItem(k)||""}catch{return""}};const cookie=()=>{const m=("; "+document.cookie).match(new RegExp("; "+G+"=([^;]*)"));return m?decodeURIComponent(m[1]):""};const saveLocal=c=>{try{localStorage.setItem(A,c)}catch{}};const saveGlobal=c=>{if(c!=="vi"&&c!=="en")return;try{localStorage.setItem(G,c)}catch{};document.cookie=G+"="+encodeURIComponent(c)+"; Max-Age=31536000; Path=/; SameSite=Lax; Secure"};const target=path=>{const u=new URL(path,location.origin),q=new URLSearchParams(location.search);q.delete("lang");u.search=q.toString()?"?"+q.toString():"";u.hash=location.hash;return u.pathname+u.search+u.hash};const replace=path=>{const next=target(path);if(next!==location.pathname+location.search+location.hash)location.replace(next)};document.addEventListener("change",e=>{const el=e.target;if(!(el instanceof HTMLSelectElement)||el.id!=="languageSelect")return;const c=el.value;if(!ALL.includes(c))return;if(c==="ko"||c==="ru"||c==="zh"){if(!enPath())return;e.stopImmediatePropagation();saveLocal(c);location.assign(target(VI));return}e.stopImmediatePropagation();saveLocal(c);saveGlobal(c);location.assign(target(c==="en"?EN:VI))},true);const legacy=new URLSearchParams(location.search).get("lang")||"";if(ALL.includes(legacy)){saveLocal(legacy);if(legacy==="vi"||legacy==="en")saveGlobal(legacy);replace(legacy==="en"?EN:VI);return}if(enPath())return;const local=get(A);if(ALL.includes(local)){if(local==="en")replace(EN);return}const global=get(G)||cookie();if(global==="en"){replace(EN);return}if(global==="vi")return;const tags=navigator.languages?.length?navigator.languages:[navigator.language||""];let browser="";for(const tag of tags){const raw=String(tag||"").toLowerCase(),base=raw.split("-")[0];const hit=ALL.find(x=>x===raw||x===base);if(hit){browser=hit;break}}if(browser==="en")replace(EN)}catch{}})();</script>`;
 }
 
 function nav(route){
@@ -65,9 +71,19 @@ let built=0,native=0;
 for(const route of routes.static_shells||[]){
   const file=join(root,route.file);
   if(!existsSync(file))throw new Error("i18n route file missing: "+route.file);
-  if(route.selector==="native"){native++;continue}
-  if(route.selector!=="static")throw new Error("Unknown selector mode for "+route.path+": "+route.selector);
   let html=readFileSync(file,"utf8");
+  if(route.selector==="native"){
+    if(!html.match(/id=["']languageSelect["']/))throw new Error("Native language selector missing: "+route.file);
+    if(route.native_bridge!=="airport")throw new Error("Unknown native language bridge for "+route.path+": "+String(route.native_bridge||""));
+    html=insertEarlyBootstrap(html,airportBridge(route));
+    const headClose=html.indexOf("</head>");
+    if(headClose<0)throw new Error("Native language head missing: "+route.file);
+    html=html.slice(0,headClose)+nativeBridgeStyle+alternates(route)+html.slice(headClose);
+    writeFileSync(file,html,"utf8");
+    native++;
+    continue;
+  }
+  if(route.selector!=="static")throw new Error("Unknown selector mode for "+route.path+": "+route.selector);
   if(html.includes("data-openpq-language-static"))throw new Error("Static language selector already present: "+route.file);
   html=insertEarlyBootstrap(html,route.autodetect?bootstrap(route):"");
   const headClose=html.indexOf("</head>");
@@ -85,4 +101,4 @@ for(const route of routes.static_shells||[]){
   writeFileSync(file,html,"utf8");
   built++;
 }
-console.log(`Static language shell ready: ${built} static selector page(s), ${native} native selector page(s)`);
+console.log(`Static language shell ready: ${built} static selector page(s), ${native} bridged native selector page(s)`);
