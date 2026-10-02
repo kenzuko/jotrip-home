@@ -149,10 +149,19 @@ jobs:
           test -f dist/currency/index.html
           test -f dist/transit/index.html
 
-      - name: Start local site
+      - name: Start local site with explicit VI QA preference
         working-directory: dist
         run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/openpq-visual-server.log 2>&1 &
+          python3 - <<'PY' > /tmp/openpq-visual-server.log 2>&1 &
+          from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
+
+          class Handler(SimpleHTTPRequestHandler):
+              def end_headers(self):
+                  self.send_header("Set-Cookie", "openpq_lang=vi; Path=/; SameSite=Lax")
+                  super().end_headers()
+
+          ThreadingHTTPServer(("127.0.0.1", 4173), Handler).serve_forever()
+          PY
           echo $! > /tmp/openpq-visual-server.pid
           for i in {1..20}; do
             if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
