@@ -19,10 +19,11 @@ try{
     const metrics=await page.evaluate(()=>{
       const rect=s=>{const r=document.querySelector(s)?.getBoundingClientRect();return r&&{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
       const selector=document.querySelector("[data-language-slot]");
+      const selectorRect=selector?.getBoundingClientRect();
       return {
         scrollWidth:document.documentElement.scrollWidth,width:innerWidth,
         logo:rect(".site-header .brand"),area:rect("#siteAreaButton"),search:rect(".header-search"),menu:rect(".menu-button"),
-        selectorDisplay:selector?getComputedStyle(selector).display:null,
+        selectorVisible:!!selectorRect&&selectorRect.width>0&&selectorRect.height>0&&getComputedStyle(selector).visibility!=="hidden",
         selectorParent:selector?.parentElement?.id||""
       };
     });
@@ -30,7 +31,7 @@ try{
     assert.ok(metrics.logo.right<=metrics.area.left+2&&metrics.area.right<=metrics.search.left+2&&metrics.search.right<=metrics.menu.left+2,
       "selector must not disturb the existing narrow homepage header row: "+JSON.stringify(metrics));
     assert.equal(metrics.selectorParent,"primary-nav","mobile selector must live in the existing menu flow");
-    assert.equal(metrics.selectorDisplay,"none","closed mobile menu must not reserve selector width in the header");
+    assert.equal(metrics.selectorVisible,false,"closed mobile menu must not expose or reserve selector space");
     assert.equal(requests.filter(x=>x==="/core/language-switcher.js").length,1,"VI homepage loads selector runtime once");
     assert.equal(requests.filter(x=>x==="/core/i18n-runtime.js").length,0,"VI homepage must not load i18n runtime just to draw selector");
     assert.equal(requests.filter(x=>x.includes("/data/i18n/catalog")).length,0,"VI homepage selector must not fetch locale catalog");
@@ -39,10 +40,10 @@ try{
     const open=await page.evaluate(()=>{
       const nav=document.querySelector("#primary-nav"),sel=document.querySelector("[data-language-slot]");
       const r=sel?.getBoundingClientRect();
-      return {open:nav?.classList.contains("open"),display:sel&&getComputedStyle(sel).display,left:r?.left,right:r?.right,width:innerWidth};
+      return {open:nav?.classList.contains("open"),visible:!!r&&r.width>0&&r.height>0,left:r?.left,right:r?.right,width:innerWidth};
     });
     assert.equal(open.open,true,"mobile menu must open normally");
-    assert.notEqual(open.display,"none","selector must be available inside open mobile menu");
+    assert.equal(open.visible,true,"selector must be available inside open mobile menu");
     assert.ok(open.left>=0&&open.right<=open.width+1,"selector must stay inside mobile viewport");
     const enHref=await page.locator('[data-language-slot] a[data-lang="en"]').getAttribute("href");
     assert.match(enHref,/^\/en\/\?qa=selector&lang=en#today$|^\/en\/\?lang=en&qa=selector#today$/,"selector must preserve non-language query and hash while marking manual EN choice");
