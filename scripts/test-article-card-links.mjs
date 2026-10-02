@@ -84,9 +84,13 @@ assert.match(worker,/const assetUrl = new URL\(routedUrl\)/,
 assert.doesNotMatch(worker,/routedUrl\.search\s*=/,
   "Locale routing must never rewrite or drop article query parameters");
 const wrangler=json("wrangler.jsonc");
+const workerFirst=wrangler.assets?.run_worker_first||[];
+const routeCovered=route=>workerFirst.includes(route)||workerFirst.some(rule=>
+  rule.endsWith("/*")&&route.startsWith(rule.slice(0,-1))
+);
 for(const route of ["/stories/article","/places/detail","/guide/article"])
-  assert.ok(wrangler.assets?.run_worker_first?.includes(route),
-    "Worker must also intercept extensionless canonical article route: "+route);
+  assert.ok(routeCovered(route),
+    "Worker must intercept extensionless canonical article route: "+route);
 
 const edge=read("functions/stories/article.html.js");
 assert.match(edge,/status:404/,"Unknown story IDs must be a 404 at the edge");
