@@ -97,8 +97,20 @@ assert.match(enRuntime,/data-openpq-lang/,
 assert.match(enRuntime,/data-openpq-language-static/,
   "English link localizer must ignore the whole static selector island");
 
+const seoHtml=readFileSync("functions/_shared/seo-html.js","utf8");
+assert.match(seoHtml,/function nativeLocaleShell\(pathname\)/,
+  "Edge locale rewriting must recognize native locale shells");
+assert.match(seoHtml,/return route==="\/airport\/"/,
+  "Airport must be classified as an edge-native locale shell");
+assert.match(seoHtml,/const serverSwitcher=nativeShell\?"":languageSwitcher/,
+  "Native Airport must not receive the generic edge language selector");
+assert.match(seoHtml,/const genericRuntime=nativeShell\?"":/,
+  "Native Airport must not receive generic i18n or full-site translator runtimes");
+assert.match(seoHtml,/const links=nativeShell\?"":alternates\.map/,
+  "Native Airport must reuse build-time alternates instead of duplicating them at the edge");
+
 const wrangler=readFileSync("wrangler.jsonc","utf8");
 for(const forbidden of ['"/"','"/index.html"','"/weather/"','"/transit/"','"/food/"','"/stories/"','"/guide/"','"/nearme/"','"/go/"','"/airport/"']){
   assert.equal(wrangler.includes(forbidden),false,"Language work must not move static VI route into Worker-first: "+forbidden);
 }
-console.log("PASS static language shell: early device detect, Airport native bridge, selector independent of legacy runtime/catalog, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
+console.log("PASS static language shell: early device detect, Airport native edge/runtime bridge, selector independent of legacy runtime/catalog, full HTML inventory, justified noindex exclusions, route manifest, hydrated query-safe links, EN compatibility, no duplicate Airport selector, no VI Worker regression");
