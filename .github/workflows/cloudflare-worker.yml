@@ -312,11 +312,14 @@ jobs:
           grep -Fq 'Vì sao hệ thống nói vậy?' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Weather evidence disclosure missing"; exit 1; }
           curl -fsSL "$origin/" -o /tmp/openpq-home.html
           grep -Fq '<link rel="canonical" href="https://openphuquoc.com/">' /tmp/openpq-home.html || { echo "::error::Homepage canonical is missing or incorrect"; exit 1; }
-          grep -Fq 'data-openpq-language-switcher-server' /tmp/openpq-home.html || { echo "::error::Server-rendered language selector missing on Vietnamese homepage"; exit 1; }
-          grep -Fq 'href="/en/?lang=en"' /tmp/openpq-home.html || { echo "::error::English selector link missing on Vietnamese homepage"; exit 1; }
+          grep -Fq 'data-openpq-language-static' /tmp/openpq-home.html || { echo "::error::Static language selector missing on Vietnamese homepage"; exit 1; }
+          grep -Fq 'data-openpq-lang="en"' /tmp/openpq-home.html || { echo "::error::English static selector option missing on Vietnamese homepage"; exit 1; }
+          grep -Fq 'href="/en/"' /tmp/openpq-home.html || { echo "::error::Direct English route missing on Vietnamese homepage"; exit 1; }
+          if grep -Fq 'data-openpq-language-switcher-server' /tmp/openpq-home.html; then echo "::error::Vietnamese homepage unexpectedly passed through the language Worker"; exit 1; fi
           curl -fsSL "$origin/en/" -o /tmp/openpq-home-en.html
-          grep -Fq 'data-openpq-language-switcher-server' /tmp/openpq-home-en.html || { echo "::error::Server-rendered language selector missing on English homepage"; exit 1; }
-          grep -Fq 'href="/?lang=vi"' /tmp/openpq-home-en.html || { echo "::error::Vietnamese selector link missing on English homepage"; exit 1; }
+          grep -Fq 'data-openpq-language-static' /tmp/openpq-home-en.html || { echo "::error::Static language selector missing on English homepage"; exit 1; }
+          grep -Fq 'data-openpq-lang="vi"' /tmp/openpq-home-en.html || { echo "::error::Vietnamese static selector option missing on English homepage"; exit 1; }
+          grep -Fq '.opq-language-auto{display:none!important}' /tmp/openpq-home-en.html || { echo "::error::Legacy Worker selector is not hidden on English static shell"; exit 1; }
           curl -fsSL "$origin/robots.txt" -o /tmp/openpq-robots.txt
           grep -Fq 'Sitemap: https://openphuquoc.com/sitemap.xml' /tmp/openpq-robots.txt
           grep -Fq 'Disallow: /admin/' /tmp/openpq-robots.txt
@@ -333,7 +336,7 @@ jobs:
             echo "::error::www redirect invalid: status=$www_status location=$www_location"
             exit 1
           fi
-          echo "Production sanity PASS: canonical, key routes, robots, sitemap, www redirect"
+          echo "Production sanity PASS: canonical, static-first language shell, key routes, robots, sitemap, www redirect"
 
       - name: Upload production smoke report
         if: always() && env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true'
