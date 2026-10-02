@@ -39,6 +39,7 @@ const HOME_DYNAMIC={
   "DI SẢN & CHẤT ĐẢO":"HERITAGE & ISLAND CHARACTER",
   "Phú Quốc không chỉ có biển.":"Phu Quoc is more than beaches.",
   "Những thứ làm nên mùi, vị và ký ức của đảo — nghề biển, nước mắm, hồ tiêu và những câu chuyện địa phương.":"What gives the island its smell, taste and memory — fishing life, fish sauce, pepper and local stories.",
+  "Những thứ làm nên mùi, vị và ký ức của đảo - nghề biển, nước mắm, hồ tiêu và những câu chuyện địa phương.":"What gives the island its smell, taste and memory - fishing life, fish sauce, pepper and local stories.",
   "HIỂU PHÚ QUỐC NHANH":"UNDERSTAND PHU QUOC FAST",
   "Hiểu đảo trong vài phút.":"Understand the island in a few minutes.",
   "Hiểu rõ Phú Quốc, lịch trình thảnh thơi.":"Understand Phu Quoc and travel with less guesswork.",
