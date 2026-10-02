@@ -7,8 +7,8 @@ const manifest=JSON.parse(fs.readFileSync("data/i18n/routes.json","utf8"));
 const staticRoutes=(manifest.static_shells||[]).filter(x=>x.selector==="static");
 const nativeRoutes=(manifest.static_shells||[]).filter(x=>x.selector==="native");
 // Full route ownership/injection is already enforced by test-static-language-shell.mjs.
-// Browser QA only needs representative shells from each layout/behavior family so CI
-// remains fast and deterministic instead of opening every heavy product at 4 widths.
+// Browser QA only samples representative layout families; dynamic locale behavior is
+// exercised separately below on a tiny set of routes with the real page runtime.
 const representativePaths=new Set([
   "/",
   "/weather/",
@@ -34,6 +34,17 @@ async function blockExternal(context){
       if(new URL(route.request().url()).origin===ORIGIN)return route.fallback();
     }catch{}
     return route.abort();
+  });
+}
+async function blockLayoutNoise(context){
+  await context.route("**/*",async route=>{
+    try{
+      const u=new URL(route.request().url());
+      if(u.origin!==ORIGIN)return route.abort();
+      const type=route.request().resourceType();
+      if(["script","image","font","media","xhr","fetch","eventsource","websocket"].includes(type))return route.abort();
+      return route.fallback();
+    }catch{return route.abort()}
   });
 }
 async function workerlessEnglishFulfill(context){
@@ -62,10 +73,9 @@ async function pool(items,limit,fn){
 }
 async function checkStaticRoute(context,route,width){
   const page=await context.newPage();
-  page.setDefaultTimeout(3000);
-  const catalog=[];page.on("request",r=>{if(r.url().includes("/data/i18n/catalog.json"))catalog.push(r.url())});
+  page.setDefaultTimeout(2500);
   try{
-    const response=await page.goto(BASE+route.path,{waitUntil:"domcontentloaded",timeout:6000});
+    const response=await page.goto(BASE+route.path,{waitUntil:"domcontentloaded",timeout:4500});
     if(!response?.ok()){fail(route.path,width,"http",response?.status()||0);return}
     const selector=page.locator('[data-openpq-language-static]');
     const count=await selector.count();
@@ -84,47 +94,49 @@ async function checkStaticRoute(context,route,width){
         .filter(x=>x.area>4);
     });
     if(overlaps.length)fail(route.path,width,"selector-overlap",JSON.stringify(overlaps.slice(0,4)));
-    if(["/","/weather/","/transit/"].includes(route.path)&&catalog.length)fail(route.path,width,"selector-caused-catalog-fetch",catalog.join(","));
   }catch(error){fail(route.path,width,"exception",String(error.message||error))}
-  finally{await page.close()}
+  finally{await page.close({runBeforeUnload:false}).catch(()=>{})}
 }
 async function checkNativeRoute(context,route,width){
-  const page=await context.newPage();page.setDefaultTimeout(3000);
+  const page=await context.newPage();page.setDefaultTimeout(2500);
   try{
-    await page.goto(BASE+route.path,{waitUntil:"domcontentloaded",timeout:6000});
+    await page.goto(BASE+route.path,{waitUntil:"domcontentloaded",timeout:4500});
     const common=await page.locator('[data-openpq-language-static]').count();
     const native=await page.locator('#languageSelect').count();
     if(common!==0||native!==1)fail(route.path,width,"native-selector-duplication",`common=${common} native=${native}`);
   }catch(error){fail(route.path,width,"exception",String(error.message||error))}
-  finally{await page.close()}
+  finally{await page.close({runBeforeUnload:false}).catch(()=>{})}
 }
 
 for(const width of [320,390,768,1366]){
-  console.log(`[i18n-qa] layout matrix ${width}px: ${browserRoutes.length} representative static shells + ${nativeRoutes.length} native shell`);
+  console.log(`[i18n-qa] layout-only ${width}px: ${browserRoutes.length} representative static shells + ${nativeRoutes.length} native shell`);
   const height=width<500?844:900;
   const context=await browser.newContext({viewport:{width,height},locale:"vi-VN",serviceWorkers:"block"});
-  await blockExternal(context);
+  await blockLayoutNoise(context);
   await pool(browserRoutes,4,route=>checkStaticRoute(context,route,width));
   await pool(nativeRoutes,1,route=>checkNativeRoute(context,route,width));
-  await context.close();
+  await context.close().catch(()=>{});
 }
 
-console.log("[i18n-qa] ordered browser-language behavior");
+console.log("[i18n-qa] ordered browser-language behavior + VI zero-catalog selector path");
 // Browser language order matters. VI first must stay VI even if EN is a later
-// preference. An EN-first browser follows the canonical English counterpart.
+// preference. This full-runtime smoke also proves the static selector itself does
+// not require the locale catalog on a normal VI Weather load.
 {
   const context=await browser.newContext({viewport:{width:390,height:844},locale:"vi-VN",serviceWorkers:"block"});
   await context.addInitScript(()=>Object.defineProperty(navigator,"languages",{get:()=>["vi-VN","en-US"]}));
   await blockExternal(context);await workerlessEnglishFulfill(context);
   const page=await context.newPage();page.setDefaultTimeout(3000);
+  const catalog=[];page.on("request",r=>{if(r.url().includes("/data/i18n/catalog.json"))catalog.push(r.url())});
   try{
     await page.goto(BASE+"/weather/?point=duong-dong#today",{waitUntil:"domcontentloaded",timeout:6000});
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(150);
     if(new URL(page.url()).pathname!=="/weather/")fail("/weather/",390,"vi-primary-browser-misdirected",page.url());
     const stored=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
     if(stored.local||stored.cookie.includes("openpq_lang="))fail("/weather/",390,"browser-detect-wrote-manual-preference",JSON.stringify(stored));
+    if(catalog.length)fail("/weather/",390,"selector-caused-catalog-fetch",catalog.join(","));
   }catch(error){fail("/weather/",390,"ordered-browser-locale-exception",String(error.message||error))}
-  finally{await page.close();await context.close()}
+  finally{await page.close({runBeforeUnload:false}).catch(()=>{});await context.close().catch(()=>{})}
 }
 
 console.log("[i18n-qa] EN auto-detect + remembered manual VI/EN");
@@ -166,7 +178,7 @@ console.log("[i18n-qa] EN auto-detect + remembered manual VI/EN");
     const storedEn=await page.evaluate(()=>({local:localStorage.getItem("openpq_lang"),cookie:document.cookie}));
     if(storedEn.local!=="en"||!storedEn.cookie.includes("openpq_lang=en"))fail("/en/weather/",390,"manual-en-not-persisted",JSON.stringify(storedEn));
   }catch(error){fail("/weather/",390,"preference-roundtrip-exception",String(error.message||error))}
-  finally{await page.close();await context.close()}
+  finally{await page.close({runBeforeUnload:false}).catch(()=>{});await context.close().catch(()=>{})}
 }
 
 console.log("[i18n-qa] legacy ?lang canonicalization");
@@ -183,7 +195,7 @@ console.log("[i18n-qa] legacy ?lang canonicalization");
     const stored=await page.evaluate(()=>localStorage.getItem("openpq_lang"));
     if(stored!=="en")fail("/weather/",390,"legacy-lang-not-remembered",stored||"");
   }catch(error){fail("/weather/",390,"legacy-lang-exception",String(error.message||error))}
-  finally{await page.close();await context.close()}
+  finally{await page.close({runBeforeUnload:false}).catch(()=>{});await context.close().catch(()=>{})}
 }
 
 console.log("[i18n-qa] query-sensitive Food article selector");
@@ -203,9 +215,9 @@ console.log("[i18n-qa] query-sensitive Food article selector");
     const u=new URL(page.url());
     if(u.searchParams.get("id")!=="bun-quay"||u.hash!=="#ingredients")fail("/en/food/article.html",390,"article-id-or-hash-lost",page.url());
   }catch(error){fail("/food/article.html",390,"article-query-exception",String(error.message||error))}
-  finally{await page.close();await context.close()}
+  finally{await page.close({runBeforeUnload:false}).catch(()=>{});await context.close().catch(()=>{})}
 }
 
-await browser.close();
+await browser.close().catch(()=>{});
 if(failures.length){console.error(JSON.stringify(failures,null,2));process.exit(1)}
 console.log(`PASS browser i18n QA: all ${staticRoutes.length} static shells structurally gated; ${browserRoutes.length} representative static shells + ${nativeRoutes.length} native shell across 4 viewports; no overlap; ordered device-language routing + no implicit preference writes + remembered VI/EN + legacy links + hydrated article query targets + English runtime compatibility`);
