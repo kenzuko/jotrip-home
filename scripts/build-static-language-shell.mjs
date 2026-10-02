@@ -24,20 +24,23 @@ const style=`<style id="openpq-static-language-style">
 .opq-static-language{display:flex;align-items:center;gap:2px;margin-left:auto;padding:3px;border:1px solid rgba(23,42,48,.14);border-radius:999px;background:rgba(255,255,255,.96);font:700 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;white-space:nowrap;flex:0 0 auto;z-index:35}
 .opq-static-language a{display:inline-flex;align-items:center;justify-content:center;min-width:36px;min-height:30px;padding:0 7px;border-radius:999px;color:#233239;text-decoration:none}
 html[lang^="vi"] .opq-static-language a[data-openpq-lang="vi"],html[lang^="en"] .opq-static-language a[data-openpq-lang="en"]{background:#edf4f1;color:#0b5d4b}
+html[data-openpq-suggest-lang="en"][lang^="vi"] .opq-static-language a[data-openpq-lang="en"]{box-shadow:inset 0 0 0 1px rgba(11,93,75,.22)}
 .opq-static-language a:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.opq-static-language[data-openpq-language-placement="after-header"]{width:max-content;max-width:calc(100% - 24px);margin:6px 12px 6px auto}
 body>.opq-language-auto[data-openpq-language-switcher-server]{display:none!important}
-@media(max-width:760px){.opq-static-language{padding:2px;gap:1px}.opq-static-language a{min-width:34px;min-height:32px;padding:0 6px;font-size:11px}}
+@media(max-width:760px){.opq-static-language{padding:2px;gap:1px}.opq-static-language a{min-width:34px;min-height:32px;padding:0 6px;font-size:11px}.opq-static-language[data-openpq-language-placement="after-header"]{margin-top:5px;margin-bottom:5px}}
 </style>`;
 
 function bootstrap(route){
   const enPath=localePath(route.path,"en");
   const publishedClient=published.map(x=>({code:x.code,url_code:x.url_code}));
-  return `<script id="openpq-static-language-bootstrap">(()=>{try{const K="${esc(routes.rules?.manual_preference_key||"openpq_lang")}",D="${esc(defaultCode)}",R=${JSON.stringify(publishedClient)},EN=${JSON.stringify(enPath)};const explicit=document.querySelector('meta[name="openpq-locale"]')?.content||(/^\\/en(?:\\/|$)/.test(location.pathname)?"en":"");const cookie=()=>{const m=("; "+document.cookie).match(new RegExp("; "+K+"=([^;]*)"));return m?decodeURIComponent(m[1]):""};const save=c=>{try{localStorage.setItem(K,c)}catch{};document.cookie=K+"="+encodeURIComponent(c)+"; Max-Age=31536000; Path=/; SameSite=Lax; Secure"};document.addEventListener("click",e=>{const a=e.target.closest?.("[data-openpq-lang]");if(!a)return;const c=a.getAttribute("data-openpq-lang");if(!R.some(x=>x.code===c))return;save(c);if(e.button===0&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();const u=new URL(a.href,location.href),q=new URLSearchParams(location.search);q.delete("lang");u.search=q.toString()?"?"+q.toString():"";u.hash=location.hash;location.href=u.pathname+u.search+u.hash}},true);if(explicit&&explicit!==D)return;let pref="";try{pref=localStorage.getItem(K)||""}catch{};pref=pref||cookie();if(!R.some(x=>x.code===pref)){const tags=navigator.languages?.length?navigator.languages:[navigator.language||""];const hit=tags.map(x=>String(x).toLowerCase()).find(x=>x==="en"||x.startsWith("en-"));pref=hit?"en":D}if(pref==="en"){const u=new URL(EN,location.origin),q=new URLSearchParams(location.search);q.delete("lang");u.search=q.toString()?"?"+q.toString():"";u.hash=location.hash;location.replace(u.pathname+u.search+u.hash)}}catch{}})();</script>`;
+  return `<script id="openpq-static-language-bootstrap">(()=>{try{const K="${esc(routes.rules?.manual_preference_key||"openpq_lang")}",D="${esc(defaultCode)}",R=${JSON.stringify(publishedClient)},EN=${JSON.stringify(enPath)};const explicit=document.querySelector('meta[name="openpq-locale"]')?.content||(/^\\/en(?:\\/|$)/.test(location.pathname)?"en":"");const cookie=()=>{const m=("; "+document.cookie).match(new RegExp("; "+K+"=([^;]*)"));return m?decodeURIComponent(m[1]):""};const save=c=>{try{localStorage.setItem(K,c)}catch{};document.cookie=K+"="+encodeURIComponent(c)+"; Max-Age=31536000; Path=/; SameSite=Lax; Secure"};const go=(href)=>{const u=new URL(href,location.href),q=new URLSearchParams(location.search);q.delete("lang");u.search=q.toString()?"?"+q.toString():"";u.hash=location.hash;location.href=u.pathname+u.search+u.hash};document.addEventListener("click",e=>{const a=e.target.closest?.("[data-openpq-lang]");if(!a)return;const c=a.getAttribute("data-openpq-lang");if(!R.some(x=>x.code===c))return;save(c);if(e.button===0&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();go(a.href)}},true);if(explicit&&explicit!==D)return;let pref="";try{pref=localStorage.getItem(K)||""}catch{};pref=pref||cookie();if(R.some(x=>x.code===pref)){if(pref==="en")go(EN);return}const tags=navigator.languages?.length?navigator.languages:[navigator.language||""];if(tags.map(x=>String(x).toLowerCase()).some(x=>x==="en"||x.startsWith("en-")))document.documentElement.dataset.openpqSuggestLang="en"}catch{}})();</script>`;
 }
 
 function nav(route){
+  const placement=route.placement||"before-header-end";
   const links=staticCodes.map(code=>`<a href="${esc(localePath(route.path,code))}" hreflang="${esc(byCode.get(code).html_lang||code)}" lang="${esc(byCode.get(code).html_lang||code)}" data-openpq-lang="${esc(code)}">${esc(label(code))}</a>`).join("");
-  return `<nav class="opq-static-language" data-openpq-language-static aria-label="Language">${links}</nav>`;
+  return `<nav class="opq-static-language" data-openpq-language-static data-openpq-language-placement="${esc(placement)}" aria-label="Language">${links}</nav>`;
 }
 function alternates(route){
   const links=staticCodes.map(code=>`<link rel="alternate" hreflang="${esc(byCode.get(code).html_lang||code)}" href="https://openphuquoc.com${esc(localePath(route.path,code))}">`).join("");
@@ -56,8 +59,14 @@ for(const route of routes.static_shells||[]){
   const headerClose=html.indexOf("</header>");
   if(headClose<0||headerClose<0)throw new Error("Static language insertion point missing: "+route.file);
   html=html.slice(0,headClose)+alternates(route)+style+(route.autodetect?bootstrap(route):"")+html.slice(headClose);
+  const placement=route.placement||"before-header-end";
   const nextHeaderClose=html.indexOf("</header>");
-  html=html.slice(0,nextHeaderClose)+nav(route)+html.slice(nextHeaderClose);
+  if(placement==="after-header"){
+    const end=nextHeaderClose+"</header>".length;
+    html=html.slice(0,end)+nav(route)+html.slice(end);
+  }else if(placement==="before-header-end"){
+    html=html.slice(0,nextHeaderClose)+nav(route)+html.slice(nextHeaderClose);
+  }else throw new Error("Unknown language selector placement for "+route.path+": "+placement);
   writeFileSync(file,html,"utf8");
   built++;
 }
