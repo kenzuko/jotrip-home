@@ -1,0 +1,53 @@
+name: Core 2.0 production binding inventory (GET only)
+on:
+  push:
+    branches: [core2/read-only-binding-inventory-20261003]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read existing Worker inventory and binding identities
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          python - <<'PY'
+          import os,json,pathlib,urllib.request,urllib.error
+          account=os.environ.get('CF_ACCOUNT_ID','')
+          token=os.environ.get('CF_API_TOKEN','')
+          result={'contract':'openpq-core2-existing-binding-inventory-v1','read_only':True,'methods':['GET'],'account_id':account or None,'workers':[],'errors':[]}
+          def get(path):
+            request=urllib.request.Request('https://api.cloudflare.com/client/v4/'+path,headers={'authorization':'Bearer '+token},method='GET')
+            try:
+              with urllib.request.urlopen(request,timeout=20) as response: body=json.load(response)
+              if not body.get('success'): raise ValueError('CF_API_DENIED')
+              return body.get('result')
+            except urllib.error.HTTPError as error:
+              result['errors'].append({'path':path.split('/')[-1],'http_status':error.code})
+              return None
+          if account and token:
+            workers=get('accounts/'+account+'/workers/scripts')
+            if isinstance(workers,list):
+              result['script_names']=[x.get('id') for x in workers]
+              for name in result['script_names']:
+                if name not in ['openphuquoc-v3','openphuquoc-cms','jotrip-airport-live','jotrip-weather-fresh','jotrip-transit-wake']: continue
+                settings=get('accounts/'+account+'/workers/scripts/'+name+'/settings')
+                if settings:
+                  allowed=['name','type','service','environment','namespace_id','bucket_name','database_id','class_name']
+                  bindings=[{k:v for k,v in x.items() if k in allowed} for x in settings.get('bindings',[])]
+                  result['workers'].append({'name':name,'bindings':bindings,'compatibility_date':settings.get('compatibility_date')})
+          else: result['errors'].append({'error':'REPOSITORY_CLOUDFLARE_CREDENTIAL_MISSING'})
+          result['status']='READ_ONLY_INVENTORY_COMPLETE' if result['workers'] and not result['errors'] else 'INVENTORY_INCOMPLETE'
+          pathlib.Path('CORE2_BINDING_INVENTORY.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps({'status':result['status'],'workers':len(result['workers']),'errors':len(result['errors'])}))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: core2-existing-binding-inventory
+          path: CORE2_BINDING_INVENTORY.json
+          retention-days: 7
