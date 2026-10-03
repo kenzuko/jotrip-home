@@ -17,8 +17,8 @@ jobs:
         run: |
           python - <<'PY'
           import os,json,pathlib,urllib.request,urllib.error
-          account=os.environ.get('CF_ACCOUNT_ID','')
-          token=os.environ.get('CF_API_TOKEN','')
+          account=os.environ.get('CF_ACCOUNT_ID','').strip()
+          token=os.environ.get('CF_API_TOKEN','').strip()
           result={'contract':'openpq-core2-existing-binding-inventory-v1','read_only':True,'methods':['GET'],'account_id':account or None,'workers':[],'errors':[]}
           def get(path):
             request=urllib.request.Request('https://api.cloudflare.com/client/v4/'+path,headers={'authorization':'Bearer '+token},method='GET')
@@ -28,6 +28,9 @@ jobs:
               return body.get('result')
             except urllib.error.HTTPError as error:
               result['errors'].append({'path':path.split('/')[-1],'http_status':error.code})
+              return None
+            except Exception as error:
+              result['errors'].append({'path':path.split('/')[-1],'error':type(error).__name__})
               return None
           if account and token:
             workers=get('accounts/'+account+'/workers/scripts')
