@@ -22,10 +22,11 @@ main{max-width:850px;margin:auto;padding:32px 22px 80px}.crumb{font-size:14px;co
 .notice{display:inline-block;border-radius:30px;padding:6px 13px;background:#eef3ff;color:#244f91;font-size:12px;font-weight:750;letter-spacing:.06em}
 h1{font-size:clamp(31px,5.5vw,52px);line-height:1.15;letter-spacing:-.035em;margin:20px 0 14px;color:#254734}.lead{font-size:clamp(18px,2.7vw,22px);line-height:1.55;color:#3c4b40;margin:0 0 12px}.meta{font-size:13px;color:#777f78;margin-bottom:22px}
 .poster-frame{width:min(92vw,400px);margin:22px auto 32px;text-align:center}.poster-frame a{display:block;border-radius:18px;overflow:hidden;background:#fff;border:1px solid #e0e5df;box-shadow:0 18px 44px rgba(41,58,47,.15);transition:transform .18s ease,box-shadow .18s ease}.poster-frame a:hover{transform:translateY(-2px);box-shadow:0 22px 48px rgba(41,58,47,.18)}.poster-frame img{display:block;width:100%;height:auto}.poster-frame figcaption{margin:10px auto 0;max-width:380px;font-size:13px;line-height:1.45;color:#737c75}.poster-frame figcaption::after{content:"  ↗"}
-.quick{display:grid;grid-template-columns:1fr 1.45fr;gap:14px;margin:24px 0 32px}.quick>div{border-radius:18px;background:#fff;border:1px solid #e1e7df;padding:20px 22px}.quick strong{display:block;color:#274b38;font-size:14px;margin-bottom:5px}.quick b{font-size:22px;line-height:1.28;color:#9b332f}.quick p{margin:0;font-size:16px}
+.quick{display:grid;grid-template-columns:1fr 1.45fr;gap:14px;margin:24px 0 20px}.quick>div{border-radius:18px;background:#fff;border:1px solid #e1e7df;padding:20px 22px}.quick strong{display:block;color:#274b38;font-size:14px;margin-bottom:5px}.quick b{font-size:22px;line-height:1.28;color:#9b332f}.quick p{margin:0;font-size:16px}
+.today-box{margin:0 0 34px;border-radius:18px;background:#eef5ef;border:1px solid #d6e3d7;padding:19px 22px}.today-box strong{display:block;color:#214b34;font-size:15px;margin-bottom:8px}.today-box ul{margin:0;padding-left:20px}.today-box li{font-size:16px;margin:5px 0}
 h2{font-size:22px;line-height:1.32;margin:30px 0 10px;color:#2b4837}p{font-size:17px;margin:12px 0}ul{margin:10px 0 0;padding-left:22px}li{font-size:17px;margin:8px 0}.note{border-left:4px solid #d6a247;background:#fff8e9;padding:13px 19px;margin-top:27px;border-radius:0 10px 10px 0}.note p{font-size:15px;margin:6px 0}.source{font-size:14px;color:#657067;border-top:1px solid #e0e8e0;margin-top:40px;padding-top:16px}
 footer{text-align:center;padding:24px 16px;background:#f1f4ee;color:#6c776d;font-size:13px}
-@media(max-width:570px){main{padding:23px 14px 70px}.quick{grid-template-columns:1fr}.top img{height:35px}.poster-frame{width:min(96vw,400px);margin:18px auto 28px}.poster-frame a{border-radius:14px}.poster-frame figcaption{padding:0 8px}}
+@media(max-width:570px){main{padding:23px 14px 70px}.quick{grid-template-columns:1fr}.top img{height:35px}.poster-frame{width:min(96vw,400px);margin:18px auto 28px}.poster-frame a{border-radius:14px}.poster-frame figcaption{padding:0 8px}.today-box{padding:17px 18px}}
 </style>
 </head>
 <body>
@@ -46,14 +47,22 @@ footer{text-align:center;padding:24px 16px;background:#f1f4ee;color:#6c776d;font
   <div><strong id="eventTimeLabel"></strong><b>03 - 04/10/2026</b><p>Thứ Bảy và Chủ nhật</p></div>
   <div><strong>ĐỊA ĐIỂM</strong><p>Quảng trường Trung tâm Văn hóa đặc khu Phú Quốc<br>Đường 30/4, khu phố 2 Dương Đông, đặc khu Phú Quốc, tỉnh An Giang</p></div>
 </div>
+<div class="today-box" role="note">
+  <strong>NẾU ĐANG Ở PHÚ QUỐC CUỐI TUẦN NÀY</strong>
+  <ul>
+    <li>Tối 03/10: lễ khai mạc bắt đầu lúc 19:00, có chương trình biểu diễn và giao lưu nghệ thuật Việt Nam - Hàn Quốc.</li>
+    <li>Điểm đáng chú ý gồm đội biểu diễn Taekwondo quốc gia Hàn Quốc, Fusion Gukak và các tiết mục của nghệ sĩ An Giang, Phú Quốc, ca sĩ Đỗ Nam Sơn, Isaac.</li>
+    <li>Ngày 04/10: tiếp tục các không gian văn hóa, du lịch, ẩm thực và hoạt động trải nghiệm. Ban tổ chức chưa công bố giờ riêng cho từng hoạt động.</li>
+  </ul>
+</div>
 <h2>Có gì đáng xem?</h2>
-<p>Theo Báo Nhân Dân, chương trình có các không gian trải nghiệm văn hóa, du lịch và ẩm thực của Việt Nam - Hàn Quốc, cùng nhiều tiết mục biểu diễn và giao lưu dành cho người dân lẫn du khách.</p>
+<p>Đây không chỉ là một chương trình sân khấu. Theo thông tin Ban tổ chức công bố, khu vực sự kiện còn có các không gian trải nghiệm văn hóa, du lịch và ẩm thực của Việt Nam - Hàn Quốc để người dân và du khách có thể ghé xem, thử và tìm hiểu trong suốt chương trình.</p>
 <ul>
-  <li>Đội biểu diễn Taekwondo quốc gia trực thuộc Hiệp hội Taekwondo Hàn Quốc.</li>
-  <li>Trình diễn nhạc cụ truyền thống Hàn Quốc theo lối đương đại - Fusion Gukak.</li>
-  <li>Các tiết mục của nghệ sĩ tỉnh An Giang, đặc khu Phú Quốc, ca sĩ Đỗ Nam Sơn và ca sĩ Isaac.</li>
-  <li>Khu gian hàng An Giang với văn hóa Chăm, trải nghiệm di sản, ẩm thực Việt Nam và không gian diễn xướng.</li>
-  <li>Các gian hàng giới thiệu văn hóa, du lịch, ẩm thực Hàn Quốc và Việt Nam, phù hợp nhiều độ tuổi.</li>
+  <li><strong>Taekwondo:</strong> đội biểu diễn Taekwondo quốc gia trực thuộc Hiệp hội Taekwondo Hàn Quốc tham gia chương trình.</li>
+  <li><strong>Fusion Gukak:</strong> nhạc cụ truyền thống Hàn Quốc được trình diễn theo lối đương đại.</li>
+  <li><strong>Nghệ sĩ Việt Nam:</strong> có các tiết mục của nghệ sĩ tỉnh An Giang, đặc khu Phú Quốc, ca sĩ Đỗ Nam Sơn và ca sĩ Isaac.</li>
+  <li><strong>Không gian An Giang:</strong> giới thiệu văn hóa Chăm An Giang, trải nghiệm check-in cùng di sản, ẩm thực Việt Nam và không gian diễn xướng.</li>
+  <li><strong>Không gian Việt - Hàn:</strong> các gian hàng giới thiệu văn hóa, du lịch và ẩm thực của hai nước, với hoạt động phù hợp nhiều độ tuổi.</li>
 </ul>
 <h2>Vì sao sự kiện được tổ chức tại Phú Quốc?</h2>
 <p>Chương trình do Đại sứ quán Hàn Quốc tại Việt Nam và UBND tỉnh An Giang đồng chủ trì, hướng tới kỷ niệm 35 năm thiết lập quan hệ ngoại giao Việt Nam - Hàn Quốc vào năm 2027 và Hội nghị cấp cao APEC 2027 tại Phú Quốc. Ban tổ chức kỳ vọng hoạt động giao lưu văn hóa nhân dân sẽ góp phần tăng sự hiểu biết và kết nối giữa hai nước.</p>
@@ -64,7 +73,7 @@ footer{text-align:center;padding:24px 16px;background:#f1f4ee;color:#6c776d;font
 <ul id="eventSundayList"></ul>
 <div class="note"><strong id="eventNoteTitle"></strong><p id="eventNoteText"></p></div>
 <p class="source">Nguồn tham khảo: Báo Nhân Dân, bài “Ngày văn hóa Việt Nam-Hàn Quốc tại Phú Quốc năm 2026”, đăng ngày 02/10/2026; đối chiếu poster chương trình do Ban tổ chức cung cấp. Open Phu Quoc biên tập lại theo hướng thông tin thực dụng cho người đang ở Phú Quốc.</p>
-<script type="application/json" id="eventArticleCopy">{"time_label":"THỜI GIAN","poster_caption":"Poster chương trình - chạm để mở ảnh rõ hơn.","opening":"Chương trình khai mạc gồm văn nghệ chào mừng, giới thiệu đại biểu, phát biểu khai mạc, phát biểu của đại diện phía Hàn Quốc, tặng quà lưu niệm và các tiết mục biểu diễn, giao lưu văn hóa nghệ thuật Việt Nam - Hàn Quốc.","sunday_intro":"Theo chương trình công bố, ngày Chủ nhật tập trung vào các hoạt động để người dân và du khách ghé xem, trải nghiệm và giao lưu:","sunday":["Các gian hàng giới thiệu du lịch, sản phẩm văn hóa và ẩm thực Việt Nam - Hàn Quốc.","Biểu diễn nghệ thuật và giao lưu văn hóa.","Trải nghiệm trang phục truyền thống Việt Nam - Hàn Quốc.","Giới thiệu và trải nghiệm ẩm thực đặc sắc của hai nước.","Hoạt động giao lưu, kết nối doanh nghiệp, quảng bá du lịch, đầu tư và thương mại.","Các hoạt động trải nghiệm, chụp ảnh và tham quan cho người dân, du khách."],"note_title":"Lưu ý về giờ ngày 04/10","note_text":"Poster chương trình không ghi khung giờ chi tiết cho từng hoạt động trong ngày Chủ nhật. Open Phu Quoc giữ nguyên thông tin đã công bố và không tự gán thêm giờ."}</script>
+<script type="application/json" id="eventArticleCopy">{"time_label":"THỜI GIAN","poster_caption":"Poster chương trình - chạm để mở ảnh rõ hơn.","opening":"Chương trình khai mạc gồm văn nghệ chào mừng, giới thiệu đại biểu, phát biểu khai mạc, phát biểu của đại diện phía Hàn Quốc, tặng quà lưu niệm và các tiết mục biểu diễn, giao lưu văn hóa nghệ thuật Việt Nam - Hàn Quốc.","sunday_intro":"Theo chương trình công bố, ngày Chủ nhật tập trung vào các hoạt động để người dân và du khách ghé xem, trải nghiệm và giao lưu:","sunday":["Các gian hàng giới thiệu văn hóa, du lịch và ẩm thực Việt Nam - Hàn Quốc.","Không gian An Giang với văn hóa Chăm, trải nghiệm di sản, ẩm thực Việt Nam và diễn xướng.","Biểu diễn nghệ thuật và giao lưu văn hóa Việt Nam - Hàn Quốc.","Các hoạt động trải nghiệm dành cho người dân, gia đình và du khách nhiều độ tuổi.","Giao lưu, kết nối và quảng bá du lịch giữa các đơn vị tham gia."],"note_title":"Lưu ý về giờ ngày 04/10","note_text":"Poster chương trình không ghi khung giờ chi tiết cho từng hoạt động trong ngày Chủ nhật. Open Phu Quoc giữ nguyên thông tin đã công bố và không tự gán thêm giờ."}</script>
 <script>(()=>{const e=document.getElementById("eventArticleCopy");if(!e)return;let c;try{c=JSON.parse(e.textContent)}catch{return}const put=(id,v)=>{const n=document.getElementById(id);if(n)n.textContent=v||""};put("eventTimeLabel",c.time_label);put("eventPosterCaption",c.poster_caption);put("eventOpening",c.opening);put("eventSundayIntro",c.sunday_intro);put("eventNoteTitle",c.note_title);put("eventNoteText",c.note_text);const list=document.getElementById("eventSundayList");if(list)for(const text of c.sunday||[]){const li=document.createElement("li");li.textContent=text;list.append(li)}})();</script>
 </main>
 <footer>Open Phu Quoc · Thông tin miễn phí dành cho người dân và du khách</footer>
