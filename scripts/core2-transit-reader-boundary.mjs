@@ -30,16 +30,17 @@ try{
  // This is the only deployment target. No command, R2, native or signing binding is installed.
  const deploy=spawnSync('node_modules/.bin/wrangler',['deploy','--config','.transit-transfer/consumer.json'],{cwd:'core2',encoding:'utf8',timeout:90000,env:{...process.env,CLOUDFLARE_API_TOKEN:token,CLOUDFLARE_ACCOUNT_ID:ACCOUNT,WRANGLER_SEND_METRICS:'false'}});
  if(deploy.status!==0)throw Error('READER_DEPLOY_FAILED');created=true;
- let witness;
- for(let n=0;n<15;n++){
+ proof.probes=[];let witness;const deadline=Date.now()+180000;
+ for(let n=0;n<45&&Date.now()<deadline;n++){
   try{
-   const r=await fetch(ORIGIN+'/network.json',{redirect:'error',signal:AbortSignal.timeout(15000)});
-   const raw=await r.text();const d=JSON.parse(raw);
-   if(r.ok&&d.schema_version==='1.1'&&r.headers.get('x-openpq-reader')==='LEGACY'&&r.headers.get('x-openpq-source-digest')===sha(raw)&&r.headers.get('cache-control')==='no-store'&&r.headers.get('access-control-allow-origin')==='*'){
+   const r=await fetch(ORIGIN+'/network.json',{redirect:'error',signal:AbortSignal.timeout(Math.max(1,Math.min(15000,deadline-Date.now())))});
+   const raw=await r.text();let d;try{d=JSON.parse(raw);}catch{}
+   proof.probes.push({attempt:n,http_status:r.status,content_type:r.headers.get('content-type'),reader:r.headers.get('x-openpq-reader'),body_digest:sha(raw),source_digest:r.headers.get('x-openpq-source-digest'),error:typeof d?.error==='string'&&/^[A-Z0-9_]+$/.test(d.error)?d.error:null});await save();
+   if(r.ok&&d?.schema_version==='1.1'&&r.headers.get('x-openpq-reader')==='LEGACY'&&r.headers.get('x-openpq-source-digest')===sha(raw)&&r.headers.get('cache-control')==='no-store'&&r.headers.get('access-control-allow-origin')==='*'){
     witness={checked_at:new Date().toISOString(),status:r.status,source_digest:sha(raw),generated_at:d.generated_at,departures:d.departures?.length,services:d.services?.length};
     await writeFile(root+'/GATEWAY_SOURCE.json',raw);break;
    }
-  }catch{}
+  }catch{proof.probes.push({attempt:n,error:'PROBE_TRANSPORT_UNAVAILABLE'});await save();}
   await new Promise(resolve=>setTimeout(resolve,2000));
  }
  if(!witness)throw Error('READER_DATA_WITNESS_UNAVAILABLE');proof.gateway_witness=witness;
