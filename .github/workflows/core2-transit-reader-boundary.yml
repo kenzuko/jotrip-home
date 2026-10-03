@@ -1,0 +1,43 @@
+name: Core 2 Transit reader boundary - legacy mode only
+on:
+  push:
+    branches: [cloud/core2-transit-reader-boundary-20261004]
+    paths:
+      - scripts/core2-transit-reader-boundary.mjs
+      - .github/workflows/core2-transit-reader-boundary.yml
+permissions:
+  contents: read
+concurrency:
+  group: core2-transit-reader-boundary-release
+  cancel-in-progress: false
+jobs:
+  reader-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: kenzuko/openpq-intelligence
+          ref: 7af398a88d0875d4be79a802923fa2229f7ff81b
+          path: core2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --check scripts/core2-transit-reader-boundary.mjs
+      - working-directory: core2
+        run: npm ci --ignore-scripts && node scripts/prepare-transit-transfer-bundles.js
+      - name: Deploy only the new GET-only legacy reader and verify actual source parity
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: node scripts/core2-transit-reader-boundary.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: core2-transit-reader-boundary
+          path: .core2-transit-reader-boundary/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error
