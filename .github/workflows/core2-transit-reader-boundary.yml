@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: kenzuko/openpq-intelligence
-          ref: 201f4eb66d32383203821ada82aa4edc6e599246
+          ref: 7af398a88d0875d4be79a802923fa2229f7ff81b
           path: core2
       - uses: actions/setup-node@v4
         with:

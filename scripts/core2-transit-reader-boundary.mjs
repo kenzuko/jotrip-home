@@ -2,7 +2,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 const ACCOUNT='1a64a0a081ea758f72be8254030bdf11',NAME='openpq-intelligence-transit-reader';
-const CODE='201f4eb66d32383203821ada82aa4edc6e599246',ORIGIN='https://'+NAME+'.kenzuko.workers.dev';
+const CODE='7af398a88d0875d4be79a802923fa2229f7ff81b',ORIGIN='https://'+NAME+'.kenzuko.workers.dev';
 const root='.core2-transit-reader-boundary',proof={status:'RUNNING',code_sha:CODE,release_sha:process.env.GITHUB_SHA,account_id:ACCOUNT,target:NAME,mode:'LEGACY',canonical_transferred:false,public_app_switched:false,producer_independent:false,started_at:new Date().toISOString()};
 await mkdir(root,{recursive:true});
 const save=()=>writeFile(root+'/PROOF.json',JSON.stringify(proof,null,2)+'\n');
