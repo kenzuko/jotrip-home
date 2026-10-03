@@ -1,0 +1,36 @@
+name: Core 2 normal transfer - existing production capability inventory
+on:
+  push:
+    branches: [cloud/core2-production-inventory-20261004]
+    paths:
+      - scripts/core2-production-inventory.mjs
+      - .github/workflows/core2-production-inventory.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: core2-normal-transfer-read-only-inventory
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --check scripts/core2-production-inventory.mjs
+      - name: Read existing production resources without deploying or creating credentials
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node scripts/core2-production-inventory.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: core2-production-read-only-inventory
+          path: .core2-production-inventory/INVENTORY.json
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error
