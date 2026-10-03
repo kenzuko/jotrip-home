@@ -1,0 +1,70 @@
+name: i18n static-first full-site test
+
+on:
+  pull_request:
+    paths:
+      - "core/locale-router-static.js"
+      - "core/locale-router-static.css"
+      - "scripts/build-i18n-static-first-test.mjs"
+      - "scripts/test-i18n-static-first-fullsite.mjs"
+      - "scripts/visual-qa-i18n-static-first-fullsite.mjs"
+      - ".github/workflows/i18n-static-first-fullsite-test.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  language-architecture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout test branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Prove production routing and runtime are untouched
+        shell: bash
+        run: |
+          git fetch origin "${{ github.base_ref || 'main' }}" --depth=1
+          BASE="origin/${{ github.base_ref || 'main' }}"
+          PROTECTED=(worker.js wrangler.jsonc functions/_middleware.js functions/_shared/seo-html.js functions/_shared/i18n.js core/en-full-site.js core/i18n-runtime.js scripts/build-cloudflare.mjs .github/workflows/cloudflare-worker.yml)
+          if ! git diff --quiet "$BASE"...HEAD -- "${PROTECTED[@]}"; then
+            echo "::error::Language architecture test changed protected production runtime/routing files"
+            git diff "$BASE"...HEAD -- "${PROTECTED[@]}"
+            exit 1
+          fi
+          echo "PASS protected production runtime/routing unchanged"
+      - name: Build current production-like static bundle unchanged
+        run: node scripts/build-cloudflare.mjs
+      - name: Build isolated static-first language bundle
+        run: node scripts/build-i18n-static-first-test.mjs dist dist-i18n-test
+      - name: Audit every public HTML document
+        run: node scripts/test-i18n-static-first-fullsite.mjs dist-i18n-test
+      - name: Install browser QA
+        run: |
+          npm install --no-save --package-lock=false playwright@1.63.0
+          npx playwright install --with-deps chromium
+      - name: Start untouched baseline and isolated test servers
+        shell: bash
+        run: |
+          python3 -m http.server 4189 --bind 127.0.0.1 --directory dist >/tmp/openpq-i18n-baseline.log 2>&1 &
+          echo $! >/tmp/openpq-i18n-baseline.pid
+          python3 -m http.server 4190 --bind 127.0.0.1 --directory dist-i18n-test >/tmp/openpq-i18n-static.log 2>&1 &
+          echo $! >/tmp/openpq-i18n-static.pid
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4189/ >/dev/null && curl -fsS http://127.0.0.1:4190/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/openpq-i18n-baseline.log
+          cat /tmp/openpq-i18n-static.log
+          exit 1
+      - name: Browser mobile desktop and route-preservation gate
+        env:
+          I18N_BASELINE_URL: http://127.0.0.1:4189
+          I18N_TEST_URL: http://127.0.0.1:4190
+        run: node scripts/visual-qa-i18n-static-first-fullsite.mjs
