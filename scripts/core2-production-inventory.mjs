@@ -1,11 +1,15 @@
 // Read-only capability inventory for the normal consumer transfer, never a recovery drill.
 import {mkdir,writeFile} from 'node:fs/promises';
-const ACCOUNT='1a64a0a081ea758f72be8254030bdf11';
+const HANDOFF_ACCOUNT='1a64a0a081ea758f72be8254030bdf11';
+const ACCOUNT=process.env.CLOUDFLARE_ACCOUNT_ID?.trim();
 const root='.core2-production-inventory';
-if(process.env.CLOUDFLARE_ACCOUNT_ID!==ACCOUNT)throw Error('PRODUCTION_ACCOUNT_PIN_REQUIRED');
+// Discovery is GET-only and scoped to the site's existing credential account.
+// A handoff mismatch is evidence to resolve, never permission for a deployment.
+if(!/^[a-f0-9]{32}$/.test(ACCOUNT??'')||ACCOUNT==='c61a28455fe22f30619b35dd80c2d495')throw Error('EXISTING_SITE_ACCOUNT_REQUIRED');
 if(!process.env.CLOUDFLARE_API_TOKEN)throw Error('EXISTING_DEPLOY_CREDENTIAL_UNAVAILABLE');
 const report={contract:'openpq-normal-transfer-capability-inventory-v1',read_only:true,
-  account_id:ACCOUNT,code_sha:process.env.GITHUB_SHA??null,started_at:new Date().toISOString(),
+  account_id:ACCOUNT,handoff_account_id:HANDOFF_ACCOUNT,handoff_account_matches:ACCOUNT===HANDOFF_ACCOUNT,
+  code_sha:process.env.GITHUB_SHA??null,started_at:new Date().toISOString(),
   public_cutover_executed:false,credentials_created:false,permissions_broadened:false,reads:[]};
 async function get(path){
   const row={path,method:'GET',status:'UNKNOWN'};report.reads.push(row);
